@@ -1,231 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentação de Campos entre LN e Compliance</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.4;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-            background-color: #f8f9fa;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            flex: 1;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #4a86e8, #3367d6);
-            color: white;
-            padding: 20px;
-            margin: -20px -20px 30px -20px;
-            border-radius: 8px 8px 0 0;
-            text-align: center;
-        }
-        
-        .header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-        
-        .intro {
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 4px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .index-section {
-            margin: 25px 0;
-        }
-        
-        .level-1 {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #3367d6;
-            margin: 20px 0 10px 0;
-        }
-        
-        .level-2 {
-            margin: 8px 0;
-            padding-left: 30px;
-        }
-        
-        .level-2 a {
-            color: #333;
-            text-decoration: none;
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: all 0.2s;
-        }
-        
-        .level-2 a:hover {
-            background-color: #e3f2fd;
-            color: #1976d2;
-            transform: translateX(5px);
-        }
-        
-        .level-2 a::before {
-            content: "▸ ";
-            color: #4a86e8;
-            font-weight: bold;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-            color: #666;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            .container {
-                padding: 15px;
-            }
-            
-            .level-1 {
-                font-size: 1.1em;
-            }
-            
-            .level-2 {
-                padding-left: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Página em Desenvolvimento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 40px;
+    }
+    .container {
+      text-align: center;
+      padding: 50px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    img {
+      margin-top: 20px;
+      width: 300px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Documentação de Campos entre LN e Compliance</h1>
-        </div>
-
-        <div class="intro">
-            <p>Utilize o índice para abrir a documentação de de-para entre as tabelas e campos do Infor LN e Webservice Compliance. A estrutura do índice segue a mesma disposição dos Objetos e Tipos de Objetos da Compliance. Caso fique com alguma dúvida ou encontre qualquer problema, por favor, acione o time de integração da Compliance.</p>
-        </div>
-
-        <div class="index-section">
-            <div class="level-1">1 - Cadastros</div>
-            <div class="level-2"><a href="./cadastros/cadastros-participantes.html">Participantes</a></div>
-            <div class="level-2"><a href="./cadastros/cadastros-unidade-medida.html">Unidade Medida</a></div>
-            <div class="level-2"><a href="./cadastros/cadastros-item.html">Produtos e Serviços</a></div>
-            <div class="level-2"><a href="./cadastros/cadastros-conversao-unidade.html">Conversão Unidade</a></div>
-            <div class="level-2"><a href="./cadastros/cadastros-nat-oper.html">Natureza de Operação</a></div>
-            <div class="level-2"><a href="./cadastros/cadastros-plano-contas.html">Plano de Contas</a></div>
-            <div class="level-2"><a href="./cadastros/cadastros-plano-referencial.html">Plano Contas Referencial</a></div>
-            <div class="level-2"><a href="./cadastros/cadastros-centro-custo.html">Centros de Custos</a></div>
-        </div>
-
-        <div class="index-section">
-            <div class="level-1">2 - Inventário</div>
-            <div class="level-2"><a href="./inventario/inventario.html">Inventário de Produtos</a></div>
-        </div>
-
-        <div class="index-section">
-            <div class="level-1">4 - Conhecimento de Transporte (Entrada)</div>
-            <div class="level-2"><a href="./cte/cte_cabecalho.html">Cabeçalho do CTe</a></div>
-            <div class="level-2"><a href="./cte/cte_icms.html">Resumo de ICMS do CTe</a></div>
-            <div class="level-2"><a href="./cte/cte_pis.html">Resumo de PIS do CTe</a></div>
-            <div class="level-2"><a href="./cte/cte_cofins.html">Resumo de COFINS do CTe</a></div>
-            <div class="level-2"><a href="./cte/cte_imp_ret.html">Imposto Retido do CTe</a></div>
-        </div>
-
-        
-        <div class="index-section">
-            <div class="level-1">5 - NF Serv. Contínuo (Entrada)</div>
-            <div class="level-2"><a href="./nfsc/nfsc-cabecalho.html">Cabeçalho da NFSC</a></div>
-            <div class="level-2"><a href="./nfsc/nfsc-icms.html">Resumo de ICMS da NFSC</a></div>
-            <div class="level-2"><a href="./nfsc/nfsc-pis.html">Resumo de PIS da NFSC</a></div>
-            <div class="level-2"><a href="./nfsc/nfsc-cofins.html">Resumo de COFINS da NFSC</a></div>
-            <div class="level-2"><a href="./nfsc/nfsc-difal.html">Diferencial de Alíquota da NFSC</a></div>
-        </div>
-
-        <div class="index-section">
-            <div class="level-1">6 - NF Mercantil (Entrada)</div>
-            <div class="level-2"><a href="./nfe/nfe-cabecalho.html">Cabeçalho da NFe</a></div>
-            <div class="level-2"><a href="./nfe/nfe-item.html">Item da NFe</a></div>
-            <div class="level-2"><a href="dev_page.html">Impostos da NFe</a></div>
-            <div class="level-2"><a href="./nfe/nfe-transporte.html">Transporte da NFe</a></div>
-            <div class="level-2"><a href="./nfe/nfe-impostos.html">Informação Adicional da NFe</a></div>
-            <div class="level-2"><a href="./nfe/nfe-referencia.html">NF Referenciada da NFe</a></div>
-            <div class="level-2"><a href="./nfe/nfe-cobranca.html">Cobrança da NFe</a></div>
-            <div class="level-2"><a href="./nfe/nfe-duplicata.html">Duplicata da NFe</a></div>
-            <div class="level-2"><a href="./nfe/nfe-importacao.html">Informação de Importação da NFe</a></div>
-            <div class="level-2"><a href="./nfe/nfe-inf-prov-df.html">Informação Proveniente de Documento Fiscal da NFe</a></div>
-        </div>
-
-        <div class="index-section">
-            <div class="level-1">7 - NF de Serviços Municipal (Entrada)</div>
-            <div class="level-2"><a href="./nfse/nfse-cabecalho.html">Cabeçalho da NFSe </a></div>
-            <div class="level-2"><a href="./nfse/nfse-item.html">Item da NFSe</a></div>
-            <div class="level-2"><a href="./nfse/nfse-impostos.html">Impostos da NFSe</a></div>
-            <div class="level-2"><a href="./nfse/nfse-inf-adic.html">Informação Adicional da NFSe</a></div>
-            <div class="level-2"><a href="./nfse/nfse-fatura.html">Cobrança da NFSe</a></div>
-            <div class="level-2"><a href="./nfse/nfse-duplicata.html">Duplicata da NFSe</a></div>
-        </div>
-
-        <div class="index-section">
-            <div class="level-1">32 - Dados Contábeis</div>
-            <div class="level-2"><a href="./contabil/saldo-contabil.html">Saldos Contábeis</a></div>
-            <div class="level-2"><a href="./contabil/lancamento-contabil.html">Lançamentos Contábeis</a></div>
-        </div>
-
-        <div class="index-section">
-            <div class="level-1">46 - Impostos Retidos</div>
-            <div class="level-2"><a href="./retidos/impostos-retidos.html">Impostos Retidos no Pagamento</a></div>
-            <div class="level-2"><a href="./retidos/impostos-retidos-entrada-doc.html">Impostos Retidos - Data Entrada NF</a></div>
-        </div>
-
-        <div class="index-section">
-            <div class="level-1">48 - Bloco K do Sped Fiscal</div>
-            <div class="level-2"><a href="./bloco_k/blocok_200.html">K200 - Dados do Bloco K200 (Estoque Escriturado)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_210.html">K210 - Dados do Bloco K210 (Desmontagem - Item Origem)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_215.html">K215 - Dados do Bloco K215 (Desmontagem - Item Destino)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_220.html">K220 - Dados do Bloco K220 (Outras Movimentações Internas)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_230.html">K230 - Dados do Bloco K230 (Itens Produzidos)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_235.html">K235 - Dados do Bloco K235 (Insumos Consumidos)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_250.html">K250 - Dados do Bloco K250 (Industrialização por Terceiros - Produzidos)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_255.html">K255 - Dados do Bloco K255 (Industrialização por Terceiros - Consumidos)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_260.html">K260 - Dados do Bloco K260 (Reprocessamento/Reparo)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_265.html">K265 - Dados do Bloco K265 (Reprocessamento/Reparo - Mercadorias)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_270.html">K270 - Dados do Bloco K270 (Correção de Apontamento)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_275.html">K275 - Dados do Bloco K275 (Correção de Apontamento - Insumos)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_280.html">K280 - Dados do Bloco K280 (Correção de Estoque Escriturado)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_290.html">K290 - Dados do Bloco K290 (Produção Conjunta - Ordem de Produção)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_291.html">K291 - Dados do Bloco K291 (Produção Conjunta - Item Produzido)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_292.html">K292 - Dados do Bloco K292 (Produção Conjunta - Insumo Consumido)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_300.html">K300 - Dados do Bloco K300 (Produção Conjunta - Industrialização por Terceiros)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_301.html">K301 - Dados do Bloco K301 (Produção Conjunta - Item Produzido por Terceiros)</a></div>
-            <div class="level-2"><a href="./bloco_k/blocok_302.html">K302 - Dados do Bloco K302 (Produção Conjunta - Insumo Consumido por Terceiros)</a></div>
-        </div>
-
-    </div>
-    
-    <div id="footer" style="text-align: center; margin-top: 20px;">
-        <p>© 2025 Compliance Soluções. Todos os direitos reservados.</p>
-        <p style="font-size: 0.8em;">Integração desenvolvida e mantida por <a href="https://inovarebr.com/"><img src="favicon_1.png" alt="Inovare" title="Inovare Soluções e Sistemas"></a></p>
-    </div>
-
+  <div class="container">
+    <h1>Esta página está em desenvolvimento</h1>
+    <p>Estamos trabalhando para trazer esta documentação em breve.</p>
+    <img src="em_desenvolvimento.png" alt="Em desenvolvimento">
+  </div>
 </body>
 </html>
