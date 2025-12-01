@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação de Campos entre LN e Compliance</title>
+    <link rel="icon" href="favicon_up.png" type="image/png">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px; /* mesmo comportamento do repo */
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .intro {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .index-section {
+            margin: 25px 0;
+        }
+        
+        .level-1 {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #3367d6;
+            margin: 20px 0 10px 0;
+        }
+        
+        .level-2 {
+            margin: 8px 0;
+            padding-left: 30px;
+        }
+        
+        .level-2 a {
+            color: #333;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.2s;
+        }
+        
+        .level-2 a:hover {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            transform: translateX(5px);
+        }
+        
+        .level-2 a::before {
+            content: "▸ ";
+            color: #4a86e8;
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Ajuste para o footer igual ao site principal: não fixo, apenas flui com o layout */
+        /* Mantemos a classe .footer com padding, background e border-radius conforme o repo */
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .level-1 {
+                font-size: 1.1em;
+            }
+            
+            .level-2 {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Modelos de planilhas para carregamento de dados</h1>
+        </div>
+
+        <div class="intro">
+            <p>Nesta página é possivel encontrar os modelos de planilhas para upload de dados no conector para envio ao portal Compliance.
+            <br>A coluna "cnpj" ou "cnpjEmpr" deve ser de uma empresa cadastrada no sistema Compliance, caso seja de empresa filial, as obrigações devem ser geradas na matriz.
+            <br>Os campos destacados em vermelho são considerados chave composta e caso sejam repetidos na planilha, o sistema irá atualizar o registro existente.
+            </p>
+        </div>
+
+        <div class="accordion accordion-flush" id="accordion-modelos">
+            <!-- Participante -->
+        <!--    <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-participante">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-participante" aria-expanded="false" aria-controls="collapse-participante">
+                <strong>[01.1] Cadastro de Participante &nbsp;</strong> - &nbsp; Cadastro de pessoas - fornecedores, clientes, transportadores, etc.
+                </button>
+            </h2>
+            <div id="collapse-participante" class="accordion-collapse collapse" aria-labelledby="heading-participante" data-bs-parent="#accordion-modelos">
+                <div class="accordion-body">
+                <a href="participante.xlsx">Fazer download da planilha</a>
+                </div>
+            </div>
+            </div> -->
+            <!-- Impostos Retidos -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-impostos-retidos">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-impostos-retidos" aria-expanded="false" aria-controls="collapse-impostos-retidos">
+                <strong>[46.1] Impostos Retidos &nbsp;</strong> - &nbsp;Impostos retidos que serão utilizados na REINF e no MIT.
+                </button>
+            </h2>
+            <div id="collapse-impostos-retidos" class="accordion-collapse collapse" aria-labelledby="heading-impostos-retidos" data-bs-parent="#accordion-modelos">
+                <div class="accordion-body">
+                <a href="pgto_imp_ret.xlsx">Fazer download da planilha</a>
+                <br><br>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: red;">cnpj</td>
+                            <td>CNPJ da empresa escrituradora do documento</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">codpart</td>
+                            <td>Código do participante que prestou o serviço e sofrerá a retenção</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">nrodoc</td>
+                            <td>Número do documento (ex.: número da nota fiscal)</td>
+                        </tr>
+                        <tr>
+                            <td>dtvcto</td>
+                            <td>Data de vencimento da guia de pagamento</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">codimposto</td>
+                            <td>Código do imposto (4 - PIS / 5 - COFINS / 11 - CSLL / 12 - IR / 14 - CSRF)</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">cdtiporetimp</td>
+                            <td>Código do recolhimento com 4 dígitos (ex.: 1708, 5952)</td>
+                        </tr>
+                        <tr>
+                            <td>vlbasecalc</td>
+                            <td>Base de cálculo da retenção (normalmente o valor líquido do serviço)</td>
+                        </tr>
+                        <tr>
+                            <td>vlprincipal</td>
+                            <td>Valor da retenção</td>
+                        </tr>
+                        <tr>
+                            <td>aliq</td>
+                            <td>Alíquota do imposto retido</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">dtdocto</td>
+                            <td>Data do fato gerador</td>
+                        </tr>
+                        <tr>
+                            <td>codreceita</td>
+                            <td>Código complementar referente ao período do recolhimento (2 dígitos, ex.: 06, 07)</td>
+                        </tr>
+                        <tr>
+                            <td>codnatrend</td>
+                            <td>Código de natureza de rendimento da REINF (5 dígitos)</td>
+                        </tr>
+                        <tr>
+                            <td>obs</td>
+                            <td>Observação opcional para ser enviada na REINF</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+            <!-- F500 -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-f500">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-f500" aria-expanded="false" aria-controls="collapse-f500">
+                <strong>[50.6] F500 - Consolidação Regime Caixa &nbsp;</strong> - &nbsp; Informações enviadas no registro F500 do EFD Contribuições.
+                </button>
+            </h2>
+            <div id="collapse-f500" class="accordion-collapse collapse" aria-labelledby="heading-f500" data-bs-parent="#accordion-modelos">
+                <div class="accordion-body">
+                <a href="f500.xlsx">Fazer download da planilha</a>
+                <br><br>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: red;">cnpjEmpr</td>
+                            <td>CNPJ da empresa escrituradora do documento</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">dtRef</td>
+                            <td>Data em que o registro deve ser escriturado no formato DD/MM/AAAA</td>
+                        </tr>
+                        <tr>
+                            <td>codStPis</td>
+                            <td>Código da Situação Tributária do PIS</td>
+                        </tr>
+                        <tr>
+                            <td>aliqPis</td>
+                            <td>Aliquota do PIS</td>
+                        </tr>
+                        <tr>
+                            <td>codStCofins</td>
+                            <td>Código da Situação Tributária da COFINS</td>
+                        </tr>
+                        <tr>
+                            <td>aliqCofins</td>
+                            <td>Aliquota da COFINS</td>
+                        </tr>
+                        <tr>
+                            <td>vlRecCaixa</td>
+                            <td>Valor total da receita recebida referente à combinação de CST e Alíquota </td>
+                        </tr>
+                        <tr>
+                            <td>vlDescPis</td>
+                            <td>Valor do desconto / exclusão da base de cálculo PIS</td>
+                        </tr>
+                        <tr>
+                            <td>vlBcPis</td>
+                            <td>Valor da base de cálculo do PIS/PASEP</td>
+                        </tr>
+                        <tr>
+                            <td>vlPis</td>
+                            <td>Valor do PIS/PASEP</td>
+                        </tr>
+                        <tr>
+                            <td>vlDescCofins</td>
+                            <td>Valor do desconto / exclusão da base de cálculo COFINS</td>
+                        </tr>
+                        <tr>
+                            <td>vlBcCofins</td>
+                            <td>Valor da base de cálculo dA COFINS</td>
+                        </tr>
+                        <tr>
+                            <td>vlCofins</td>
+                            <td>Valor da COFINS</td>
+                        </tr>
+                        <tr>
+                            <td>codMod</td>
+                            <td>Código de modelo fiscal, por exemplo: 04, 55, 99</td>
+                        </tr>
+                        <tr>
+                            <td>codCta</td>
+                            <td>Código da conta contábil do plano de contas societário</td>
+                        </tr>
+                        <tr>
+                            <td>infoCompl</td>
+                            <td>Informação complementar opcional</td>
+                        </tr>
+                        <tr>
+                            <td>cfop</td>
+                            <td>Código fiscal de operação e prestação - CFOP</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">chave_logica</td>
+                            <td>Chave única do registro que pode ser numérica ou texto. Se houver 2 linhas com mesmo conteúdo, apenas uma será integrada porque haverá sobreposição. Sugestão é preencher com numeração sequencial</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+            <!-- F525 -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-f525">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-f525" aria-expanded="false" aria-controls="collapse-f525">
+                <strong>[50.8] F525 - Detalhe Receita Recebida Regime Caixa &nbsp;</strong> - &nbsp; Informações enviadas no registro F525 do EFD Contribuições.
+                </button>
+            </h2>
+            <div id="collapse-f525" class="accordion-collapse collapse" aria-labelledby="heading-f525" data-bs-parent="#accordion-modelos">
+                <div class="accordion-body">
+                <a href="f525.xlsx">Fazer download da planilha</a>
+                <br><br>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: red;">cnpjEmpr</td>
+                            <td>CNPJ da empresa escrituradora do documento</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">dtRef</td>
+                            <td>Data em que o registro deve ser escriturado no formato DD/MM/AAAA</td>
+                        </tr>
+                        <tr>
+                            <td>vlrec</td>
+                            <td>Valor total da receita recebida</td>
+                        </tr>
+                        <tr>
+                            <td>dmindrec</td>
+                            <td>Indicador da composição da receita recebida no período: 01-Clientes 02-Administradora de cartão de débito/crédito 03-Título de crédito - Duplicata, nota promissória, cheque, etc. 04-Documento fiscal 05- Item vendido (produtos e serviços) 99- Outros (Detalhar no campo 10 – Informação Complementar)</td>
+                        </tr>
+                        <tr>
+                            <td>codpart</td>
+                            <td>Código do participante cliente/fornecedor</td>
+                        </tr>
+                        <tr>
+                            <td>numdoc</td>
+                            <td>Número do título de crédito ou do documento fiscal</td>
+                        </tr>
+                        <tr>
+                            <td>coditem</td>
+                            <td>Código do Item do produto/Serviço </td>
+                        </tr>
+                        <tr>
+                            <td>vlrecdet</td>
+                            <td>Valor da receita detalhada</td>
+                        </tr>
+                        <tr>
+                            <td>codStPis</td>
+                            <td>Código da Situação Tributária do PIS</td>
+                        </tr>
+                        <tr>
+                            <td>codStCofins</td>
+                            <td>Código da Situação Tributária da COFINS</td>
+                        </tr>
+                        <tr>
+                            <td>codCta</td>
+                            <td>Código da conta contábil do plano de contas societário</td>
+                        </tr>
+                        <tr>
+                            <td>infoCompl</td>
+                            <td>Informação complementar opcional</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">chave_logica</td>
+                            <td>Chave única do registro que pode ser numérica ou texto. Se houver 2 linhas com mesmo conteúdo, apenas uma será integrada porque haverá sobreposição. Sugestão é preencher com numeração sequencial</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+        </div>
+    
+    <div id="footer" class="footer">
+        <p>© 2025 Compliance Soluções. Todos os direitos reservados.</p>
+        <p style="font-size: 0.8em;">Integração desenvolvida e mantida por <a href="https://inovarebr.com/"><img src="../favicon_1.png" alt="Inovare" title="Inovare Soluções e Sistemas"></a></p>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

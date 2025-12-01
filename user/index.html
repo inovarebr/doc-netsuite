@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual do Conector Infor</title>
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section {
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 15px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .subsection-title {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .content-text {
+            padding: 10px 0;
+            text-align: justify;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .image-placeholder {
+            background-color: #e8e8e8;
+            border: 2px dashed #999;
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            border-radius: 4px;
+        }
+        
+        .menu-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4a86e8;
+            border-radius: 4px;
+        }
+        
+        .menu-list ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        .menu-list li {
+            margin: 8px 0;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: #3367d6;
+        }
+        
+        .footer-info {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: clamp(12px, 2vw, 14px);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.4em;
+            }
+            
+            .section-title {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Manual do Conector Infor</h1>
+        </div>
+
+        <div class="section">
+            <div class="content-text">
+                <p>O conector Infor tem o objetivo de extrair dados do DataLake ou DataFabric, transformá-los e enviá-los ao portal da Compliance Soluções. 
+                <br>Você pode acessar a <a href="../index.html">Documentação Técnica</a> e ver o mapeamento com as regras de transformação de dados após a extração.</p>
+
+                <p>Após fazer login, o acesso será redirecionado para tela de dashboard, conforme demonstra a imagem a seguir.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="dashboard.png" alt="Tela do Dashboard">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="subsection-title">Menu Lateral</div>
+            
+            <div class="content-text">
+                <p>Como podemos ver, o menu lateral possui poucos botões.</p>
+                
+                <p>O primeiro botão com ícone de casa é para acessar o dashboard, o segundo botão que chamamos de menu hambúrguer (3 traços) é para acessar o menu principal e o terceiro botão é para trocar o idioma do conector. Dentro do menu hambúrguer há diversas opções que serão exploradas mais adiante.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="menu1.png" alt="Tela do Dashboard">
+            </div>
+
+            <div class="content-text">
+                <p>Os outros 2 botões no menu lateral são para alterar modo claro ou escuro e acessar dados do usuário respectivamente.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="menu2.png" alt="Tela do Dashboard">>Inserir imagem aqui</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Menu Principal</div>
+            
+            <div class="content-text">
+                <p>Ao acessar o menu principal veremos 4 opções:</p>
+            </div>
+
+            <div class="menu-list">
+                <ul>
+                    <li><span class="highlight">Administrativo Geral:</span> serve para configurar o conector. Esse menu nem sempre estará disponível para todos os usuários.</li>
+                    <li><span class="highlight">Agendamentos:</span> é onde criamos as requisições para o conector fazer as extrações no Infor.</li>
+                    <li><span class="highlight">Monitoramento NF-e e NFS-e:</span> são opções para acompanhar o faturamento de notas de mercadoria e serviço respectivamente. Essas não aparecem para todos os clientes porque podem existir outros métodos de integração de faturamento que não passam por esse local.</li>
+                </ul>
+            </div>
+
+            <div class="image-container">
+                <img src="./menu_hamb.png" alt="Tela do Dashboard">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="subsection-title">Seleção de Idioma</div>
+            
+            <div class="content-text">
+                <p>Abaixo o detalhe do que aparece quando o botão de idioma é clicado.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="./menu_idioma.png" alt="Tela do Dashboard">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="subsection-title">Menu do Usuário</div>
+            
+            <div class="content-text">
+                <p>A seguir o menu que é carregado ao clicar sobre a foto do usuário.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="menu_user.png" alt="Tela do Dashboard">
+            </div>
+
+            <div class="content-text">
+                <p>Na opção <span class="highlight">Ajuda</span>, seremos direcionados para uma página com a documentação do conector. Em <span class="highlight">Meus Dados</span>, é possível ajustar o cadastro do usuário e escolher algumas opções de segurança, teremos mais detalhe na sequência. A opção <span class="highlight">Segurança</span> serve para realizar a troca da senha.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Meus Dados</div>
+            
+            <div class="content-text">
+                <p>A seguir, veremos detalhes da opção <span class="highlight">Meus Dados</span>. A opção de trocar de <span class="highlight">Organização</span> e <span class="highlight">Empresa</span> só aparecerá para o Suporte Compliance. A <span class="highlight">Autenticação 2FA</span> permite habilitar uma segunda camada de segurança com token de validação baseado em hora, tais como Google ou Microsoft Authenticator.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="menu_det_user.png" alt="Tela do Dashboard">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Agendamentos</div>
+            
+            <div class="content-text">
+                <p>Ao acessar a página de agendamento, é possível acompanhar cargas que estão sendo realizadas ou histórico do que já foi executado. Também é simples criar um novo agendamento.</p>
+                
+                <p>As opções do agendamento são:</p>
+            </div>
+
+            <div class="menu-list">
+                <ul>
+                    <li><span class="highlight">Frequência:</span> Define-se o agendamento irá ocorrer apenas uma vez ou de forma recorrente. Caso seja recorrente, será aberta opção para escolher a frequência e momento da execução.</li>
+                    <li><span class="highlight">Objeto de Integração e Tipo de Objeto:</span> Serve para escolher a qual tipo de dado deverá ser carregado, por exemplo, dados cadastrais ou modelos de documentos fiscais.</li>
+                    <li><span class="highlight">Empresa:</span> indica em qual empresa buscar os dados.</li>
+                    <li><span class="highlight">Período da Carga:</span> quando a carga tem um período, tais como documento fiscal, inventário ou contábil, é possível determinar o intervalo de datas que deve ser considerado para filtrar e integrar os dados.</li>
+                    <li><span class="highlight">Número de documento:</span> útil para quando deseja integrar apenas um documento fiscal específico.</li>
+                    <li><span class="highlight">Caixa de marcação Integrar todos os registros:</span> só está disponível na versão 1 do extrator. Ela é utilizada para reintegrar todos os dados, desde o ID de processo zero quando estiver marcada. Caso esteja desmarcada, apenas os dados com ID de processo nunca recebidos é que serão integrados.</li>
+                </ul>
+            </div>
+
+            <div class="image-container">
+                <img src="agend.png" alt="Tela do Dashboard">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Monitoramento de Notas</div>
+            
+            <div class="content-text">
+                <p>Telas de monitoramento de notas é possível ver as notas que estão sendo recebidas do ERP para serem enviadas ao Compliance para realizar a autorização junto à Sefaz (estadual ou municipal). Também é possível acompanhar o retorno dos dados para o ERP, inclusive forçando nova tentativa de comunicação se for necessário.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="monitor_nf.png" alt="Tela do Dashboard">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Menu Administrativo</div>
+            
+            <div class="content-text">
+                <p>O menu administrativo não aparece para todos os usuários. Aqui será dada uma breve explicação sobre a funcionalidade de cada opção.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="menu_adm.png" alt="Tela do Dashboard">
+            </div>
+
+            <div class="menu-list">
+                <ul>
+                    <li>Parâmetros Gerais do Sistema</li>
+                    <li>De-Para Valores</li>
+                    <li>Usuários do Sistema</li>
+                    <li>Parâmetro Tipo ERP</li>
+                    <li>Cadastro de Menu</li>
+                    <li>Modelo Extração Multorg</li>
+                    <li>Modelo Extração Infor</li>
+                    <li>Modelo Extração XML CSF</li>
+                    <li>Parâmetro de Quantidade de Lote</li>
+                    <li>Modelo Montagem XML CSF MultOrg</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+                flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para Integração Webservice de Inventário (INFOR X CSF)</h1>
+        </div>
+
+        <div class="section-header">
+            Dados do inventário
+        </div>
+
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">&nbsp;</td>
+                    <td class="compliance-col">A01</td>
+                    <td class="compliance-col"><span class="campo-destaque">inventarios</span></td>
+                    <td class="compliance-col">Grupo de inventário</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">&nbsp;</td>
+                    <td class="compliance-col">A02</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+                    <td class="compliance-col">Tag de escolha cpf e cnpj</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A03</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A04</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit881</td>
+                    <td class="infor-col">compnr</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">C</td>
+                    <td class="infor-col">20</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">concat(ni.compnr, ni.bpcd)<br><br>Aqui será concatenado o campo "compnr" com o Código da empresa fonte interna (bpcd).</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">bpcd</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col">btfit805.cpcd</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A05</td>
+                    <td class="compliance-col"><span class="campo-destaque">codigoItem</span></td>
+                    <td class="compliance-col">Código do Item</td>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">item</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">50</td>
+                    <td class="infor-col">btfit300.item</td>
+                    <td class="obs-col">trim(ni.item) - Remoção de espaçamentos</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A06</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtInventario</span></td>
+                    <td class="compliance-col">Data do Inventário</td>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">date</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A07</td>
+                    <td class="compliance-col"><span class="campo-destaque">siglaUnidade</span></td>
+                    <td class="compliance-col">Sigla da Unidade de Medida utilizada no inventário</td>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">cuni</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col">btfit801.cuni</td>
+                    <td class="obs-col">upper(ni.cuni) - Conversão para maiúsculo</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A08</td>
+                    <td class="compliance-col"><span class="campo-destaque">qtde</span></td>
+                    </div>
+                    <div class="footer">
+                        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+                    </div>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">stoc</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit825.quan</td>
+                    <td class="obs-col">cast(ni.stoc AS DECIMAL(11,3))<br><br>Aqui, será forçada conversão do campo em tipo decimal com 3 casas decimais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A09</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">vlUnit</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Valor unitário do item</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit881</td>
+                    <td class="infor-col">amnt</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">Double</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">cast((amnt / cast(stoc as decimal(11,3))) as decimal(11,3))<br><br>Aqui, será realizada a divisão da Quantia total (amnt) pela quantidade (stoc - qtde), e o resultado será gravado em 3 casas decimais.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">stoc</td>
+                    <td class="infor-col">btfit825.quan</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A10</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlItem</span></td>
+                    <td class="compliance-col">Valor do Item</td>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">amnt</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">cast(amnt AS decimal(22,2))<br><br>Aqui, será forçada conversão do campo em tipo decimal com 2 casas decimais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A11</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndProp</span></td>
+                    <td class="compliance-col">Indicador de Propriedade do item</td>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">tpar</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao rowspan-cell" rowspan="2">NÃO</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A12</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Código do Participante no ERP, proprietário/possuidor que não seja o informante do arquivo.</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit881</td>
+                    <td class="infor-col">tpid</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col">btfit808.bpid</td>
+                    <td class="obs-col rowspan-cell" rowspan="2">WHEN ni.tpar in ('2', '3') then ni.tpid ELSE NULL<br><br>Caso o Tipo de Armazém (tpar) seja 2 ou 3, será gravado o Business Partner (tpid). Caso contrário, NULL.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">tpar</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A13</td>
+                    <td class="compliance-col"><span class="campo-destaque">txtCompl</span></td>
+                    <td class="compliance-col">Descrição complementar</td>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">obsr</td>
+                    <td class="infor-col">Multibyte</td>
+                    <td class="infor-col">200</td>
+                    <td class="infor-col">btfit823.obse</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A14</td>
+                    <td class="compliance-col"><span class="campo-destaque">codCta</span></td>
+                    <td class="compliance-col">Código da conta analítica contábil debitada/creditada.</td>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">invl</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">30</td>
+                    <td class="infor-col">btfit070.leac</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A15</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtReferencia</span></td>
+                    <td class="compliance-col">O último dia do mês referente ao período em que o Inventario será informado no arquivo do sped fiscal</td>
+                    <td class="infor-col">btfit881</td>
+                    <td class="infor-col">date</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">WHEN month(ni.date) = 12 and year(ni.date) not in (2020, 2024, 2028, 2032, 2036, 2040, 2044, 2048, 2052) THEN dateadd(day, 59, ni.date)<br>WHEN month(ni.date) = 12 and year(ni.date) in (2020, 2024, 2028, 2032, 2036, 2040, 2044, 2048, 2052) THEN dateadd(day, 60, ni.date)<br>ELSE ni.date<br><br>A validação acima verifica se o mês da data (ni.date) é dezembro (12) e além disso, se o ano em questão é bissexto. Se o ano não for bissexto (2020, 2024, 2028, 2032, 2036, 2040, 2044, 2048, 2052), ele adiciona 59 dias, se for, 60 dias.<br>Caso a data não seja em dezembro, prevalece a data do campo.<br><br>*O alias (apelido) do campo na query de extração é "dtRef"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A16</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmMotInv</span></td>
+                    <td class="compliance-col">Indica o motivo do inventário</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor "01" é diretamente atribuído ao campo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>Modelo</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>Modelo.xlsx</b>
+        </small>
+    </p>
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+        <p style="font-size: 0.8em;">Integração desenvolvida e mantida por <a href="https://inovarebr.com/"><img src="../favicon_1.png" alt="Inovare" title="Inovare Soluções e Sistemas"></a></p>
+    </div>
+</body>
+</html>
