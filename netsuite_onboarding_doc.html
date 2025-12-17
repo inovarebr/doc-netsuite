@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding no conector Oracle Netsuite - Inovare Soluções</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #0066cc;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .intro-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #0066cc;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        h2 {
+            color: #0066cc;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .url-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .url-box strong {
+            color: #0066cc;
+        }
+
+        .image-placeholder {
+            background-color: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        .step-number {
+            background-color: #0066cc;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .highlight {
+            background-color: #e8f4f8;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c7254e;
+        }
+
+        .icon {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Onboarding no conector Oracle Netsuite</h1>
+            <p class="subtitle">Inovare Soluções</p>
+        </header>
+
+        <div class="intro-box">
+            <p><strong>O conector é a Área exclusiva para integração entre o ERP Netsuite e Compliance Soluções</strong></p>
+            <p>Este manual é destinado ao público alvo de primeiro acesso para conhecer as funcionalidades, idioma, alterar senha, foto, modo escuro e SSO.</p>
+        </div>
+
+        <h2>📌 O que é um Conector de Integração</h2>
+        
+        <p>Em termos simples, um Conector de Integração (ou Middleware) é um sistema que atua como uma ponte ou gestor de fluxo de dados entre dois softwares diferentes, garantindo que as informações saiam de um banco de dados e entrem no outro corretamente.</p>
+
+        <p>No cenário <strong>ERP (Oracle Netsuite) → Inovare Soluções (Conector) → Compliance Soluções (Final)</strong>:</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Componente</th>
+                        <th>Função no Processo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ERP Oracle Netsuite</strong></td>
+                        <td>É a <strong>Fonte de Dados</strong>. Onde as informações de cadastros, documentos fiscal, contabilidade são geradas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conector da Inovare Soluções</strong></td>
+                        <td>É o <strong>Middleware</strong>. Acessa via API o ERP, processa as informações e as envia para o destino.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compliance Soluções</strong></td>
+                        <td>É o <strong>Destino</strong>. Recebe os dados processados para fins fiscais.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>O Conector garante que os dados armazenados no Oracle Netsuite sejam transferidos com segurança e precisão para o banco de dados da Compliance Soluções.</p>
+
+        <h2>🔑 1. Tela Inicial de Login</h2>
+        
+        <p>A tela inicial de login é apresentada na imagem abaixo:</p>
+
+        <div class="url-box">
+            <p><strong>🔧 URL de Homologação:</strong> <code>https://netsuitehml.compliancefiscal.com.br</code></p>
+            <p><strong>✅ URL de Produção:</strong> <code>https://netsuite.compliancefiscal.com.br</code></p>
+        </div>
+
+        <div class="image-placeholder">
+            <p>🖼️ [Imagem da Tela de Login]</p>
+        </div>
+
+        <p>Para acessar, informe o <strong>Email</strong> e <strong>senha</strong> fornecidos pelo Inovare e, em seguida, clique em <span class="highlight">"Entrar"</span>. Você também pode optar por <span class="highlight">"Faça login com o Google"</span>.</p>
+
+        <h2>⚙️ 2. Configurações Iniciais</h2>
+        
+        <p>Após o login, você pode alterar algumas configurações na tela inicial:</p>
+
+        <h3>2.1. Alterar o Idioma</h3>
+        
+        <p>Para alterar o idioma, vá para <span class="highlight">"Tela Inicial/botão Idioma"</span>.</p>
+
+        <div class="image-placeholder">
+            <p>🖼️ [Imagem do Seletor de Idioma]</p>
+        </div>
+
+        <ul>
+            <li>Selecione <strong>"Inglês"</strong> ou <strong>"Espanhol"</strong>.</li>
+            <li>O idioma padrão é o <strong>português do Brasil</strong>.</li>
+        </ul>
+
+        <h3>2.2. Selecionar a Cor da Tela ("Modo da tela")</h3>
+        
+        <p>Para alterar o modo de exibição, vá para <span class="highlight">"Tela Inicial/botão Escuro"</span>.</p>
+
+        <ul>
+            <li>Selecione <strong>"Escuro"</strong> para ativar a tela escura.</li>
+            <li>O padrão é o <strong>modo claro</strong>.</li>
+        </ul>
+
+        <h2>👤 3. Menu Administrativo e Ações</h2>
+        
+        <p>O Menu Administrativo inclui opções para alterar foto, Ajuda, Meus dados, Segurança e Sair.</p>
+
+        <h3>3.1. Alterar Foto (Avatar)</h3>
+        
+        <p>Para alterar a foto do avatar, clique em cima da foto do avatar.</p>
+
+        <div class="image-placeholder">
+            <p>🖼️ [Imagem do Menu do Avatar]</p>
+        </div>
+
+        <ul>
+            <li>Escolha a nova foto.</li>
+            <li>Selecione o check para aceitar a nova foto, ou excluir para cancelar.</li>
+        </ul>
+
+        <h3>3.2. Acessar a Base de Conhecimento</h3>
+        
+        <p>Para acessar a base de conhecimento, clique em <span class="highlight">"Ajuda"</span>.</p>
+
+        <ul>
+            <li>A opção <strong>"Ajuda"</strong> permite <strong>"Acesse a base de conhecimento"</strong>.</li>
+        </ul>
+
+        <h3>3.3. Acessar Dados Pessoais</h3>
+        
+        <p>Para acessar os dados pessoais, clique em <span class="highlight">"Meus Dados"</span>.</p>
+
+        <div class="image-placeholder">
+            <p>🖼️ [Imagem da Tela Meus Dados]</p>
+        </div>
+
+        <ul>
+            <li>A opção <strong>"Meus Dados"</strong> permite ver as <strong>"Configurações do seu usuário"</strong>.</li>
+            <li>O perfil exibe <strong>Informação Pessoal</strong> como Nome, Sobrenome, E-mail, Sexo, além de <strong>Informações Complementares</strong> e <strong>Autenticação 2FA</strong>.</li>
+        </ul>
+
+        <h3>3.4. Alterar Senha</h3>
+        
+        <p>Para alterar a senha, clique em <span class="highlight">"Segurança"</span>. Esta opção permite <strong>"Cadastrar uma nova senha"</strong>.</p>
+
+        <div class="image-placeholder">
+            <p>🖼️ [Imagem da Tela de Alteração de Senha]</p>
+        </div>
+
+        <ul>
+            <li>Primeiramente, informe a <strong>senha atual</strong> por questões de segurança.</li>
+            <li>Em seguida, entre com a <strong>nova senha</strong> e clique em <span class="highlight">"Validar"</span>.</li>
+        </ul>
+
+        <h3>3.5. Sair da Aplicação</h3>
+        
+        <p>Para sair da aplicação, clique em <span class="highlight">"Sair"</span>.</p>
+
+        <ul>
+            <li>Será exibida a mensagem: <strong>"Você deseja realmente sair?"</strong>.</li>
+            <li>Clique em <span class="highlight">"Confirmar"</span> para desconectar ou <span class="highlight">"Cancelar"</span> para permanecer na aplicação.</li>
+        </ul>
+
+        <div class="note">
+            <p><strong>💡 Nota:</strong> Mantenha suas credenciais de acesso em local seguro e não compartilhe com terceiros. Caso tenha dúvidas ou problemas de acesso, entre em contato com o suporte da Inovare Soluções.</p>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas do Sped REINF - Inovare Soluções e Sistemas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #0066cc;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .intro-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #0066cc;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        h2 {
+            color: #0066cc;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-column {
+            width: 120px;
+            font-weight: 600;
+            color: #0066cc;
+            font-family: 'Courier New', monospace;
+        }
+
+        .search-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        /* Índice / ToC */
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 15px 0 20px 0;
+        }
+
+        .toc strong { color: #0066cc; display:block; margin-bottom:8px; }
+
+        .toc ul { list-style: none; padding-left: 0; margin: 0; }
+
+        .toc li { margin: 6px 0; }
+
+        .toc a { color: #0066cc; text-decoration: none; }
+
+        .toc a:hover { text-decoration: underline; }
+
+        .toc .badge {
+            display: inline-block;
+            background-color: #0066cc;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-size: 0.9em;
+            margin-left: 8px;
+        }
+
+        .back-to-toc { text-align: right; margin-top: 8px; }
+        .back-to-toc a { color: #0066cc; text-decoration: none; }
+        .back-to-toc a:hover { text-decoration: underline; }
+
+        html { scroll-behavior: smooth; }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .table-counter {
+            background-color: #e8f4f8;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px 10px;
+            }
+
+            .code-column {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Tabelas do Sped REINF</h1>
+            <p class="subtitle">Criado por Inovare Soluções e Sistemas. <br>Baseado no Anexo I dos leiautes da EFD-Reinf – Tabelas Versão 2.1.2b</p>
+        </header>
+
+        <div class="intro-box">
+            <p>Para facilitar o preenchimento dos dados de integração, organizamos em uma página as tabelas com códigos utilizados na geração do <strong>SPED REINF (Escrituração Fiscal Digital das Retenções e Outras Informações Fiscais)</strong> que é uma obrigação acessória que tem como objetivo a escrituração de rendimentos pagos e retenções de Imposto de Renda, Contribuição Social do contribuinte exceto aquelas relacionadas ao trabalho e informações sobre a receita bruta para a apuração das contribuições previdenciárias substituídas.</p>
+            <p>As tabelas a seguir apresentam os códigos e descrições e foram atualizadas em: <strong>16/12/2025.</strong></p>
+            <p>Se tiver dúvidas, consultar diretamente o portal do Sped REINF.</p>
+        </div>
+
+        <div id="toc" class="toc" aria-label="Índice de tabelas">
+            <strong>Índice de Tabelas <span id="toc-count" class="badge" aria-live="polite">0</span></strong>
+            <ul>
+                <!-- ToC preenchido dinamicamente -->
+            </ul>
+        </div>
+
+        <h2 id="tabela-01">📋 Tabela 01: Natureza de Rendimentos</h2>
+        
+        <div class="table-counter">
+            📌 Total de registros: 53
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchTable01" placeholder="🔍 Buscar na Tabela 01 por código ou descrição..." onkeyup="filterTable('table01', 'searchTable01')">
+        </div>
+
+        <div class="table-wrapper">
+            <table id="table01">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="code-column">15001</td><td>Importâncias pagas ou creditadas a cooperativas de trabalho relativas a serviços pessoais que lhes forem prestados por associados destas ou colocados à disposição</td></tr>
+                    <tr><td class="code-column">15002</td><td>Importâncias pagas ou creditadas a associações de profissionais ou assemelhadas, relativas a serviços pessoais que lhes forem prestados por associados destas ou colocados à disposição</td></tr>
+                    <tr><td class="code-column">15003</td><td>Remuneração de Serviços de administração de bens ou negócios em geral, exceto consórcios ou fundos mútuos para aquisição de bens</td></tr>
+                    <tr><td class="code-column">15004</td><td>Remuneração de Serviços de advocacia</td></tr>
+                    <tr><td class="code-column">15005</td><td>Remuneração de Serviços de análise clínica laboratorial</td></tr>
+                    <tr><td class="code-column">15006</td><td>Remuneração de Serviços de análises técnicas</td></tr>
+                    <tr><td class="code-column">15007</td><td>Remuneração de Serviços de arquitetura</td></tr>
+                    <tr><td class="code-column">15008</td><td>Remuneração de Serviços de assessoria e consultoria técnica, exceto serviço de assistência técnica prestado a terceiros e concernente a ramo de indústria ou comércio explorado pelo prestador do serviço;</td></tr>
+                    <tr><td class="code-column">15009</td><td>Remuneração de Serviços de assistência social;</td></tr>
+                    <tr><td class="code-column">15010</td><td>Remuneração de Serviços de auditoria;</td></tr>
+                    <tr><td class="code-column">15011</td><td>Remuneração de Serviços de avaliação e perícia;</td></tr>
+                    <tr><td class="code-column">15012</td><td>Remuneração de Serviços de biologia e biomedicina;</td></tr>
+                    <tr><td class="code-column">15013</td><td>Remuneração de Serviços de cálculo em geral</td></tr>
+                    <tr><td class="code-column">15014</td><td>Remuneração de Serviços de consultoria</td></tr>
+                    <tr><td class="code-column">15015</td><td>Remuneração de Serviços de contabilidade</td></tr>
+                    <tr><td class="code-column">15016</td><td>Remuneração de Serviços de desenho técnico</td></tr>
+                    <tr><td class="code-column">15017</td><td>Remuneração de Serviços de economia</td></tr>
+                    <tr><td class="code-column">15018</td><td>Remuneração de Serviços de elaboração de projetos</td></tr>
+                    <tr><td class="code-column">15019</td><td>Remuneração de Serviços de engenharia, exceto construção de estradas, pontes, prédios e obras assemelhadas</td></tr>
+                    <tr><td class="code-column">15020</td><td>Remuneração de Serviços de ensino e treinamento</td></tr>
+                    <tr><td class="code-column">15021</td><td>Remuneração de Serviços de estatística</td></tr>
+                    <tr><td class="code-column">15022</td><td>Remuneração de Serviços de fisioterapia</td></tr>
+                    <tr><td class="code-column">15023</td><td>Remuneração de Serviços de fonoaudiologia</td></tr>
+                    <tr><td class="code-column">15024</td><td>Remuneração de Serviços de geologia</td></tr>
+                    <tr><td class="code-column">15025</td><td>Remuneração de Serviços de leilão</td></tr>
+                    <tr><td class="code-column">15026</td><td>Remuneração de Serviços de medicina, exceto aquela prestada por ambulatório, banco de sangue, casa de saúde, casa de recuperação ou repouso sob orientação médica, hospital e pronto-socorro</td></tr>
+                    <tr><td class="code-column">15027</td><td>Remuneração de Serviços de nutricionismo e dietética</td></tr>
+                    <tr><td class="code-column">15028</td><td>Remuneração de Serviços de odontologia</td></tr>
+                    <tr><td class="code-column">15029</td><td>Remuneração de Serviços de organização de feiras de amostras, congressos, seminários, simpósios e congêneres</td></tr>
+                    <tr><td class="code-column">15030</td><td>Remuneração de Serviços de pesquisa em geral</td></tr>
+                    <tr><td class="code-column">15031</td><td>Remuneração de Serviços de planejamento</td></tr>
+                    <tr><td class="code-column">15032</td><td>Remuneração de Serviços de programação</td></tr>
+                    <tr><td class="code-column">15033</td><td>Remuneração de Serviços de prótese</td></tr>
+                    <tr><td class="code-column">15034</td><td>Remuneração de Serviços de psicologia e psicanálise</td></tr>
+                    <tr><td class="code-column">15035</td><td>Remuneração de Serviços de química</td></tr>
+                    <tr><td class="code-column">15036</td><td>Remuneração de Serviços de radiologia e radioterapia</td></tr>
+                    <tr><td class="code-column">15037</td><td>Remuneração de Serviços de relações públicas</td></tr>
+                    <tr><td class="code-column">15038</td><td>Remuneração de Serviços de serviço de despachante</td></tr>
+                    <tr><td class="code-column">15039</td><td>Remuneração de Serviços de terapêutica ocupacional</td></tr>
+                    <tr><td class="code-column">15040</td><td>Remuneração de Serviços de tradução ou interpretação comercial</td></tr>
+                    <tr><td class="code-column">15041</td><td>Remuneração de Serviços de urbanismo</td></tr>
+                    <tr><td class="code-column">15042</td><td>Remuneração de Serviços de veterinária</td></tr>
+                    <tr><td class="code-column">15043</td><td>Remuneração de Serviços de Limpeza</td></tr>
+                    <tr><td class="code-column">15044</td><td>Remuneração de Serviços de Conservação/ Manutenção, exceto reformas e obras assemelhadas</td></tr>
+                    <tr><td class="code-column">15045</td><td>Remuneração de Serviços de Segurança/Vigilância/Transporte de valores</td></tr>
+                    <tr><td class="code-column">15046</td><td>Remuneração de Serviços Locação de Mão de obra</td></tr>
+                    <tr><td class="code-column">15047</td><td>Remuneração de Serviços de Assessoria Creditícia, Mercadológica, Gestão de Crédito, Seleção e Riscos e Administração de Contas a Pagar e a Receber</td></tr>
+                    <tr><td class="code-column">15048</td><td>Pagamentos Referentes à Aquisição de Autopeças</td></tr>
+                    <tr><td class="code-column">15049</td><td>Pagamentos a entidades imunes ou isentas  IN RFB 1.234/2012</td></tr>
+                    <tr><td class="code-column">15050</td><td>Pagamento a título de transporte internacional de valores efetuado por empresas nacionais estaleiros navais brasileiros nas atividades de conservação, modernização, conversão e reparo de embarcações pré-registradas ou registradas no Registro Especial Brasileiro (REB)</td></tr>
+                    <tr><td class="code-column">15051</td><td>Pagamento efetuado a empresas estrangeiras de transporte de valores</td></tr>
+                    <tr><td class="code-column">15052</td><td>Demais comissões, corretagens, ou qualquer outra importância paga/creditada pela representação comercial ou pela mediação na realização de negócios civis e comerciais, que não se enquadrem nas situações listadas nos códigos do grupo 20</td></tr>
+                    <tr><td class="code-column">15099</td><td>Demais rendimentos de serviços técnicos, de assistência técnica, de assistência administrativa e semelhantes</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="back-to-toc"><a href="#toc">🔝 Voltar ao Índice</a></p>
+
+        <div class="note">
+            <p><strong>💡 Nota:</strong> A Tabela 01 demonstrada aqui está apenas com os registros mais utilizados da lista as naturezas de rendimentos utilizadas no SPED REINF para classificação dos pagamentos e créditos relacionados a prestação de serviços e outras categorias especificadas. Se necessitar de outros códigos, consulte o leiaute oficial do SPED REINF.</p>
+        </div>
+
+        <div class="note" style="background-color: #e8f4f8; border-left-color: #0066cc;">
+            <p><strong>📖 Referência:</strong> Base legal e códigos conforme leiaute oficial do SPED REINF.</p>
+        </div>
+
+        <h2 id="tabela-02">📋 Tabela 02: Forma de tributação sobre rendimentos de beneficiários domiciliados no exterior</h2>
+        
+        <div class="table-counter">
+            📌 Total de registros: 11
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchTable02" placeholder="🔍 Buscar na Tabela 02 por código ou descrição..." onkeyup="filterTable('table02', 'searchTable02')">
+        </div>
+
+        <div class="table-wrapper">
+            <table id="table02">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="code-column">10</td>
+                        <td>Retenção do IRRF – alíquota padrão</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">11</td>
+                        <td>Retenção do IRRF – alíquota da tabela progressiva</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">12</td>
+                        <td>Retenção do IRRF – alíquota diferenciada (países com tributação favorecida)</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">13</td>
+                        <td>Retenção do IRRF – alíquota limitada conforme cláusula em convênio</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">30</td>
+                        <td>Retenção do IRRF – outras hipóteses</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">40</td>
+                        <td>Não retenção do IRRF – isenção estabelecida em convênio</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">41</td>
+                        <td>Não retenção do IRRF – isenção prevista em lei interna</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">42</td>
+                        <td>Não retenção do IRRF – alíquota zero prevista em lei interna</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">43</td>
+                        <td>Não retenção do IRRF – pagamento antecipado do imposto</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">44</td>
+                        <td>Não retenção do IRRF – medida judicial</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">50</td>
+                        <td>Não retenção do IRRF – outras hipóteses</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="back-to-toc"><a href="#toc">🔝 Voltar ao Índice</a></p>
+
+         <div class="note">
+            <p><strong>💡 Nota:</strong> A Tabela 02 do SPED REINF serve para identificar a modalidade de tributação aplicada aos rendimentos pagos, creditados, entregues ou remetidos a beneficiários (pessoas físicas ou jurídicas) residentes ou domiciliados no exterior.</p>
+            <p>Sua função principal é permitir que a Receita Federal valide a alíquota e a regra de imposto de renda (IRRF) utilizada na operação. Ela é utilizada especificamente no preenchimento de eventos da série R-4000 (como o R-4010 e R-4020) quando o destinatário do recurso não reside no Brasil.</p>
+        </div>
+
+        <div class="note" style="background-color: #e8f4f8; border-left-color: #0066cc;">
+            <p><strong>📖 Referência:</strong> Para informações mais detalhadas sobre o SPED REINF e suas obrigações, consulte a documentação oficial da Receita Federal do Brasil.</p>
+        </div>
+
+        <h2 id="tabela-03">📋 Tabela 03: Informações relativas a rendimentos de beneficiários domiciliados no exterior</h2>
+        
+        <div class="table-counter">
+            📌 Total de registros: 9
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchTable03" placeholder="🔍 Buscar na Tabela 03 por código ou descrição..." onkeyup="filterTable('table03', 'searchTable03')">
+        </div>
+
+        <div class="table-wrapper">
+            <table id="table03">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="code-column">500</td>
+                        <td>A fonte pagadora é matriz da beneficiária no exterior.</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">510</td>
+                        <td>A fonte pagadora é filial, sucursal ou agência de beneficiária no exterior.</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">520</td>
+                        <td>A fonte pagadora é controlada ou coligada da beneficiária no exterior, na forma dos §§ 1º e 2º do art. 243 da Lei nº 6.404, de 15 de dezembro de 1976.</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">530</td>
+                        <td>A fonte pagadora é controladora ou coligada da beneficiária no exterior, na forma dos §§ 1º e 2º do art. 243 da Lei nº 6.404, de 1976.</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">540</td>
+                        <td>A fonte pagadora e a beneficiária no exterior estão sob controle societário ou administrativo comum ou quando pelo menos 10% do capital de cada uma, pertencer a uma mesma pessoa física ou jurídica.</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">550</td>
+                        <td>A fonte pagadora e a beneficiária no exterior têm participação societária no capital de uma terceira pessoa jurídica, cuja soma as caracterize como controladoras ou coligadas na forma dos §§ 1º e 2º do art. 243 da Lei nº 6.404, de 1976.</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">560</td>
+                        <td>A fonte pagadora ou a beneficiária no exterior mantenha contrato de exclusividade como agente, como distribuidor ou como concessionário nas operações com bens, serviços e direitos.</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">570</td>
+                        <td>A fonte pagadora e a beneficiária mantêm acordo de atuação conjunta.</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">900</td>
+                        <td>Não há relação entre a fonte pagadora e a beneficiária no exterior.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="back-to-toc"><a href="#toc">🔝 Voltar ao Índice</a></p>
+
+        <div class="note">
+            <p><strong>💡 Nota:</strong> A Tabela 03 do SPED REINF serve para detalhar o relacionamento entre a fonte pagadora no Brasil e o beneficiário no exterior, além de especificar a natureza da operação realizada.</p>
+            <p>Enquanto a Tabela 02 foca na forma de tributação (como o imposto é calculado), a Tabela 03 foca na identificação qualitativa da relação entre as partes e no tipo de rendimento.</p>
+        </div>
+
+        <div class="note" style="background-color: #e8f4f8; border-left-color: #0066cc;">
+            <p><strong>📖 Referência:</strong> Para informações mais detalhadas sobre o SPED REINF e suas obrigações, consulte a documentação oficial da Receita Federal do Brasil.</p>
+        </div>
+
+        <h2 id="tabela-06">📋 Tabela 06: Classificação de serviços prestados mediante cessão de mão de obra/empreitada</h2>
+        
+        <div class="table-counter">
+            📌 Total de registros: 31
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchTable06" placeholder="🔍 Buscar na Tabela 06 por código ou tipo de serviço..." onkeyup="filterTable('table06', 'searchTable06')">
+        </div>
+
+        <div class="table-wrapper">
+            <table id="table06">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Tipo de Serviço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="code-column">100000001</td>
+                        <td>Limpeza, conservação ou zeladoria</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000002</td>
+                        <td>Vigilância ou segurança</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000003</td>
+                        <td>Construção civil</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000004</td>
+                        <td>Serviços de natureza rural</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000005</td>
+                        <td>Digitação</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000006</td>
+                        <td>Preparação de dados para processamento</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000007</td>
+                        <td>Acabamento</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000008</td>
+                        <td>Embalagem</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000009</td>
+                        <td>Acondicionamento</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000010</td>
+                        <td>Cobrança</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000011</td>
+                        <td>Coleta ou reciclagem de lixo ou de resíduos</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000012</td>
+                        <td>Copa</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000013</td>
+                        <td>Hotelaria</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000014</td>
+                        <td>Corte ou ligação de serviços públicos</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000015</td>
+                        <td>Distribuição</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000016</td>
+                        <td>Treinamento e ensino</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000017</td>
+                        <td>Entrega de contas e de documentos</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000018</td>
+                        <td>Ligação de medidores</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000019</td>
+                        <td>Leitura de medidores</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000020</td>
+                        <td>Manutenção de instalações, de máquinas ou de equipamentos</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000021</td>
+                        <td>Montagem</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000022</td>
+                        <td>Operação de máquinas, de equipamentos e de veículos</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000023</td>
+                        <td>Operação de pedágio ou de terminal de transporte</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000024</td>
+                        <td>Operação de transporte de passageiros</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000025</td>
+                        <td>Portaria, recepção ou ascensorista</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000026</td>
+                        <td>Recepção, triagem ou movimentação de materiais</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000027</td>
+                        <td>Promoção de vendas ou de eventos</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000028</td>
+                        <td>Secretaria e expediente</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000029</td>
+                        <td>Saúde</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000030</td>
+                        <td>Telefonia ou telemarketing</td>
+                    </tr>
+                    <tr>
+                        <td class="code-column">100000031</td>
+                        <td>Trabalho temporário na forma da Lei nº 6.019/1974</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="back-to-toc"><a href="#toc">🔝 Voltar ao Índice</a></p>
+
+        <div class="note">
+            <p><strong>💡 Nota:</strong> A Tabela 06 do SPED REINF serve para a Classificação de Serviços Prestados mediante cessão de mão de obra ou empreitada.</p>
+            <p>Sua função técnica é identificar o tipo de serviço executado para fins de apuração da retenção de 11% (ou 3,5% no caso de desoneração) da contribuição previdenciária (INSS). Ela é utilizada obrigatoriamente no preenchimento dos eventos R-2010 e R-2020.</p>
+        </div>
+
+    <script>
+        function filterTable(tableId, searchId) {
+            const input = document.getElementById(searchId);
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById(tableId);
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const tdCode = tr[i].getElementsByTagName('td')[0];
+                const tdDesc = tr[i].getElementsByTagName('td')[1];
+                
+                if (tdCode && tdDesc) {
+                    const codeValue = tdCode.textContent || tdCode.innerText;
+                    const descValue = tdDesc.textContent || tdDesc.innerText;
+                    
+                    if (codeValue.toUpperCase().indexOf(filter) > -1 || 
+                        descValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = '';
+                    } else {
+                        tr[i].style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        /* Constrói o índice dinamicamente a partir dos headings com id iniciado em 'tabela-' */
+        function buildToC() {
+            const toc = document.querySelector('.toc');
+            if (!toc) return;
+            const ul = toc.querySelector('ul');
+            ul.innerHTML = '';
+
+            const headings = document.querySelectorAll('h2[id^="tabela-"]');
+            headings.forEach(h => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#' + h.id;
+                a.textContent = h.textContent.trim();
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+
+            const countEl = document.getElementById('toc-count');
+            if (countEl) countEl.textContent = headings.length;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            buildToC();
+
+            // Se não houver hash na URL, posicione sobre o índice
+            if (!location.hash) {
+                const toc = document.getElementById('toc');
+                if (toc) toc.scrollIntoView({ behavior: 'auto', block: 'start' });
+            } else {
+                // Se existir hash, role até o elemento alvo de forma suave
+                const target = document.getElementById(location.hash.slice(1));
+                if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+            }
+        });
+    </script>
+</body>
+</html>
