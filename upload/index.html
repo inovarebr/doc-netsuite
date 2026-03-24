@@ -148,6 +148,78 @@
                 </div>
             </div>
             </div> -->
+            <!-- Plano Contas -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-plano-contas">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-plano-contas" aria-expanded="false" aria-controls="collapse-plano-contas">
+                <strong>[1.9] Plano de Contas &nbsp;</strong> - &nbsp;Plano de contas e plano referencial utilizados na ECD e ECF.
+                </button>
+            </h2>
+            <div id="collapse-plano-contas" class="accordion-collapse collapse" aria-labelledby="heading-plano-contas" data-bs-parent="#accordion-modelos">
+                <div class="accordion-body">
+                <a href="plano_conta.xlsx" class="fs-4">Fazer download da planilha</a>
+                <br><br>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: red;">cnpjEmpr</td>
+                            <td>CNPJ da empresa onde o registro deve ser escriturado. Fazer apenas nas matrizes</td>
+                        </tr>
+                        <tr>
+                            <td>dtAlt</td>
+                            <td>Data da inclusão ou alteração. Será enviado nos arquivos, então deve ser menor que a data final do arquivo a ser transmitido. Se não for preenchida, sistema preenche automaticamente com data um ano antes ao dia da integração.</td>
+                        </tr>
+                        <tr>
+                            <td>codNat</td>
+                            <td>Código da natureza da conta/grupo de contas, conforme tabela publicada pelo Sped: 01= Contas de ativo / 02= Contas de passivo / 03= Patrimônio Líquido / 04= Contas de resultado / 05= Contas de compensação / 09= Outras</td>
+                        </tr>
+                        <tr>
+                            <td>indCta</td>
+                            <td>Indicador do tipo de conta: S - Sintética (grupo de contas) A - Analítica (conta)</td>
+                        </tr>
+                        <tr>
+                            <td>nivel</td>
+                            <td>Nível da conta analítica/grupo de contas</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">codCta</td>
+                            <td>Código de plano de contas</td>
+                        </tr>
+                        <tr>
+                            <td>descrCta</td>
+                            <td>Descrição da conta contabil</td>
+                        </tr>
+                        <tr>
+                            <td>codCtaSup</td>
+                            <td>Código da conta imediatamente superior</td>
+                        </tr>
+                        <tr>
+                            <td>tipoCta</td>
+                            <td>Tipo de conta do Compliance: 1= Conta normal da ECD / 2= Conta da parte B do LALUR e LACS / 3= Conta do bloco K da ECD</td>
+                        </tr>
+                        <tr>
+                            <td>codEntRef</td>
+                            <td>Código da entidade referencial: 01= PJ em Geral / 02= PJ em Geral - Lucro Presumido / 03= Financeiras / 04= Seguradoras / 05= Imunes e Isentas em Geral / 06= Financeiras - Imunes e Isentas / 07= Seguradoras - Imunes e Isentas  / 08= Entidades Fechadas de Previdência Complementar / 09= Partidos Políticos / 10= Financeiras - Lucro Presumido. </td>
+                        </tr>
+                        <tr>
+                            <td>codCtaRef</td>
+                            <td>Código da conta de acordo com o plano de contas referencial</td>
+                        </tr>
+                        <tr>
+                            <td>codCentroCusto</td>
+                            <td>Campo opcional que só deve ser preenchido se for enviar plano referencial por centro de custos</td>
+                        </tr>
+                                            </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
             <!-- Impostos Retidos -->
             <div class="accordion-item">
             <h2 class="accordion-header" id="heading-impostos-retidos">
