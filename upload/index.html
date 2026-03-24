@@ -220,6 +220,47 @@
                 </div>
             </div>
             </div>
+
+            <!-- Centro Custo -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-centro-custo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-centro-custo" aria-expanded="false" aria-controls="collapse-centro-custo">
+                <strong>[1.10] Centro de Custo &nbsp;</strong> - &nbsp;Centro de custo utilizado na ECD e ECF.
+                </button>
+            </h2>
+            <div id="collapse-centro-custo" class="accordion-collapse collapse" aria-labelledby="heading-centro-custo" data-bs-parent="#accordion-modelos">
+                <div class="accordion-body">
+                <a href="centro_custo.xlsx" class="fs-4">Fazer download da planilha</a>
+                <br><br>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: red;">cnpjEmpr</td>
+                            <td>CNPJ da empresa onde o registro deve ser escriturado. Fazer apenas nas matrizes</td>
+                        </tr>
+                        <tr>
+                            <td>dtAlt</td>
+                            <td>Data da inclusão ou alteração. Será enviado nos arquivos, então deve ser menor que a data final do arquivo a ser transmitido. Se não for preenchida, sistema preenche automaticamente com data um ano antes ao dia da integração.</td>
+                        </tr>                        
+                        <tr>
+                            <td style="color: red;">codCentroCusto</td>
+                            <td>Código do centro de custos</td>
+                        </tr>
+                        <tr>
+                            <td>descrCentroCusto</td>
+                            <td>Descrição do centro de custo (obrigatória)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
             <!-- Impostos Retidos -->
             <div class="accordion-item">
             <h2 class="accordion-header" id="heading-impostos-retidos">
