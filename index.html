@@ -1,37 +1,391 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Página em Desenvolvimento</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      margin: 40px;
-    }
-    .container {
-      text-align: center;
-      padding: 50px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #333;
-    }
-    img {
-      margin-top: 20px;
-      width: 300px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de integração do conector Netsuite</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Esta página está em desenvolvimento</h1>
-    <p>Estamos trabalhando para trazer esta documentação em breve.</p>
-    <img src="em_desenvolvimento.png" alt="Em desenvolvimento">
+  <!-- SUMÁRIO FLUTUANTE / NAVEGAÇÃO -->
+
+  <div class="page-wrapper">
+    <!-- HEADER PRINCIPAL -->
+    <header class="main-header">
+      <div class="brand-block">
+        <div class="brand-logo">NS</div>
+        <div class="brand-text">
+          <span class="brand-title">Conector Netsuite</span>
+          <span class="brand-subtitle">Manual de integração</span>
+        </div>
+      </div>
+
+      <nav class="breadcrumb">
+        <a href="#">Home</a>
+        <span>›</span>
+        <a href="#">Documentação</a>
+        <span>›</span>
+        <span class="breadcrumb-current">Guia do conector</span>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Alternar tema">
+        <span class="theme-toggle-icon">🌙</span>
+        <span class="theme-toggle-label">Modo escuro</span>
+      </button>
+    </header>
+
+    <main class="manual-main">
+      <!-- SEÇÃO 1: DASHBOARD -->
+      <section id="dashboard" class="manual-section section-hero">
+        <header class="section-header">
+          <h1>Visão geral do conector</h1>
+          <p>
+            Este guia apresenta as principais telas e funcionalidades do conector Netsuite,
+            facilitando o entendimento do fluxo de uso do sistema.
+          </p>
+        </header>
+
+        <div class="section-body section-body--centered">
+          <p class="section-lead">
+            Após fazer login, o acesso será redirecionado para a tela de
+            <strong>dashboard</strong>, conforme demonstra a imagem a seguir.
+          </p>
+
+          <div class="image-frame image-frame--wide">
+            <img
+              src="assets/dashboard.png"
+              alt="Dashboard do conector Netsuite"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 2: MENU LATERAL -->
+      <section id="menu-lateral" class="manual-section section-alt">
+        <header class="section-header">
+          <h2>Menu lateral</h2>
+          <p>
+            O menu lateral concentra os principais pontos de navegação do conector.
+          </p>
+        </header>
+
+        <div class="section-body section-body--split">
+          <div class="section-column">
+            <p>
+              Como podemos ver, o menu lateral possui poucos botões.
+            </p>
+            <p>
+              O primeiro botão com ícone de <strong>casa</strong> é para acessar o dashboard.
+              O segundo botão, que chamamos de <strong>menu hambúrguer</strong> (3 traços),
+              é para acessar o <strong>menu principal</strong> e o terceiro botão é para
+              trocar o <strong>idioma</strong> do conector.
+            </p>
+            <p>
+              Dentro do menu hambúrguer há diversas opções que serão exploradas mais adiante.
+            </p>
+          </div>
+
+          <div class="section-column section-column--image">
+            <div class="image-frame image-frame--narrow">
+              <img
+                src="assets/menu-lateral.png"
+                alt="Botões do menu lateral"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="section-body section-body--inline">
+          <div class="image-frame image-frame--small">
+            <img
+              src="assets/menu-bottom.png"
+              alt="Botões de modo escuro e usuário"
+            />
+          </div>
+          <p>
+            Os outros dois botões no menu lateral são para alternar entre
+            <strong>modo claro/escuro</strong> e acessar os
+            <strong>dados do usuário</strong>, respectivamente.
+          </p>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 3: MENU PRINCIPAL -->
+      <section id="menu-principal" class="manual-section">
+        <header class="section-header">
+          <h2>Menu principal</h2>
+          <p>
+            Ao acessar o menu principal veremos duas opções principais de navegação.
+          </p>
+        </header>
+
+        <div class="section-body section-body--split">
+          <div class="section-column">
+            <p class="section-title-accent">
+              Ao acessar o menu principal veremos 2 opções:
+            </p>
+            <p>
+              <strong>Administrativo geral</strong> que serve para configurar o
+              conector. Esse menu nem sempre estará disponível para todos os
+              usuários.
+            </p>
+
+            <p>
+              <strong>Agendamentos</strong> é onde criamos as requisições para o
+              conector fazer as extrações não Infor.
+            </p>
+          </div>
+
+          <div class="section-column section-column--image">
+            <div class="image-frame">
+              <img
+                src="assets/menu-principal.png"
+                alt="Menu principal do conector"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 4: IDIOMA -->
+      <section id="idioma" class="manual-section section-alt">
+        <header class="section-header">
+          <h2>Idioma</h2>
+          <p>
+            Detalhe do que aparece quando o botão de idioma é clicado.
+          </p>
+        </header>
+
+        <div class="section-body section-body--split">
+          <div class="section-column section-column--image">
+            <div class="image-frame image-frame--small">
+              <img
+                src="assets/idioma.png"
+                alt="Opções de idioma"
+              />
+            </div>
+          </div>
+
+          <div class="section-column">
+            <p>
+              Ao clicar no botão de idioma, o conector exibe uma lista com os idiomas
+              disponíveis. Basta selecionar a opção desejada para que a interface seja
+              ajustada automaticamente.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 5: PERFIL OVERVIEW -->
+      <section id="perfil" class="manual-section">
+        <header class="section-header">
+          <h2>Perfil</h2>
+        </header>
+
+        <div class="section-body section-body--split">
+          <div class="section-column">
+            <p>
+              Na opção <strong>Ajuda</strong>, somos direcionados para uma página com a
+              documentação do conector.
+            </p>
+            <p>
+              Em <strong>Meus Dados</strong>, é possível ajustar o cadastro do usuário e
+              escolher algumas opções de segurança, que veremos em detalhes a seguir.
+            </p>
+            <p>
+              A opção <strong>Segurança</strong> serve para realizar a troca da senha.
+            </p>
+          </div>
+
+          <div class="section-column section-column--image">
+            <div class="image-frame">
+              <img
+                src="assets/perfil.png"
+                alt="Janela de perfil do usuário"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 6: MEUS DADOS (DETALHES) -->
+      <section id="meus-dados" class="manual-section section-alt">
+        <header class="section-header">
+          <h2>Meus dados</h2>
+        </header>
+
+        <div class="section-body profile-grid">
+          <!-- Informações pessoais -->
+          <article class="profile-block">
+            <div class="image-frame">
+              <img
+                src="assets/perfil-info-pessoal.png"
+                alt="Informações pessoais do perfil"
+              />
+            </div>
+            <div class="profile-text">
+              <h3>Suas informações pessoais ajudam a manter sua conta segura e personalizada.</h3>
+              <p>
+                Aqui você pode atualizar seu nome, e-mail e outras informações básicas
+                para garantir que nossa comunicação seja feita corretamente e que suas
+                preferências sejam respeitadas.
+              </p>
+            </div>
+          </article>
+
+          <!-- Informações profissionais -->
+          <article class="profile-block">
+            <div class="image-frame">
+              <img
+                src="assets/perfil-info-profissionais.png"
+                alt="Informações profissionais do perfil"
+              />
+            </div>
+            <div class="profile-text">
+              <h3>Suas informações profissionais definem o ambiente de trabalho dentro do sistema.</h3>
+              <p>
+                Selecione a organização e a empresa que você deseja gerenciar, isso garante que
+                os dados, acessos e relatórios exibidos estejam vinculados corretamente à sua
+                estrutura corporativa.
+              </p>
+            </div>
+          </article>
+
+          <!-- Informações complementares / 2FA -->
+          <article class="profile-block">
+            <div class="image-frame">
+              <img
+                src="assets/perfil-info-complementares.png"
+                alt="Informações complementares e autenticação 2FA"
+              />
+            </div>
+            <div class="profile-text">
+              <h3>As informações complementares permitem personalizar sua experiência no sistema.</h3>
+              <p>
+                Você pode habilitar recursos adicionais, como a autenticação em dois fatores (2FA),
+                para reforçar a segurança do seu acesso e proteger seus dados contra uso indevido.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 7: AGENDAMENTOS -->
+      <section id="agendamentos" class="manual-section">
+        <header class="section-header">
+          <h2>Agendamentos</h2>
+          <p>
+            Área em que acompanhamos as cargas que estão sendo realizadas e o histórico
+            do que já foi executado.
+          </p>
+        </header>
+
+        <div class="section-body section-body--split">
+          <div class="section-column">
+            <p>
+              Ao acessar a página de agendamento, é possível visualizar os agendamentos
+              configurados, consultar o status de execução e iniciar novos processos
+              de integração de dados.
+            </p>
+            <p>
+              Quando não há agendamentos cadastrados para o período, o sistema exibe uma
+              mensagem destacando essa condição e oferece a opção de adicionar um novo
+              agendamento.
+            </p>
+          </div>
+
+          <div class="section-column section-column--image">
+            <div class="image-frame image-frame--wide">
+              <img
+                src="assets/agendamentos.png"
+                alt="Tela de agendamentos"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 8: NOVO AGENDAMENTO -->
+      <section id="novo-agendamento" class="manual-section section-alt">
+        <header class="section-header">
+          <h2>Novo agendamento</h2>
+        </header>
+
+        <div class="section-body section-body--split">
+          <div class="section-column">
+            <p>
+              As opções do agendamento são:
+            </p>
+
+            <ul class="bullet-list">
+              <li>
+                <strong>Frequência:</strong> define se o agendamento irá ocorrer apenas uma vez
+                ou de forma recorrente. Caso seja recorrente, será aberta a opção para escolher
+                a frequência e o momento da execução.
+              </li>
+              <li>
+                <strong>Objeto de Integração e Tipo de Objeto:</strong> serve para escolher o
+                tipo de dado a ser carregado, por exemplo, dados cadastrais ou modelos de
+                documentos fiscais.
+              </li>
+              <li>
+                <strong>Empresa:</strong> indica em qual empresa buscar os dados.
+              </li>
+              <li>
+                <strong>Período da Carga:</strong> quando a carga tem um período (documento
+                fiscal, inventário, contábil etc.), é possível determinar o intervalo de datas
+                que deve ser considerado.
+              </li>
+              <li>
+                <strong>Número de Documento:</strong> útil quando deseja integrar apenas um
+                documento fiscal específico.
+              </li>
+              <li>
+                <strong>Integrar todos os registros:</strong> disponível apenas na versão 1 do
+                extrator. Quando marcada, reintegra todos os dados desde o ID de processo zero;
+                quando desmarcada, apenas os dados nunca recebidos são integrados.
+              </li>
+            </ul>
+          </div>
+
+          <div class="section-column section-column--image">
+            <div class="image-frame image-frame--tall">
+              <img
+                src="assets/novo-agendamento.png"
+                alt="Formulário de novo agendamento"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 9: ADMINISTRATIVO (PLACEHOLDER) -->
+            <!-- SEÇÃO 9: ADMINISTRATIVO (RESUMO) -->
+      <section id="administrativo" class="manual-section section-footer">
+        <header class="section-header">
+          <h2>Administrativo</h2>
+        </header>
+
+        <div class="section-body">
+          <p>
+            A área administrativa reúne os principais cadastros e parâmetros que
+            controlam o comportamento do conector Netsuite, como API de extração,
+            credenciais, parâmetros gerais e regras de integração.
+          </p>
+          <p>
+            Para consultar cada item em detalhes, acesse a documentação específica
+            de Administrativo.
+          </p>
+
+          <a class="admin-link-button" href="administrativo/index.html">
+            Ver documentação de Administrativo
+          </a>
+        </div>
+      </section>
+
+    </main>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrativo – Conector Netsuite</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="main-header">
+      <div class="brand-block">
+        <div class="brand-logo">NS</div>
+        <div class="brand-text">
+          <span class="brand-title">Conector Netsuite</span>
+          <span class="brand-subtitle">Administrativo</span>
+        </div>
+      </div>
+
+      <nav class="breadcrumb">
+        <a href="../index.html">Documentação</a>
+        <span>›</span>
+        <span class="breadcrumb-current">Administrativo</span>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Alternar tema">
+        <span class="theme-toggle-icon">🌙</span>
+        <span class="theme-toggle-label">Modo escuro</span>
+      </button>
+    </header>
+
+    <main class="manual-main">
+      <section class="manual-section section-admin">
+  <header class="section-header">
+    <h2>Parâmetros administrativos</h2>
+    <p>
+      Abaixo estão os principais cadastros administrativos do conector.
+      Clique em um card para ver o detalhamento resumido.
+    </p>
+  </header>
+
+  <div class="section-body">
+    <div class="admin-card-grid">
+
+      <!-- BASE DE VENCIMENTO -->
+      <article class="admin-card">
+        <button class="admin-card-header" type="button">
+          <span class="admin-card-title">Base de Vencimento</span>
+          <span class="admin-card-chevron">▾</span>
+        </button>
+        <div class="admin-card-body">
+          <p>
+            A <strong>Base de Vencimento</strong> define as datas de vencimento dos processos,
+            considerando o intervalo do fato gerador e o fator de vencimento configurado.
+          </p>
+
+          <p><strong>Tabela:</strong> <code>BASE_VENCIMENTO</code></p>
+
+          <p>
+            Essa tabela associa o período de fato gerador à data de vencimento,
+            garantindo que prazos fiscais e obrigações sigam as regras do sistema.
+          </p>
+
+          <h4 style="margin-top:8px;">Campos principais</h4>
+          <ul style="margin:6px 0 0 16px;">
+            <li><strong>ID</strong> – Identificador único do registro.</li>
+            <li><strong>DT_FATOGERADOR_INI</strong> – Data inicial do fato gerador.</li>
+            <li><strong>DT_FATOGERADOR_FIM</strong> – Data final do fato gerador.</li>
+            <li><strong>ID_FATOR_VENCTO</strong> – Código do fator de vencimento vinculado.</li>
+            <li><strong>DT_VENCTO</strong> – Data resultante do vencimento.</li>
+          </ul>
+          <p>
+               
+          </p>
+        </div>
+      </article>
+      <!-- CADASTRO MENU -->
+<article class="admin-card">
+  <button class="admin-card-header" type="button">
+    <span class="admin-card-title">Cadastro Menu</span>
+    <span class="admin-card-chevron">▾</span>
+  </button>
+  <div class="admin-card-body">
+    <p>
+      A tabela <strong>Cadastro Menu</strong> é responsável por estruturar o menu principal da aplicação,
+      organizando as seções e telas disponíveis de forma hierárquica.
+    </p>
+
+    <p><strong>Tabela:</strong> <code>MENU_MULTORG</code></p>
+
+    <p>
+      Permite definir descrições, links, ordem de exibição e agrupamentos,
+      servindo tanto para menus da <strong>Infor</strong> quanto do <strong>Netsuite</strong>.
+    </p>
+
+    <h4 style="margin-top:8px;">Campos principais</h4>
+    <ul style="margin:6px 0 0 16px;">
+      <li><strong>ID</strong> – Identificador único do item de menu.</li>
+      <li><strong>DESCR</strong> – Nome exibido no menu.</li>
+      <li><strong>LINK</strong> – Caminho ou rota para acesso à tela.</li>
+      <li><strong>ORDEM</strong> – Ordem de exibição no agrupamento.</li>
+      <li><strong>AGRUPADOR</strong> – Categoria que agrupa itens relacionados (ex: Fiscal, Integração, Sistema).</li>
+    </ul>
+
+    <p>
+         
+    </p>
+  </div>
+</article>
+<!-- DEPARA CATEGORIA DOCUMENTO ELETRÔNICO -->
+<article class="admin-card">
+  <button class="admin-card-header" type="button">
+    <span class="admin-card-title">Depara Categoria Documento Eletrônico</span>
+    <span class="admin-card-chevron">▾</span>
+  </button>
+  <div class="admin-card-body">
+    <p>
+      A tabela <strong>Depara Categoria Documento Eletrônico</strong> é responsável por relacionar
+      as categorias de documentos eletrônicos do <strong>NetSuite</strong> com os tipos de objetos
+      de integração utilizados na <strong>Infor</strong>.
+    </p>
+
+    <p><strong>Tabela:</strong> <code>DEPARA_CATEG_DOC_ELETRONICO</code></p>
+
+    <p>
+      Essa associação garante que cada documento eletrônico seja corretamente classificado
+      e direcionado para o processamento adequado conforme o tipo de integração configurado.
+    </p>
+
+    <h4 style="margin-top:8px;">Campos principais</h4>
+    <ul style="margin:6px 0 0 16px;">
+      <li><strong>ID</strong> – Identificador do mapeamento.</li>
+      <li><strong>MULTORG_ID</strong> – Organização responsável pelo documento.</li>
+      <li><strong>EDOC_CATEGORY_ID</strong> – Categoria do documento eletrônico no NetSuite.</li>
+      <li><strong>TIPOOBJINTEGR_ID</strong> – Tipo de objeto de integração na Infor.</li>
+      <li><strong>CREATED</strong> – Data de criação do registro.</li>
+    </ul>
+    <p>
+         
+    </p>
+  </div>
+</article>
+<!-- DEPARA COMPLEMENTO PAGAMENTO IMPOSTO RETIDO -->
+<article class="admin-card">
+  <button class="admin-card-header" type="button">
+    <span class="admin-card-title">Depara Complemento Pagamento Imposto Retido</span>
+    <span class="admin-card-chevron">▾</span>
+  </button>
+  <div class="admin-card-body">
+    <p>
+      A tabela <strong>Depara Complemento Pagamento Imposto Retido</strong> define os mapeamentos
+      utilizados para combinar informações fiscais relacionadas a impostos retidos, suas receitas e vencimentos.
+    </p>
+
+    <p><strong>Tabela:</strong> <code>DEPARA_COMPL_PGTO_IMP_RET</code></p>
+
+    <p>
+      Ela relaciona tipo de imposto, lista de serviços, fator de vencimento e códigos de receita,
+      garantindo que os cálculos de pagamento e vencimento sigam corretamente as regras fiscais.
+    </p>
+
+    <h4 style="margin-top:8px;">Campos principais</h4>
+    <ul style="margin:6px 0 0 16px;">
+      <li><strong>ID</strong> – Identificador único do registro.</li>
+      <li><strong>COD_IMPOSTO</strong> – Código do imposto relacionado.</li>
+      <li><strong>COD_LISTA_SERV</strong> – Código do serviço conforme LC116.</li>
+      <li><strong>FATO_GERADOR</strong> – Identificador do fato gerador do imposto.</li>
+      <li><strong>FATOR_VENCTO</strong> – Regra de vencimento do imposto (ex: 0 = mesmo dia, 1 = dia seguinte, 2 = dia 20 do mês seguinte).</li>
+      <li><strong>CD_TIPO_RET_IMP</strong> – Tipo de retenção do imposto.</li>
+      <li><strong>COD_RECEITA</strong> – Código da receita correspondente.</li>
+      <li><strong>COD_NAT_REND</strong> – Código da natureza do rendimento.</li>
+    </ul>
+    <p>
+         
+    </p>
+  </div>
+</article>
+<!-- TIPO SERVIÇO REINF (GERAL) -->
+<article class="admin-card">
+  <button class="admin-card-header" type="button">
+    <span class="admin-card-title">Tipo Serviço REINF (Geral)</span>
+    <span class="admin-card-chevron">▾</span>
+  </button>
+  <div class="admin-card-body">
+    <p>
+      O <strong>De/Para Tipo Serviço REINF</strong> relaciona os códigos de serviço da
+      <strong>REINF</strong> (eventos R-2010 e R-2020) com os códigos previstos na
+      <strong>Lei Complementar 116 (LC116)</strong>.
+    </p>
+
+    <p><strong>Tabela:</strong> <code>DEPARA_TIPO_SERV_REINF</code></p>
+
+    <p>
+      Essa tabela garante o alinhamento entre os códigos exigidos pela EFD-REINF
+      e os códigos de serviço da legislação, assegurando a conformidade fiscal e legal.
+    </p>
+
+    <h4 style="margin-top:8px;">Campos principais</h4>
+    <ul style="margin:6px 0 0 16px;">
+      <li><strong>ID</strong> – Identificador único do registro.</li>
+      <li><strong>COD_TIPO_SERV_REINF</strong> – Código de serviço da tabela 6 da REINF
+          (usado nos eventos R-2010 e R-2020).</li>
+      <li><strong>COD_LISTA_SERV</strong> – Código de serviço correspondente na LC116.</li>
+    </ul>
+    <p>
+         
+    </p>
+  </div>
+</article>
+<!-- CREDENCIAIS POR TIPO ERP (GERAL) -->
+<article class="admin-card">
+  <button class="admin-card-header" type="button">
+    <span class="admin-card-title">Credenciais por Tipo ERP (Geral)</span>
+    <span class="admin-card-chevron">▾</span>
+  </button>
+  <div class="admin-card-body">
+    <p>
+      A tabela <strong>Parâmetro Tipo ERP</strong> armazena as informações de autenticação e conexão
+      necessárias para a integração entre o sistema da <strong>Infor</strong> e os diferentes modelos de ERP,
+      como <strong>SuiteApp</strong> e <strong>BRHub</strong>.
+    </p>
+
+    <p><strong>Tabela:</strong> <code>PARAM_TIPO_ERP</code></p>
+
+    <p>
+      Contém dados técnicos como tokens, URLs e chaves de autenticação, que permitem a comunicação segura
+      e autenticada com APIs externas (ex: NetSuite).
+    </p>
+
+    <h4 style="margin-top:8px;">Campos principais</h4>
+    <ul style="margin:6px 0 0 16px;">
+      <li><strong>ID</strong> – Identificador da tabela.</li>
+      <li><strong>DESCR</strong> – Descrição da conexão (ex: Produção, Homologação).</li>
+      <li><strong>URL</strong> – Endereço base das requisições REST.</li>
+      <li><strong>REALM</strong> – Identificador da conta ERP (ex: número da conta NetSuite).</li>
+      <li><strong>CONSUMER_KEY</strong> – Chave pública da aplicação.</li>
+      <li><strong>CONSUMER_SECRET</strong> – Segredo da aplicação.</li>
+      <li><strong>ACCESS_TOKEN</strong> – Token de acesso gerado pelo ERP.</li>
+      <li><strong>SECRET_TOKEN</strong> – Segredo associado ao token de acesso.</li>
+      <li><strong>SIGNATURE_METHOD</strong> – Método de assinatura (ex: HMAC-SHA256).</li>
+      <li><strong>VERSION</strong> – Versão do protocolo de autenticação.</li>
+      <li><strong>MODELO_ERP</strong> – Tipo de modelo ERP (0 = SuiteApp, 1 = BRHub).</li>
+      <li><strong>CREATED</strong> – Data de criação do registro.</li>
+      <li><strong>LASTUPDATE</strong> – Última atualização registrada.</li>
+    </ul>
+    <p>
+         
+    </p>
+  </div>
+</article>
+<!-- DE-PARA VALORES -->
+<article class="admin-card">
+  <button class="admin-card-header" type="button">
+    <span class="admin-card-title">De-Para Valores</span>
+    <span class="admin-card-chevron">▾</span>
+  </button>
+  <div class="admin-card-body">
+    <p>
+      A tabela <strong>De-Para Valor</strong> é utilizada para o mapeamento de valores entre diferentes sistemas
+      ou módulos dentro do ambiente da <strong>Infor</strong>.
+    </p>
+
+    <p><strong>Tabela:</strong> <code>DEPARA_VALOR</code></p>
+
+    <p>
+      Ela garante que dados de origens distintas sejam padronizados, preservando a integridade e consistência
+      das informações durante os processos de integração.
+    </p>
+
+    <h4 style="margin-top:8px;">Campos principais</h4>
+    <ul style="margin:6px 0 0 16px;">
+      <li><strong>ID</strong> – Identificador único do registro.</li>
+      <li><strong>MULTORG_ID</strong> – Identificação da organização responsável pelo dado.</li>
+      <li><strong>TIPOOBJINTEGR_ID</strong> – Tipo de objeto de integração relacionado ao mapeamento.</li>
+      <li><strong>COLUNA</strong> – Nome da coluna sendo mapeada.</li>
+      <li><strong>ERP</strong> – Valor correspondente no sistema ERP.</li>
+      <li><strong>COMPLIANCE</strong> – Valor correspondente no sistema de Compliance.</li>
+      <li><strong>CREATED</strong> – Data de criação do registro.</li>
+      <li><strong>LAST_UPDATED</strong> – Última atualização registrada.</li>
+    </ul>
+    <p>
+         
+    </p>
+  </div>
+</article>
+<!-- PARÂMETROS GERAIS DO SISTEMA -->
+<article class="admin-card">
+  <button class="admin-card-header" type="button">
+    <span class="admin-card-title">Parâmetros Gerais do Sistema</span>
+    <span class="admin-card-chevron">▾</span>
+  </button>
+  <div class="admin-card-body">
+    <p>
+      A tabela <strong>Parâmetros Gerais do Sistema</strong> é utilizada para armazenar configurações
+      que controlam o comportamento geral do sistema da <strong>Infor (NetSuite)</strong>.
+    </p>
+
+    <p><strong>Tabela:</strong> <code>PARAM_GERAL_SISTEMA</code></p>
+
+    <p>
+      Esses parâmetros definem regras, textos e valores dinâmicos de forma centralizada,
+      proporcionando flexibilidade e simplificando a manutenção do ambiente.
+    </p>
+
+    <h4 style="margin-top:8px;">Campos principais</h4>
+    <ul style="margin:6px 0 0 16px;">
+      <li><strong>ID</strong> – Identificador único do parâmetro.</li>
+      <li><strong>MULTORG_ID</strong> – Identificação da organização múltipla.</li>
+      <li><strong>EMPRESA_ID</strong> – Identificação da empresa relacionada.</li>
+      <li><strong>PARAM_NAME</strong> – Nome técnico do parâmetro.</li>
+      <li><strong>DSC_PARAM</strong> – Descrição funcional e detalhada do parâmetro.</li>
+      <li><strong>VLR_PARAM</strong> – Valor definido para o parâmetro.</li>
+      <li><strong>NAME_LEGAL_ENTITY</strong> – Nome da entidade legal associada.</li>
+      <li><strong>CREATED</strong> – Data de criação do registro.</li>
+    </ul>
+    <p>
+         
+    </p>
+  </div>
+</article>
+<!-- USUÁRIOS DO SISTEMA -->
+<article class="admin-card">
+  <button class="admin-card-header" type="button">
+    <span class="admin-card-title">Usuários do Sistema</span>
+    <span class="admin-card-chevron">▾</span>
+  </button>
+  <div class="admin-card-body">
+    <p>
+      A tabela <strong>Usuários do Sistema</strong> armazena as informações dos usuários que acessam
+      a aplicação administrativa da <strong>Infor (NetSuite)</strong>.
+    </p>
+
+    <p><strong>Tabela:</strong> <code>USERS</code></p>
+
+    <p>
+      Essa tabela é fundamental para o controle de autenticação, perfis, permissões e rastreabilidade
+      das ações realizadas pelos usuários no sistema.
+    </p>
+
+    <h4 style="margin-top:8px;">Campos principais</h4>
+    <ul style="margin:6px 0 0 16px;">
+      <li><strong>ID</strong> – Identificador único do usuário.</li>
+      <li><strong>EMPRESA_ID</strong> – Identificação da empresa à qual o usuário pertence.</li>
+      <li><strong>NAME</strong> – Nome completo do usuário.</li>
+      <li><strong>EMAIL</strong> – E-mail utilizado para autenticação.</li>
+      <li><strong>PASSWORD</strong> – Senha armazenada de forma criptografada.</li>
+      <li><strong>SEXO</strong> – Sexo do usuário (M/F).</li>
+      <li><strong>ROLE</strong> – Código de papel ou perfil associado ao usuário.</li>
+      <li><strong>LOCALE</strong> – Localidade e idioma configurados (ex: pt-BR).</li>
+      <li><strong>PHOTO</strong> – Caminho ou binário da imagem de perfil.</li>
+      <li><strong>STATUS</strong> – Indica se o usuário está ativo ou inativo.</li>
+      <li><strong>2FA</strong> – Define se o usuário utiliza autenticação de dois fatores.</li>
+      <li><strong>CREATED</strong> – Data de criação do registro.</li>
+      <li><strong>LASTUPDATE</strong> – Última atualização do registro.</li>
+    </ul>
+    <p>
+         
+    </p>
+  </div>
+</article>
+    </div>
+
+    <p class="admin-hint">
+      As descrições acima apresentam um resumo funcional de cada parâmetro.
+      Ajustes detalhados podem variar conforme o ambiente e o ERP utilizado.
+    </p>
+  </div>
+</section>
+
+    </main>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>
