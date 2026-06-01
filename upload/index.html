@@ -265,6 +265,150 @@
                 </div>
             </div>
             </div>
+            <!-- Saldo Contábil -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-saldo-contabil">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-saldo-contabil" aria-expanded="false" aria-controls="collapse-saldo-contabil">
+                <strong>[32.1] Saldo Contábil &nbsp;</strong> - &nbsp;Saldos iniciais e finais por conta contábil e centro de custo.
+                </button>
+            </h2>
+            <div id="collapse-saldo-contabil" class="accordion-collapse collapse" aria-labelledby="heading-saldo-contabil" data-bs-parent="#accordion-modelos">
+                <div class="accordion-body">
+                <a href="saldo_contabil.xlsx" class="fs-4">Fazer download da planilha</a>
+                <br><br>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: red;">cnpjEmpr</td>
+                            <td>CNPJ da empresa onde o registro deve ser escriturado. Fazer apenas nas matrizes</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">dtIni</td>
+                            <td>Data inicial do período de escrituração do saldo - normalmente primeiro dia do mês</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">dtFin</td>
+                            <td>Data final do período de escrituração do saldo</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">codCta</td>
+                            <td>Código da conta contábil</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">codCentroCusto</td>
+                            <td>Campo opcional que só deve ser preenchido se for necessário entregar obrigações com demonstração de centro de custos</td>
+                        </tr>
+                        <tr>
+                            <td>vlSaldoIni</td>
+                            <td>Valor do saldo inicial da conta no período</td>
+                        </tr>
+                        <tr>
+                            <td>indDcIni</td>
+                            <td>Indicador de Débito ou Crédito do saldo inicial. Deve usar D ou C.</td>
+                        </tr>
+                        <tr>
+                            <td>vlDeb</td>
+                            <td>Valor da movimentação a débito do período</td>
+                        </tr>
+                        <tr>
+                            <td>vlCred</td>
+                            <td>Valor da movimentação a crédito do período</td>
+                        </tr>
+                        <tr>
+                            <td>vlSaldoFin</td>
+                            <td>Valor do saldo final da conta no período</td>
+                        </tr>
+                        <tr>
+                            <td>indDcFin</td>
+                            <td>Indicador de Débito ou Crédito do saldo final. Deve usar D ou C.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+            <!-- Lançamento Contábil -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-lancamento-contabil">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-lancamento-contabil" aria-expanded="false" aria-controls="collapse-lancamento-contabil">
+                <strong>[32.2] Lançamento Contábil &nbsp;</strong> - &nbsp;Lançamentos contábeis com partidas detalhadas e histórico.
+                </button>
+            </h2>
+            <div id="collapse-lancamento-contabil" class="accordion-collapse collapse" aria-labelledby="heading-lancamento-contabil" data-bs-parent="#accordion-modelos">
+                <div class="accordion-body">
+                <a href="lancamento_contabil.xlsx" class="fs-4">Fazer download da planilha</a>
+                <br><br>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: red;">cnpjEmpr</td>
+                            <td>CNPJ da empresa onde o registro deve ser escriturado. Fazer apenas nas matrizes</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">numLcto</td>
+                            <td>Número do lançamento que pode conter valor alfanumérico</td>
+                        </tr>
+                        <tr>
+                            <td>dtLcto</td>
+                            <td>Data do lançamento</td>
+                        </tr>
+                        <tr>
+                            <td>valorLcto</td>
+                            <td>Valor do lançamento (capa) que deve ser igual a soma das partidas a débito ou a crédito</td>
+                        </tr>
+                        <tr>
+                            <td>indLcto</td>
+                            <td>Indicador do tipo de lançamento: N = Normal / E = Encerramento</td>
+                        </tr>
+                        <tr>
+                            <td>dtLctoExt</td>
+                            <td>Opcional: data de lançamento extemporâneo</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">codCta</td>
+                            <td>Código de plano de contas</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">codCentroCusto</td>
+                            <td>Campo opcional que só deve ser preenchido se for necessário entregar obrigações com demonstração de centro de custos</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">vlDc</td>
+                            <td>Valor monetário da partida</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">indDc</td>
+                            <td>Indicador de Débito ou Crédito da partida. Deve usar D ou C.</td>
+                        </tr>
+                        <tr>
+                            <td>numArq</td>
+                            <td>Opcional: Número do arquivo de documento</td>
+                        </tr>
+                        <tr>
+                            <td>historico</td>
+                            <td>Histórico da partida</td>
+                        </tr>
+                        <tr>
+                            <td>codPart</td>
+                            <td>Opcional: Código do participante</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
             <!-- Impostos Retidos -->
             <div class="accordion-item">
             <h2 class="accordion-header" id="heading-impostos-retidos">
