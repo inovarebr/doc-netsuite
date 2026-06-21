@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTE Terceiro</title>
+    <link rel="icon" href="../../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            flex: 1;
+        }
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: #ffffff;
+            padding: 26px 24px;
+            margin: -24px -24px 28px -24px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #dbe9fb, #aec4f5);
+            color: #16307f;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #e9effe;
+            color: #1f2937;
+            font-weight: 700;
+        }
+        tr:nth-child(even) {
+            background-color: #f5f7fb;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 18px 16px;
+            background-color: #f4f6fb;
+            border-radius: 10px;
+            color: #525f7f;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 900px) {
+            body { padding: 14px; }
+            .container { padding: 18px; }
+            table { font-size: 0.84rem; }
+            th, td { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CTE Terceiro</h1>
+        </div>
+        <div class="section-header">Mapeamento de campos - CTE Terceiro</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ord</th>
+                    <th>WS Compliance</th>
+                    <th>Conector</th>
+                    <th>API Netsuite</th>
+                    <th>Condição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td></td><td>cte.id</td><td></td><td></td></tr>
+                <tr><td>2</td><td></td><td>cte.multorg_id</td><td></td><td></td></tr>
+                <tr><td>3</td><td></td><td>cte.chave_logica</td><td>results/internalid</td><td></td></tr>
+                <tr><td>4</td><td>conhecTransportes.Cpf</td><td>cte.conhectransportes_cpf</td><td></td><td></td></tr>
+                <tr><td>5</td><td>conhecTransportes.Cnpj</td><td>cte.conhectransportes_cnpj</td><td>results/subsidiary</td><td></td></tr>
+                <tr><td>6</td><td>conhecTransportes.dmIndEmit</td><td>cte.conhectransportes_dmindemit</td><td>nota_fiscal_continuo.dmindemit</td><td></td></tr>
+                <tr><td>7</td><td>conhecTransportes.dmIndOper</td><td>cte.conhectransportes_dmindoper</td><td>nota_fiscal_continuo.dmindoper</td><td></td></tr>
+                <tr><td>8</td><td>conhecTransportes.codPart</td><td>cte.conhectransportes_codpart</td><td>results/custbody_brl_tran_t_vendor_fed_tx_reg</td><td></td></tr>
+                <tr><td>9</td><td>conhecTransportes.CodigoModeloFiscal</td><td>cte.conhectransportes_codigomodelofiscal</td><td>results/custbody_brl_tran_t_edoc_model</td><td></td></tr>
+                <tr><td>10</td><td>conhecTransportes.serie</td><td>cte.conhectransportes_serie</td><td>results/custbody_brl_tran_t_edoc_series</td><td></td></tr>
+                <tr><td>11</td><td>conhecTransportes.subSerie</td><td>cte.conhectransportes_subserie</td><td></td><td></td></tr>
+                <tr><td>12</td><td>conhecTransportes.nroCt</td><td>cte.conhectransportes_nroct</td><td>results/custbody_brl_tran_t_edoc_number</td><td>Se nulo, usar apenas números de results/tranid</td></tr>
+                <tr><td>13</td><td>conhecTransportes.sitDocto</td><td>cte.conhectransportes_sitdocto</td><td>results/sitdocto</td><td></td></tr>
+                <tr><td>14</td><td>conhecTransportes.nroChaveCte</td><td>cte.conhectransportes_nrochavecte</td><td>results/custbody_brl_tran_t_access_key</td><td></td></tr>
+                <tr><td>15</td><td>conhecTransportes.dmTpCte</td><td>cte.conhectransportes_dmtpcte</td><td></td><td>Fixo 0</td></tr>
+                <tr><td>16</td><td>conhecTransportes.chaveCteRef</td><td>cte.conhectransportes_chavecteref</td><td></td><td></td></tr>
+                <tr><td>17</td><td>conhecTransportes.dtEmiss</td><td>cte.conhectransportes_dtemiss</td><td>results/trandate</td><td></td></tr>
+                <tr><td>18</td><td>conhecTransportes.dtSaiEnt</td><td>cte.conhectransportes_dtsaient</td><td>results/createddate</td><td></td></tr>
+                <tr><td>19</td><td>conhecTransportes.dmIndFrt</td><td>cte.conhectransportes_dmindfrt</td><td>results/custbody_brl_tran_l_ship_service_type</td><td></td></tr>
+                <tr><td>20</td><td>conhecTransportes.codInforCompl</td><td>cte.conhectransportes_codinforcompl</td><td></td><td></td></tr>
+                <tr><td>21</td><td>conhecTransportes.codCta</td><td>cte.conhectransportes_codcta</td><td>results/acctnumber</td><td></td></tr>
+                <tr><td>22</td><td>conhecTransportes.codigoNaturezaOperacao</td><td>cte.conhectransportes_codigonaturezaoperacao</td><td>results/custbody_brl_tran_l_transaction_nature</td><td></td></tr>
+                <tr><td>23</td><td>conhecTransportes.ibgeCidadeIni</td><td>cte.conhectransportes_ibgecidadeini</td><td></td><td></td></tr>
+                <tr><td>24</td><td>conhecTransportes.descrCidadeIni</td><td>cte.conhectransportes_descrcidadeini</td><td></td><td></td></tr>
+                <tr><td>25</td><td>conhecTransportes.siglaUfIni</td><td>cte.conhectransportes_siglaufini</td><td></td><td></td></tr>
+                <tr><td>26</td><td>conhecTransportes.ibgeCidadeFim</td><td>cte.conhectransportes_ibgecidadedest</td><td></td><td></td></tr>
+                <tr><td>27</td><td>conhecTransportes.descrCidadeFim</td><td>cte.conhectransportes_descrcidadedest</td><td></td><td></td></tr>
+                <tr><td>28</td><td>conhecTransportes.siglaUfFim</td><td>cte.conhectransportes_siglaufdest</td><td></td><td></td></tr>
+                <tr><td>29</td><td>conhecTransportes.valores.vlDoc</td><td>cte.valores_vldoc</td><td>results/totalaftertaxes</td><td>Valor absoluto</td></tr>
+                <tr><td>30</td><td>conhecTransportes.valores.vlDesc</td><td>cte.valores_vldesc</td><td></td><td></td></tr>
+                <tr><td>31</td><td>conhecTransportes.valores.vlServ</td><td>cte.valores_vlserv</td><td>results/itemamount</td><td>Soma</td></tr>
+                <tr><td>32</td><td>conhecTransportes.valores.vlBcIcms</td><td>cte.valores_vlbcicms</td><td>results/items/taxDetail/taxbasis</td><td>Quando name contém “ICMS”</td></tr>
+                <tr><td>33</td><td>conhecTransportes.valores.vlIcms</td><td>cte.valores_vlicms</td><td>results/items/taxDetail/taxamount</td><td>Quando name contém “ICMS”</td></tr>
+                <tr><td>34</td><td></td><td>cte.created</td><td></td><td></td></tr>
+                <tr><td>35</td><td></td><td>cte.process_id_infor</td><td></td><td></td></tr>
+                <tr><td>36</td><td></td><td>cte.numero_da_linha</td><td></td><td></td></tr>
+                <tr><td>37</td><td></td><td>cte.lote_id</td><td></td><td></td></tr>
+                <tr><td>38</td><td></td><td>cte_cofins.id</td><td></td><td></td></tr>
+                <tr><td>39</td><td></td><td>cte_cofins.cte_id</td><td></td><td></td></tr>
+                <tr><td>40</td><td></td><td>cte_cofins.chave_logica</td><td>results/internalid</td><td>Se existir COFINS</td></tr>
+                <tr><td>41</td><td>conhecTransportes.regImpostoCofins.dmIndNatFrt</td><td>cte_cofins.regimpostocofins_dmindnatfrt</td><td>results/custbody_brl_tran_l_ship_nature_indic</td><td>Se existir COFINS</td></tr>
+                <tr><td>42</td><td>conhecTransportes.regImpostoCofins.vlItem</td><td>cte_cofins.regimpostocofins_vlitem</td><td>results/items/itemamount</td><td>Se existir COFINS</td></tr>
+                <tr><td>43</td><td>conhecTransportes.regImpostoCofins.codStCofins</td><td>cte_cofins.regimpostocofins_codstcofins</td><td>results/items/taxDetail/cst</td><td>Se existir COFINS</td></tr>
+                <tr><td>44</td><td>conhecTransportes.regImpostoCofins.codBaseCalcCredPc</td><td>cte_cofins.regimpostocofins_codbasecalccredpc</td><td></td><td></td></tr>
+                <tr><td>45</td><td>conhecTransportes.regImpostoCofins.vlBcCofins</td><td>cte_cofins.regimpostocofins_vlbccofins</td><td>results/items/taxDetail/taxbasis</td><td>Se existir COFINS</td></tr>
+                <tr><td>46</td><td>conhecTransportes.regImpostoCofins.aliquotaCofins</td><td>cte_cofins.regimpostocofins_aliquotacofins</td><td>results/items/taxDetail/taxrate</td><td>Se existir COFINS</td></tr>
+                <tr><td>47</td><td>conhecTransportes.regImpostoCofins.vlCofins</td><td>cte_cofins.regimpostocofins_vlcofins</td><td>results/items/taxDetail/taxamount</td><td>Se existir COFINS</td></tr>
+                <tr><td>48</td><td>conhecTransportes.regImpostoCofins.codCta</td><td>cte_cofins.regimpostocofins_codcta</td><td>results/items/acctnumber</td><td>Se existir COFINS</td></tr>
+                <tr><td>49</td><td>conhecTransportes.regImpostoCofins.naturezaReceitaCofins</td><td>cte_cofins.regimpostocofins_naturezareceitacofins</td><td></td><td></td></tr>
+                <tr><td>50</td><td></td><td>cte_cofins.created</td><td></td><td></td></tr>
+                <tr><td>51</td><td></td><td>cte_cofins.process_id_infor</td><td></td><td></td></tr>
+                <tr><td>52</td><td></td><td>cte_cofins.numero_da_linha</td><td></td><td></td></tr>
+                <tr><td>53</td><td></td><td>cte_pis.id</td><td></td><td></td></tr>
+                <tr><td>54</td><td></td><td>cte_pis.cte_id</td><td></td><td></td></tr>
+                <tr><td>55</td><td></td><td>cte_pis.chave_logica</td><td>results/internalid</td><td>Se existir PIS</td></tr>
+                <tr><td>56</td><td>conhecTransportes.regImpostoPis.dmIndNatFrt</td><td>cte_pis.regimpostopis_dmindnatfrt</td><td>results/custbody_brl_tran_l_ship_nature_indic</td><td>Se existir PIS</td></tr>
+                <tr><td>57</td><td>conhecTransportes.regImpostoPis.vlItem</td><td>cte_pis.regimpostopis_vlitem</td><td>results/items/itemamount</td><td>Se existir PIS</td></tr>
+                <tr><td>58</td><td>conhecTransportes.regImpostoPis.codStPis</td><td>cte_pis.regimpostopis_codstpis</td><td>results/items/taxDetail/cst</td><td>Se existir PIS</td></tr>
+                <tr><td>59</td><td>conhecTransportes.regImpostoPis.codBaseCalcCredPc</td><td>cte_pis.regimpostopis_codbasecalccredpc</td><td></td><td></td></tr>
+                <tr><td>60</td><td>conhecTransportes.regImpostoPis.vlBcPis</td><td>cte_pis.regimpostopis_vlbcpis</td><td>results/items/taxDetail/taxbasis</td><td>Se existir PIS</td></tr>
+                <tr><td>61</td><td>conhecTransportes.regImpostoPis.aliquotaPis</td><td>cte_pis.regimpostopis_aliquotapis</td><td>results/items/taxDetail/taxrate</td><td>Se existir PIS</td></tr>
+                <tr><td>62</td><td>conhecTransportes.regImpostoPis.vlPis</td><td>cte_pis.regimpostopis_vlpis</td><td>results/items/taxDetail/taxamount</td><td>Se existir PIS</td></tr>
+                <tr><td>63</td><td>conhecTransportes.regImpostoPis.codCta</td><td>cte_pis.regimpostopis_codcta</td><td>results/items/acctnumber</td><td>Se existir PIS</td></tr>
+                <tr><td>64</td><td>conhecTransportes.regImpostoPis.naturezaReceitaPis</td><td>cte_pis.regimpostopis_naturezareceitapis</td><td></td><td></td></tr>
+                <tr><td>65</td><td></td><td>cte_pis.created</td><td></td><td></td></tr>
+                <tr><td>66</td><td></td><td>cte_pis.process_id_infor</td><td></td><td></td></tr>
+                <tr><td>67</td><td></td><td>cte_pis.numero_da_linha</td><td></td><td></td></tr>
+                <tr><td>68</td><td></td><td>cte_registro_analitico.id</td><td></td><td></td></tr>
+                <tr><td>69</td><td></td><td>cte_registro_analitico.cte_id</td><td></td><td></td></tr>
+                <tr><td>70</td><td></td><td>cte_registro_analitico.chave_logica</td><td>results/internalid</td><td></td></tr>
+                <tr><td>71</td><td>conhecTransportes.regImpostoIcms.codStIcms</td><td>cte_registro_analitico.regimpostoicms_codsticms</td><td>results/items/taxDetail/cst</td><td>Quando name contém “ICMS”</td></tr>
+                <tr><td>72</td><td>conhecTransportes.regImpostoIcms.cfop</td><td>cte_registro_analitico.regimpostoicms_cfop</td><td>results/items/cfop</td><td>Apenas números</td></tr>
+                <tr><td>73</td><td>conhecTransportes.regImpostoIcms.dmOrigMerc</td><td>cte_registro_analitico.regimpostoicms_dmorigmerc</td><td>results/custbody_brl_tran_t_origin_code</td><td>Se vazio, fixo 0</td></tr>
+                <tr><td>74</td><td>conhecTransportes.regImpostoIcms.codObsLanctoFiscal</td><td>cte_registro_analitico.regimpostoicms_codobslanctofiscal</td><td></td><td></td></tr>
+                <tr><td>75</td><td>conhecTransportes.regImpostoIcms.vlOper</td><td>cte_registro_analitico.regimpostoicms_vloper</td><td>results/items/itemamount</td><td></td></tr>
+                <tr><td>76</td><td>conhecTransportes.regImpostoIcms.Aliquota</td><td>cte_registro_analitico.regimpostoicms_aliquota</td><td>results/items/taxDetail/taxrate</td><td>ICMS × 100</td></tr>
+                <tr><td>77</td><td>conhecTransportes.regImpostoIcms.vlBcIcms</td><td>cte_registro_analitico.regimpostoicms_vlbcicms</td><td>results/items/taxDetail/taxbasis</td><td>Quando ICMS</td></tr>
+                <tr><td>78</td><td>conhecTransportes.regImpostoIcms.vlIcms</td><td>cte_registro_analitico.regimpostoicms_vlicms</td><td>results/items/taxDetail/taxamount</td><td>Quando ICMS</td></tr>
+                <tr><td>79</td><td>conhecTransportes.regImpostoIcms.vlRedBcIcms</td><td>cte_registro_analitico.regimpostoicms_vlredbcicms</td><td></td><td>Fixo 0</td></tr>
+                <tr><td>80</td><td>conhecTransportes.regImpostoIcms.vlBaseOutro</td><td>cte_registro_analitico.regimpostoicms_vlbaseoutro</td><td></td><td></td></tr>
+                <tr><td>81</td><td>conhecTransportes.regImpostoIcms.aliquotaOutro</td><td>cte_registro_analitico.regimpostoicms_aliquotaoutro</td><td></td><td></td></tr>
+                <tr><td>82</td><td>conhecTransportes.regImpostoIcms.vlImpOutro</td><td>cte_registro_analitico.regimpostoicms_vlimpoutro</td><td></td><td></td></tr>
+                <tr><td>83</td><td>conhecTransportes.regImpostoIcms.vlBaseIsenta</td><td>cte_registro_analitico.regimpostoicms_vlbaseisenta</td><td></td><td></td></tr>
+                <tr><td>84</td><td></td><td>cte_registro_analitico.created</td><td></td><td></td></tr>
+                <tr><td>85</td><td></td><td>cte_registro_analitico.process_id_infor</td><td></td><td></td></tr>
+                <tr><td>86</td><td></td><td>cte_registro_analitico.numero_da_linha</td><td></td><td></td></tr>
+            </tbody>
+        </table>
+        <div class="footer">
+            &copy; 2026 Compliance Soluções. Todos os direitos reservados.
+            <p style="margin: 8px 0 0; font-size: 0.85rem;">Desenvolvido por Inovare para documentação de integração.</p>
+        </div>
+    </div>
+</body>
+</html>

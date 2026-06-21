@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Itens</title>
+    <link rel="icon" href="../../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            flex: 1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 22px;
+            margin: -20px -20px 24px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.9em;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.05em;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px 10px;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e8effb;
+            color: #1f2937;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f9fc;
+        }
+
+        .condicao {
+            color: #4b5563;
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding: 18px 16px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            color: #6b7280;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            table {
+                font-size: 0.82em;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cadastro de Itens</h1>
+        </div>
+
+        <div class="section-header">Mapeamento de campos - Itens</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Ord</th>
+                    <th>WS Compliance</th>
+                    <th>Conector</th>
+                    <th>API Netsuite</th>
+                    <th>Condição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>&nbsp;</td>
+                    <td>purchaseunit</td>
+                    <td>results/stockunit ou results/purchaseunit</td>
+                    <td class="condicao">Tentar em stockunit e, se estiver nulo, usar purchaseunit</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>&nbsp;</td>
+                    <td>unitstype</td>
+                    <td>results/unitstype</td>
+                    <td class="condicao">Será usado em join da unidade</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>itens/cpf</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>itens/cnpj</td>
+                    <td>documento_cpf_cnpj</td>
+                    <td>results/subsidiary</td>
+                    <td class="condicao">Se includechildren = F, então join com empresa.subsidiaria_id; senão join pelo multorg e enviar item para todos os CNPJs</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>itens/codigoItem</td>
+                    <td>codigo_item</td>
+                    <td>results/id</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>itens/descricao</td>
+                    <td>descricao</td>
+                    <td>results/itemid</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>itens/siglaUnidade</td>
+                    <td>sigla_unidade</td>
+                    <td>results/list/abbreviation</td>
+                    <td class="condicao">Quando "unitstype" for a mesma do item e "baseunit" = "T". Caso nula, enviar fixo <strong>UM</strong></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>itens/indicacaoOrigem</td>
+                    <td>indicacao_origem</td>
+                    <td>results/custitem_brl_l_item_origin</td>
+                    <td class="condicao">Quando nulo, enviar 0</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>itens/tipoItem</td>
+                    <td>tipo_item</td>
+                    <td>results/codsped</td>
+                    <td class="condicao">Aplicar lpad(codsped, 2, 0). Quando nulo, enviar 99</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>itens/codNCM</td>
+                    <td>cod_ncm</td>
+                    <td>results/codncm</td>
+                    <td class="condicao">Limpar caractere &quot;.&quot;</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>itens/exTipi</td>
+                    <td>ext_ipi</td>
+                    <td>results/custitem_brl_l_ipi_legal_framing_code</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>itens/codigoBarras</td>
+                    <td>codigo_barras</td>
+                    <td>results/upccode</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>itens/codigoAnterior</td>
+                    <td>codigo_anterior</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>itens/tipoServico</td>
+                    <td>tipo_servico</td>
+                    <td>results/codncm</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>itens/aliquotaIcms</td>
+                    <td>aliquota_icms</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>itens/codProdAnp</td>
+                    <td>cod_prod_anp</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>itens/cest</td>
+                    <td>cest</td>
+                    <td>results/codcest</td>
+                    <td class="condicao">Limpar caractere &quot;.&quot;</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>&nbsp;</td>
+                    <td>numero_da_linha</td>
+                    <td>results/rownumber</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>&nbsp;</td>
+                    <td>chave_logica</td>
+                    <td>results/subsidiary_results/id</td>
+                    <td class="condicao">Concatenar subsidiary e id</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>itens/conversaoUnidade/fatorConversaoUnidade</td>
+                    <td>fatorconversaounidade</td>
+                    <td>results/list/conversionrate</td>
+                    <td class="condicao">Quando "unitstype" for a mesma do item e "baseunit" = "F"</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>itens/conversaoUnidade/siglaConversaoUnidade</td>
+                    <td>siglaconversaounidade</td>
+                    <td>results/list/abbreviation</td>
+                    <td class="condicao">Quando "unitstype" for a mesma do item e "baseunit" = "F"</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>itens/conversaoUnidade/codigoBarras</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>itens/marcaComercial/dmCodTab</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>itens/marcaComercial/codigoGrupo</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>itens/marcaComercial/marcaComercial</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td>itens/complementos/codSitOperSimples</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>itens/complementos/codSitTribIcms</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td>itens/complementos/percReducBaseCalcIcms</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>itens/complementos/baseCalcIcmsST</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>itens/complementos/codSitTribIpiEntrada</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td>itens/complementos/codSitTribIpiSaida</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td>itens/complementos/aliquotaIpi</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td>itens/complementos/codSitTribPisEntrada</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td>itens/complementos/codSitTribPisSaida</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td>itens/complementos/naturezaReceitaPis</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td>itens/complementos/aliquotaPis</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td>itens/complementos/codSitTribCofinsEntrada</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td>itens/complementos/codSitTribCofinsSaida</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td>itens/complementos/naturezaReceitaCofins</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td>itens/complementos/aliquotaCofins</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td>itens/complementos/aliquotaISS</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>42</td>
+                    <td>itens/complementos/contaContabil</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td>itens/complementos/observacao</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td>itens/insumos/codigoItemCompl</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td>itens/insumos/quantidadeCompl</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>46</td>
+                    <td>itens/insumos/perda</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>47</td>
+                    <td>itens/correlComerc/codigoItemAtom</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td>itens/correlComerc/quantidadeCompl</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+            <p style="font-size: 0.8em;">Integração desenvolvida e mantida por <a href="https://inovarebr.com/"><img src="../../favicon_1.png" alt="Inovare" title="Inovare Soluções e Sistemas"></a></p>
+        </div>
+    </div>
+</body>
+</html>

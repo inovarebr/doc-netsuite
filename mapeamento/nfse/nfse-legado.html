@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legado NFS-e</title>
+    <link rel="icon" href="../../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            flex: 1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: #fff;
+            padding: 26px 24px;
+            margin: -24px -24px 28px -24px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #dbe9fb, #aec4f5);
+            color: #16307f;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e9effe;
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f5f7fb;
+        }
+
+        .condicao {
+            color: #374151;
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding: 18px 16px;
+            background-color: #f4f6fb;
+            border-radius: 10px;
+            color: #525f7f;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 14px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            table {
+                font-size: 0.84rem;
+            }
+
+            th, td {
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Legado NFS-e</h1>
+        </div>
+
+        <div class="section-header">Mapeamento de campos - Legado NFS-e</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Ord</th>
+                    <th>WS Compliance</th>
+                    <th>Conector</th>
+                    <th>API Netsuite</th>
+                    <th>Condição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>notasServico/cpfCnpj/Cpf</td><td>nota_fiscal_servico.cpf</td><td></td><td></td></tr>
+                <tr><td>2</td><td>notasServico/cpfCnpj/Cnpj</td><td>nota_fiscal_servico.cnpj</td><td>results/custbody_brl_tran_t_subsd_fed_tx_reg</td><td></td></tr>
+                <tr><td>3</td><td>notasServico/dmIndEmit</td><td>nota_fiscal_servico.dmindemit</td><td></td><td>fixo 0</td></tr>
+                <tr><td>4</td><td>notasServico/dmIndOper</td><td>nota_fiscal_servico.dmindoper</td><td>results/dmindoper</td><td></td></tr>
+                <tr><td>5</td><td>notasServico/codPart</td><td>nota_fiscal_servico.codpart</td><td>results/custbody_brl_tran_t_vendor_fed_tx_reg ou custbody_brl_tran_t_cust_fed_tx_reg</td><td></td></tr>
+                <tr><td>6</td><td>notasServico/CodigoModeloFiscal</td><td>nota_fiscal_servico.codigomodelofiscal</td><td></td><td>fixo 99</td></tr>
+                <tr><td>7</td><td>notasServico/serie</td><td>nota_fiscal_servico.serie</td><td>results/custbody_brl_tran_t_edoc_series ou results/custbody_brl_tran_t_rps_series</td><td></td></tr>
+                <tr><td>8</td><td>notasServico/nroNf</td><td>nota_fiscal_servico.nronf</td><td>results/custbody_brl_tran_t_edoc_model ou custbody_brl_tran_t_rps_num ou tranid</td><td>Tentar em ordem; tranid como default</td></tr>
+                <tr><td>9</td><td>notasServico/subSerie</td><td>nota_fiscal_servico.subserie</td><td></td><td></td></tr>
+                <tr><td>10</td><td>notasServico/dtEmiss</td><td>nota_fiscal_servico.dtemiss</td><td>results/custbody_brl_tran_dt_rps_date ou results/trandate</td><td></td></tr>
+                <tr><td>11</td><td>notasServico/dtExeServ</td><td>nota_fiscal_servico.dtexeserv</td><td></td><td></td></tr>
+                <tr><td>12</td><td>notasServico/dtSaiEnt</td><td>nota_fiscal_servico.dtsaient</td><td></td><td></td></tr>
+                <tr><td>13</td><td>notasServico/sitDocto</td><td>nota_fiscal_servico.sitdocto</td><td></td><td>fixo 00</td></tr>
+                <tr><td>14</td><td>notasServico/chaveNfse</td><td>nota_fiscal_servico.chavenfse</td><td></td><td></td></tr>
+                <tr><td>15</td><td>notasServico/dmIndPag</td><td>nota_fiscal_servico.dmindpag</td><td></td><td></td></tr>
+                <tr><td>16</td><td>notasServico/dmNatOper</td><td>nota_fiscal_servico.dmnatoper</td><td></td><td></td></tr>
+                <tr><td>17</td><td>notasServico/dmTipoRps</td><td>nota_fiscal_servico.dmtiporps</td><td></td><td></td></tr>
+                <tr><td>18</td><td>notasServico/dmStatusRps</td><td>nota_fiscal_servico.dmstatusrps</td><td></td><td></td></tr>
+                <tr><td>19</td><td>notasServico/nroRpsSubst</td><td>nota_fiscal_servico.nrorpssubst</td><td></td><td></td></tr>
+                <tr><td>20</td><td>notasServico/serieRpsSubst</td><td>nota_fiscal_servico.serierpssubst</td><td></td><td></td></tr>
+                <tr><td>21</td><td>notasServico/dmStProc</td><td>nota_fiscal_servico.dmstproc</td><td></td><td>fixo 0</td></tr>
+                <tr><td>22</td><td>notasServico/sistOrig</td><td>nota_fiscal_servico.sistorig</td><td></td><td></td></tr>
+                <tr><td>23</td><td>notasServico/unidOrg</td><td>nota_fiscal_servico.unidorg</td><td></td><td></td></tr>
+                <tr><td>24</td><td>notasServico/dmLegado</td><td>nota_fiscal_servico.dmlegado</td><td></td><td>fixo 1</td></tr>
+                <tr><td>25</td><td>notasServico/cdCidadeModFiscal</td><td>nota_fiscal_servico.cdcidademodfiscal</td><td></td><td></td></tr>
+                <tr><td>26</td><td>notasServico/idNfErp</td><td>nota_fiscal_servico.idnferp</td><td>results/recordid</td><td></td></tr>
+                <tr><td>27</td><td>notasServico/IdEstrangeiro</td><td>nota_fiscal_servico.terceiro_idestrangeiro</td><td></td><td></td></tr>
+                <tr><td>28</td><td>notasServico/nroAutNfs</td><td>nota_fiscal_servico.nroautnfs</td><td>results/custbody_brl_tran_t_edoc_number</td><td></td></tr>
+                <tr><td>29</td><td>notasServico/dtAutNfs</td><td>nota_fiscal_servico.dtautnfs</td><td>results/custbody_brl_tran_dt_cert_date</td><td></td></tr>
+                <tr><td>30</td><td>notasServico/codNatOper</td><td>nota_fiscal_servico.codnatoper</td><td></td><td></td></tr>
+                <tr><td>31</td><td>notasServico/codVerifNfs</td><td></td><td></td><td></td></tr>
+                <tr><td>32</td><td>notasServico/dtQuitacao</td><td></td><td></td><td></td></tr>
+                <tr><td>33</td><td>notasServico/vlTotReceb</td><td></td><td></td><td></td></tr>
+                <tr><td>34</td><td></td><td>nota_fiscal_servico.numero_da_linha</td><td>results/rownumber</td><td></td></tr>
+                <tr><td>35</td><td></td><td>nota_fiscal_servico.chave_logica</td><td>results/recordid</td><td></td></tr>
+                <tr><td>36</td><td>notasServico/cpfCnpj_scp/Cpf</td><td></td><td></td><td></td></tr>
+                <tr><td>37</td><td>notasServico/cpfCnpj_scp/Cnpj</td><td></td><td></td><td></td></tr>
+                <tr><td>38</td><td>notasServico/itens/nroItem</td><td></td><td>results/items/linesequencenumber</td><td></td></tr>
+                <tr><td>39</td><td>notasServico/itens/codItemServ</td><td></td><td>results/items/iteminternalid</td><td></td></tr>
+                <tr><td>40</td><td>notasServico/itens/descricao</td><td></td><td>results/items/itemdescription ou results/items/itemid</td><td>Se vazio, usar itemid</td></tr>
+                <tr><td>41</td><td>notasServico/itens/cfop</td><td></td><td>results/items/cfop</td><td></td></tr>
+                <tr><td>42</td><td>notasServico/itens/cnae</td><td></td><td></td><td></td></tr>
+                <tr><td>43</td><td>notasServico/itens/cdListaServ</td><td></td><td>results/items/itemcode</td><td></td></tr>
+                <tr><td>44</td><td>notasServico/itens/codTribMunicipio</td><td></td><td>Buscar em empresa.codtribmun</td><td></td></tr>
+                <tr><td>45</td><td>notasServico/itens/codBaseCalcCredPc</td><td></td><td></td><td></td></tr>
+                <tr><td>46</td><td>notasServico/itens/dmIndOrigCred</td><td></td><td></td><td></td></tr>
+                <tr><td>47</td><td>notasServico/itens/dtPgtoPis</td><td></td><td></td><td></td></tr>
+                <tr><td>48</td><td>notasServico/itens/dtPgtoCofins</td><td></td><td></td><td></td></tr>
+                <tr><td>49</td><td>notasServico/itens/dmLocalExecServ</td><td></td><td></td><td></td></tr>
+                <tr><td>50</td><td>notasServico/itens/dmTribMunPrest</td><td></td><td>results/items/dmtribmunprest</td><td></td></tr>
+                <tr><td>51</td><td>notasServico/itens/cidadeIbge</td><td></td><td>results/custrecord_ftebr_city_i_ibge_code</td><td></td></tr>
+                <tr><td>52</td><td>notasServico/itens/codCta</td><td></td><td>results/items/acctnumber ou results/acctnumber</td><td>Se primeiro nulo, usar o segundo</td></tr>
+                <tr><td>53</td><td>notasServico/itens/codCentroCusto</td><td></td><td></td><td></td></tr>
+                <tr><td>54</td><td>notasServico/itens/cdCidadeBeneficFiscal</td><td></td><td></td><td></td></tr>
+                <tr><td>55</td><td>notasServico/itens/cdTpServReinf</td><td></td><td></td><td></td></tr>
+                <tr><td>56</td><td>notasServico/itens/dmIndCprb</td><td></td><td></td><td></td></tr>
+                <tr><td>57</td><td>notasServico/itens/vlDesc</td><td></td><td></td><td></td></tr>
+                <tr><td>58</td><td>notasServico/itens/Valores/vlServico</td><td></td><td>results/items/itemamount</td><td></td></tr>
+                <tr><td>59</td><td>notasServico/itens/Valores/vlDescIncondicionado</td><td></td><td></td><td></td></tr>
+                <tr><td>60</td><td>notasServico/itens/Valores/vlDescCondicionado</td><td></td><td></td><td></td></tr>
+                <tr><td>61</td><td>notasServico/itens/Valores/vlDeducao</td><td></td><td></td><td></td></tr>
+                <tr><td>62</td><td>notasServico/itens/Valores/vlOutraRetencao</td><td></td><td></td><td></td></tr>
+                <tr><td>63</td><td>notasServico/itens/impostos/codImposto</td><td></td><td>results/taxDetail/name</td><td></td></tr>
+                <tr><td>64</td><td>notasServico/itens/impostos/tipo</td><td></td><td>regra conforme nome</td><td>RET/RETIDO/RF → 1, senão 0</td></tr>
+                <tr><td>65</td><td>notasServico/itens/impostos/codSt</td><td></td><td>results/taxDetail/cst</td><td></td></tr>
+                <tr><td>66</td><td>notasServico/itens/impostos/vlBaseCalc</td><td></td><td>results/taxDetail/taxbasis</td><td></td></tr>
+                <tr><td>67</td><td>notasServico/itens/impostos/aliquota</td><td></td><td>results/taxDetail/taxrate * 100</td><td></td></tr>
+                <tr><td>68</td><td>notasServico/itens/impostos/vlImpTrib</td><td></td><td>results/taxDetail/taxamount</td><td>Valor absoluto</td></tr>
+                <tr><td>69</td><td>notasServico/itens/impostos/vlDeducao</td><td></td><td></td><td></td></tr>
+                <tr><td>70</td><td>notasServico/itens/impostos/naturezaReceitaPisCofins</td><td></td><td></td><td></td></tr>
+                <tr><td>71</td><td>notasServico/itens/impostos/tipoRetencaoImposto</td><td></td><td></td><td></td></tr>
+                <tr><td>72</td><td>notasServico/itens/impostos/codReceita</td><td></td><td></td><td></td></tr>
+                <tr><td>73</td><td>notasServico/itens/impostos/aposentEspecial/percentual</td><td></td><td></td><td></td></tr>
+                <tr><td>74</td><td>notasServico/itens/impostos/aposentEspecial/vlAdicional</td><td></td><td></td><td></td></tr>
+                <tr><td>75</td><td>notasServico/inforAdic/tipo</td><td></td><td></td><td>fixo 0</td></tr>
+                <tr><td>76</td><td>notasServico/inforAdic/campo</td><td></td><td></td><td></td></tr>
+                <tr><td>77</td><td>notasServico/inforAdic/conteudo</td><td></td><td>results/custbody_brl_tran_lt_additional_info</td><td></td></tr>
+                <tr><td>78</td><td>notasServico/inforAdic/origemProcesso</td><td></td><td></td><td></td></tr>
+                <tr><td>79</td><td>notasServico/participante/nome</td><td></td><td>results/addressee</td><td></td></tr>
+                <tr><td>80</td><td>notasServico/participante/utilEndEmit</td><td></td><td></td><td></td></tr>
+                <tr><td>81</td><td>notasServico/participante/endereco/logradouro</td><td></td><td>results/addr1</td><td></td></tr>
+                <tr><td>82</td><td>notasServico/participante/endereco/numero</td><td></td><td>results/addr3</td><td></td></tr>
+                <tr><td>83</td><td>notasServico/participante/endereco/complemento</td><td></td><td>results/custrecord_brl_addrform_t_complement</td><td></td></tr>
+                <tr><td>84</td><td>notasServico/participante/endereco/bairro</td><td></td><td>results/addr2</td><td></td></tr>
+                <tr><td>85</td><td>notasServico/participante/endereco/cidade</td><td></td><td>results/city</td><td></td></tr>
+                <tr><td>86</td><td>notasServico/participante/endereco/uf</td><td></td><td>results/state</td><td></td></tr>
+                <tr><td>87</td><td>notasServico/participante/endereco/ibgeCidade</td><td></td><td>results/custrecord_ftebr_city_i_ibge_code</td><td></td></tr>
+                <tr><td>88</td><td>notasServico/participante/endereco/cep</td><td></td><td>results/zip</td><td></td></tr>
+                <tr><td>89</td><td>notasServico/participante/endereco/codSiscomexPais</td><td></td><td>results/country</td><td>Buscar país (SPED)</td></tr>
+                <tr><td>90</td><td>notasServico/participante/endereco/pais</td><td></td><td>results/country</td><td>Buscar país (nome)</td></tr>
+                <tr><td>91</td><td>notasServico/participante/contato/telefone</td><td></td><td></td><td></td></tr>
+                <tr><td>92</td><td>notasServico/participante/contato/email</td><td></td><td>results/email</td><td></td></tr>
+                <tr><td>93</td><td>notasServico/participante/documentos/cpfCnpj/Cpf</td><td></td><td></td><td></td></tr>
+                <tr><td>94</td><td>notasServico/participante/documentos/cpfCnpj/Cnpj</td><td></td><td>results/custbody_brl_tran_t_cust_fed_tx_reg</td><td>Manter apenas números</td></tr>
+                <tr><td>95</td><td>notasServico/participante/documentos/ie</td><td></td><td></td><td></td></tr>
+                <tr><td>96</td><td>notasServico/participante/documentos/inscricaoMunicipal</td><td></td><td></td><td></td></tr>
+                <tr><td>97</td><td>notasServico/participante/documentos/suframa</td><td></td><td></td><td></td></tr>
+                <tr><td>98</td><td>notasServico/detConstrCivil/codObra</td><td></td><td></td><td></td></tr>
+                <tr><td>99</td><td>notasServico/detConstrCivil/nroArt</td><td></td><td></td><td></td></tr>
+                <tr><td>100</td><td>notasServico/detConstrCivil/nroCno</td><td></td><td></td><td></td></tr>
+                <tr><td>101</td><td>notasServico/detConstrCivil/dmIndObra</td><td></td><td></td><td></td></tr>
+                <tr><td>102</td><td>notasServico/fatura/fatura/nroFatura</td><td>notafiscalservico_fatura.nrofatura</td><td>results/fatura_numero ou results/tranid</td><td>Grupo obrigatório</td></tr>
+                <tr><td>103</td><td>notasServico/fatura/duplicatas/nroParcela</td><td>notafiscalservicofatura_duplicata.nroparcela</td><td>results/fatura_numero ou results/tranid</td><td></td></tr>
+                <tr><td>104</td><td>notasServico/fatura/duplicatas/dtVencto</td><td>notafiscalservicofatura_duplicata.dtvencto</td><td>results/duedate</td><td></td></tr>
+                <tr><td>105</td><td>notasServico/fatura/duplicatas/vlDuplicata</td><td>notafiscalservicofatura_duplicata.vlduplicata</td><td>results/estgrossprofit</td><td>Valor absoluto</td></tr>
+                <tr><td>106</td><td>notasServico/nfProcReinf/dmTpProc</td><td></td><td></td><td></td></tr>
+                <tr><td>107</td><td>notasServico/nfProcReinf/nroProc</td><td></td><td></td><td></td></tr>
+                <tr><td>108</td><td>notasServico/nfProcReinf/codSusp</td><td></td><td></td><td></td></tr>
+                <tr><td>109</td><td>notasServico/nfProcReinf/dmIndProcRetAdic</td><td></td><td></td><td></td></tr>
+                <tr><td>110</td><td>notasServico/nfProcReinf/valor</td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            &copy; 2026 Compliance Soluções. Todos os direitos reservados.
+            <p style="margin: 8px 0 0; font-size: 0.85rem;">Desenvolvido por Inovare para documentação de integração.</p>
+        </div>
+    </div>
+</body>
+</html>

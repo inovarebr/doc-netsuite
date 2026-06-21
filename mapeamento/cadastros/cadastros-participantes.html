@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Participantes</title>
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            flex: 1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 22px;
+            margin: -20px -20px 24px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.9em;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.05em;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px 10px;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e8effb;
+            color: #1f2937;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f9fc;
+        }
+
+        .condicao {
+            color: #4b5563;
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding: 18px 16px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            color: #6b7280;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            table {
+                font-size: 0.82em;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cadastro de Participantes</h1>
+        </div>
+
+        <div class="section-header">Mapeamento de campos - Participantes</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>WS Compliance</th>
+                    <th>Conector</th>
+                    <th>API Netsuite</th>
+                    <th>Condição / Regra</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>participantes/codPart</td>
+                    <td>codpart</td>
+                    <td>results/custentity_brl_entity_t_fed_tax_reg</td>
+                    <td class="condicao">Se for nulo, usar results/entityid</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>participantes/dmTipoPessoa</td>
+                    <td>dmtipopessoa</td>
+                    <td>results/isperson</td>
+                    <td class="condicao">Se country ≠ "BR", usar 2; senão aplicar de-para</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>participantes/Nome</td>
+                    <td>nome</td>
+                    <td>results/companyname</td>
+                    <td class="condicao">Se nulo, usar results/altname</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>participantes/Fantasia</td>
+                    <td>fantasia</td>
+                    <td>results/altname</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>participantes/codNif</td>
+                    <td>codnif</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>participantes/endereco/logradouro</td>
+                    <td>endereco_logradouro</td>
+                    <td>results/addr1</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>participantes/endereco/numero</td>
+                    <td>endereco_numero</td>
+                    <td>results/addr3</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>participantes/endereco/complemento</td>
+                    <td>endereco_complemento</td>
+                    <td>results/custrecord_brl_addrform_t_complement</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>participantes/endereco/bairro</td>
+                    <td>endereco_bairro</td>
+                    <td>results/addr2</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>participantes/endereco/ibgeCidade</td>
+                    <td>endereco_ibgecidade</td>
+                    <td>custrecord_ftebr_city_i_ibge_code</td>
+                    <td class="condicao">Se exterior → 9999999</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>participantes/endereco/cep</td>
+                    <td>endereco_cep</td>
+                    <td>results/zip</td>
+                    <td class="condicao">Se exterior → nulo</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>endereco_uf</td>
+                    <td>-</td>
+                    <td>results/state</td>
+                    <td class="condicao">Se exterior → EX</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>participantes/endereco/codSiscomexPais</td>
+                    <td>endereco_codsiscomexpais</td>
+                    <td>results/country</td>
+                    <td class="condicao">Buscar coluna "sped" pela sigla do país</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>participantes/contato/telefone</td>
+                    <td>contato_telefone</td>
+                    <td>results/phone</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>participantes/contato/email</td>
+                    <td>contato_email</td>
+                    <td>results/email</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>participantes/documentos/cpfCnpj/cpf</td>
+                    <td>documentos_cpf_cnpj</td>
+                    <td>results/custentity_brl_entity_t_fed_tax_reg</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>participantes/documentos/ie</td>
+                    <td>documentos_inscricaomunicipal</td>
+                    <td>results/custentity_brl_entity_t_municip_tx_reg</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td>numero_da_linha</td>
+                    <td>-</td>
+                    <td>results/rownumber</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td>chave_logica</td>
+                    <td>-</td>
+                    <td>concatenação</td>
+                    <td class="condicao">Prefixo F ou C + CNPJ/CPF<br>Vendor = F, Consumer = C</td>
+                </tr>
+            </tbody>
+        </table>
+
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+        <p style="font-size: 0.8em;">Integração desenvolvida e mantida por <a href="https://inovarebr.com/"><img src="../favicon_1.png" alt="Inovare" title="Inovare Soluções e Sistemas"></a></p>
+    </div>
+    </div>
+</body>
+</html>

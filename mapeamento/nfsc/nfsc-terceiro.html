@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFSC Terceiro</title>
+    <link rel="icon" href="../../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            flex: 1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: #ffffff;
+            padding: 26px 24px;
+            margin: -24px -24px 28px -24px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #dbe9fb, #aec4f5);
+            color: #16307f;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e9effe;
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f5f7fb;
+        }
+
+        .condicao {
+            color: #374151;
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding: 18px 16px;
+            background-color: #f4f6fb;
+            border-radius: 10px;
+            color: #525f7f;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 14px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            table {
+                font-size: 0.84rem;
+            }
+
+            th, td {
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NFSC Terceiro</h1>
+        </div>
+
+        <div class="section-header">Mapeamento de campos - NFSC Terceiro</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Ord</th>
+                    <th>WS Compliance</th>
+                    <th>Conector</th>
+                    <th>API Netsuite</th>
+                    <th>Condição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>nfServicos/CpfCnpj</td><td></td><td></td><td></td></tr>
+                <tr><td>2</td><td>nfServicos/CpfCnpj/Cpf</td><td>nota_fiscal_continuo.cpf</td><td></td><td></td></tr>
+                <tr><td>3</td><td>nfServicos/CpfCnpj/CNPJ</td><td>nota_fiscal_continuo.cnpj</td><td>results/custbody_brl_tran_t_subsd_fed_tx_reg</td><td></td></tr>
+                <tr><td>4</td><td>nfServicos/dmIndEmit</td><td>nota_fiscal_continuo.dmindemit</td><td>results/dmindemit</td><td></td></tr>
+                <tr><td>5</td><td>nfServicos/dmIndOper</td><td>nota_fiscal_continuo.dmindoper</td><td>results/dmindoper</td><td></td></tr>
+                <tr><td>6</td><td>nfServicos/codPart</td><td>nota_fiscal_continuo.codpart</td><td>results/custbody_brl_tran_t_vendor_fed_tx_reg</td><td></td></tr>
+                <tr><td>7</td><td>nfServicos/CodigoModeloFiscal</td><td>nota_fiscal_continuo.codigomodelofiscal</td><td>results/custbody_brl_tran_t_edoc_model</td><td></td></tr>
+                <tr><td>8</td><td>nfServicos/serie</td><td>nota_fiscal_continuo.serie</td><td>results/custbody_brl_tran_t_edoc_series ou results/custbody_brl_tran_t_rps_series</td><td></td></tr>
+                <tr><td>9</td><td>nfServicos/subSerie</td><td>nota_fiscal_continuo.subserie</td><td></td><td></td></tr>
+                <tr><td>10</td><td>nfServicos/nroNf</td><td>nota_fiscal_continuo.nronf</td><td>results/tranid</td><td></td></tr>
+                <tr><td>11</td><td>nfServicos/dmStProc</td><td>nota_fiscal_continuo.dmstproc</td><td>results/custbody_brl_tran_dt_rps_date ou results/trandate</td><td></td></tr>
+                <tr><td>12</td><td>nfServicos/dmLegado</td><td>nota_fiscal_continuo.dmlegado</td><td></td><td>fixo 0</td></tr>
+                <tr><td>13</td><td>nfServicos/sitDocto</td><td>nota_fiscal_continuo.sitdocto</td><td>results/sitdocto</td><td></td></tr>
+                <tr><td>14</td><td>nfServicos/dtEmiss</td><td>nota_fiscal_continuo.dtemiss</td><td>results/custbody_brl_tran_dt_rps_date ou results/trandate</td><td></td></tr>
+                <tr><td>15</td><td>nfServicos/dtSaiEnt</td><td>nota_fiscal_continuo.dtsaient</td><td>results/createddate</td><td></td></tr>
+                <tr><td>16</td><td>nfServicos/codInforCompl</td><td>nota_fiscal_continuo.codinforcompl</td><td></td><td></td></tr>
+                <tr><td>17</td><td>nfServicos/codCta</td><td>nota_fiscal_continuo.codcta</td><td>results/acctnumber</td><td></td></tr>
+                <tr><td>18</td><td>nfServicos/codigoNaturezaOperacao</td><td>nota_fiscal_continuo.codigonaturezaoperacao</td><td>results/custbody_brl_tran_l_transaction_nature</td><td></td></tr>
+                <tr><td>19</td><td>nfServicos/dmTpAssinante</td><td>nota_fiscal_continuo.dmtpassinante</td><td></td><td></td></tr>
+                <tr><td>20</td><td>nfServicos/nroChaveNfCont</td><td>nota_fiscal_continuo.nrochavenfcont</td><td></td><td></td></tr>
+                <tr><td>21</td><td>nfServicos/IdNfErp</td><td></td><td>results/internalid</td><td></td></tr>
+                <tr><td>22</td><td>nfServicos/cpfCnpj_scp</td><td></td><td></td><td></td></tr>
+                <tr><td>23</td><td>nfServicos/Cpf</td><td></td><td></td><td></td></tr>
+                <tr><td>24</td><td>nfServicos/Cnpj</td><td></td><td></td><td></td></tr>
+                <tr><td>25</td><td>nfServicos/dmFimNFe</td><td></td><td></td><td></td></tr>
+                <tr><td>26</td><td>nfServicos/unidOrg</td><td></td><td></td><td></td></tr>
+                <tr><td>27</td><td>nfServicos/codNatRend</td><td></td><td></td><td></td></tr>
+                <tr><td>28</td><td>nfServicos/valores</td><td></td><td></td><td></td></tr>
+                <tr><td>29</td><td>nfServicos/valores/vlDoc</td><td>notafiscalcontinuo_valores.valores_vldoc</td><td>results/items/itemamount</td><td>Somar todos os itens</td></tr>
+                <tr><td>30</td><td>nfServicos/valores/vlDesc</td><td>notafiscalcontinuo_valores.valores_vldesc</td><td></td><td></td></tr>
+                <tr><td>31</td><td>nfServicos/valores/vlServ</td><td>notafiscalcontinuo_valores.valores_vlserv</td><td>results/items/itemamount</td><td>Somar todos os itens</td></tr>
+                <tr><td>32</td><td>nfServicos/valores/vlServNt</td><td>notafiscalcontinuo_valores.valores_vlservnt</td><td></td><td></td></tr>
+                <tr><td>33</td><td>nfServicos/valores/vlTerc</td><td>notafiscalcontinuo_valores.valores_vlterc</td><td></td><td></td></tr>
+                <tr><td>34</td><td>nfServicos/valores/vlBcIcms</td><td>notafiscalcontinuo_valores.valores_vlbcicms</td><td>results/items/taxDetail/taxbasis</td><td>Somar por CST quando name like ICMS</td></tr>
+                <tr><td>35</td><td>nfServicos/valores/vlIcms</td><td>notafiscalcontinuo_valores.valores_vlicms</td><td>results/items/taxDetail/taxamount</td><td>Somar por CST quando name like ICMS</td></tr>
+                <tr><td>36</td><td>nfServicos/valores/vlPis</td><td>notafiscalcontinuo_valores.valores_vlpis</td><td>results/items/taxDetail/taxamount</td><td>Somar por CST quando name like PIS</td></tr>
+                <tr><td>37</td><td>nfServicos/valores/vlCofins</td><td>notafiscalcontinuo_valores.valores_vlcofins</td><td>results/items/taxDetail/taxamount</td><td>Somar por CST quando name like COFINS</td></tr>
+                <tr><td>38</td><td>nfServicos/valores/vlDa</td><td>notafiscalcontinuo_valores.valores_vlda</td><td></td><td></td></tr>
+                <tr><td>39</td><td>nfServicos/valores/VlForn</td><td>notafiscalcontinuo_valores.valores_vlforn</td><td></td><td></td></tr>
+                <tr><td>40</td><td>nfServicos/valores/vlEnerInjet</td><td>notafiscalcontinuo_valores.valores_vlenerginjet</td><td></td><td></td></tr>
+                <tr><td>41</td><td>nfServicos/valores/vlOutrasDed</td><td>notafiscalcontinuo_valores.valores_vloutrasded</td><td></td><td></td></tr>
+                <tr><td>42</td><td>nfServicos/regImpostoIcms</td><td></td><td></td><td></td></tr>
+                <tr><td>43</td><td>nfServicos/regImpostoIcms/codStIcms</td><td>notafiscalcontinuo_regimpostoicms.codsticms</td><td>results/items/taxDetail/cst</td><td>Somar por CST quando name like ICMS</td></tr>
+                <tr><td>44</td><td>nfServicos/regImpostoIcms/cfop</td><td>notafiscalcontinuo_regimpostoicms.cfop</td><td>results/taxDetail/cfop ou results/items/cfop</td><td>Limpar "."</td></tr>
+                <tr><td>45</td><td>nfServicos/regImpostoIcms/dmOrigMerc</td><td>notafiscalcontinuo_regimpostoicms.dmorigmerc</td><td></td><td>Fixo 0</td></tr>
+                <tr><td>46</td><td>nfServicos/regImpostoIcms/codObsLanctoFiscal</td><td>notafiscalcontinuo_regimpostoicms.codobslanctofiscal</td><td></td><td></td></tr>
+                <tr><td>47</td><td>nfServicos/regImpostoIcms/vlOper</td><td>notafiscalcontinuo_regimpostoicms.vloper</td><td>results/items/itemamount</td><td>Somar por CST quando name like ICMS</td></tr>
+                <tr><td>48</td><td>nfServicos/regImpostoIcms/aliquota</td><td>notafiscalcontinuo_regimpostoicms.aliquota</td><td>results/items/taxDetail/taxrate * 100</td><td>Somar por CST quando name like ICMS</td></tr>
+                <tr><td>49</td><td>nfServicos/regImpostoIcms/vlBcIcms</td><td>notafiscalcontinuo_regimpostoicms.vlbcicms</td><td>results/items/taxDetail/taxbasis</td><td>Somar por CST quando name like ICMS</td></tr>
+                <tr><td>50</td><td>nfServicos/regImpostoIcms/vlIcms</td><td>notafiscalcontinuo_regimpostoicms.vlicms</td><td>results/items/taxDetail/taxamount</td><td>Somar por CST quando name like ICMS</td></tr>
+                <tr><td>51</td><td>nfServicos/regImpostoIcms/vlRedBcIcms</td><td>notafiscalcontinuo_regimpostoicms.vlredbcicms</td><td></td><td></td></tr>
+                <tr><td>52</td><td>nfServicos/regImpostoIcms/vlBcIcmsSt</td><td>notafiscalcontinuo_regimpostoicms.vlbcicmsst</td><td></td><td></td></tr>
+                <tr><td>53</td><td>nfServicos/regImpostoIcms/vlIcmsSt</td><td>notafiscalcontinuo_regimpostoicms.vlicmsst</td><td></td><td></td></tr>
+                <tr><td>54</td><td>nfServicos/regImpostoIcms/vlBaseOutro</td><td>notafiscalcontinuo_regimpostoicms.vlbaseoutro</td><td></td><td></td></tr>
+                <tr><td>55</td><td>nfServicos/regImpostoIcms/aliquotaOutro</td><td>notafiscalcontinuo_regimpostoicms.aliquotaoutro</td><td></td><td></td></tr>
+                <tr><td>56</td><td>nfServicos/regImpostoIcms/vlImpOutro</td><td>notafiscalcontinuo_regimpostoicms.vlimpoutro</td><td></td><td></td></tr>
+                <tr><td>57</td><td>nfServicos/regImpostoIcms/vlBaseIsenta</td><td>notafiscalcontinuo_regimpostoicms.vlbaseisenta</td><td></td><td></td></tr>
+                <tr><td>58</td><td>nfServicos/regImpostoIcms/vlFcpIcms</td><td>notafiscalcontinuo_regimpostoicms.vlfcpicms</td><td></td><td></td></tr>
+                <tr><td>59</td><td>nfServicos/regImpostoIcms/vlFcpIcmsSt</td><td>notafiscalcontinuo_regimpostoicms.vlfcpicmsst</td><td></td><td></td></tr>
+                <tr><td>60</td><td>nfServicos/nfRegAnalDifal</td><td></td><td></td><td></td></tr>
+                <tr><td>61</td><td>nfServicos/nfRegAnalDifal/aliqIe</td><td></td><td></td><td></td></tr>
+                <tr><td>62</td><td>nfServicos/nfRegAnalDifal/aliqOrig</td><td></td><td></td><td></td></tr>
+                <tr><td>63</td><td>nfServicos/nfRegAnalDifal/dmTipo</td><td></td><td></td><td></td></tr>
+                <tr><td>64</td><td>nfServicos/nfRegAnalDifal/vlBcIcms</td><td></td><td></td><td></td></tr>
+                <tr><td>65</td><td>nfServicos/nfRegAnalDifal/vlDifAliq</td><td></td><td></td><td></td></tr>
+                <tr><td>66</td><td>nfServicos/regImpostoPis</td><td>notafiscalcontinuo_regimpostopis.</td><td></td><td></td></tr>
+                <tr><td>67</td><td>nfServicos/regImpostoPis/codStPis</td><td>notafiscalcontinuo_regimpostopis.codstpis</td><td>results/items/taxDetail/cst</td><td>Somar por CST quando name like PIS</td></tr>
+                <tr><td>68</td><td>nfServicos/regImpostoPis/vlItem</td><td>notafiscalcontinuo_regimpostopis.vlitem</td><td>results/items/itemamount</td><td>Somar por CST quando name like PIS</td></tr>
+                <tr><td>69</td><td>nfServicos/regImpostoPis/codBaseCalcCredPc</td><td>notafiscalcontinuo_regimpostopis.codbasecalccredpc</td><td></td><td></td></tr>
+                <tr><td>70</td><td>nfServicos/regImpostoPis/vlBcPis</td><td>notafiscalcontinuo_regimpostopis.vlbcpis</td><td>results/items/taxDetail/taxbasis</td><td>Somar por CST quando name like PIS</td></tr>
+                <tr><td>71</td><td>nfServicos/regImpostoPis/aliquotaPis</td><td>notafiscalcontinuo_regimpostopis.aliquotapis</td><td>results/items/taxDetail/taxrate * 100</td><td>Somar por CST quando name like PIS</td></tr>
+                <tr><td>72</td><td>nfServicos/regImpostoPis/vlPis</td><td>notafiscalcontinuo_regimpostopis.vlpis</td><td>results/item/taxDetail/taxamount</td><td>Somar por CST quando name like PIS</td></tr>
+                <tr><td>73</td><td>nfServicos/regImpostoPis/codCta</td><td>notafiscalcontinuo_regimpostopis.codcta</td><td>results/acctnumber</td><td></td></tr>
+                <tr><td>74</td><td>nfServicos/regImpostoPis/naturezaReceitaPis</td><td>notafiscalcontinuo_regimpostopis.naturezareceitapis</td><td></td><td></td></tr>
+                <tr><td>75</td><td>nfServicos/inforFiscal</td><td></td><td></td><td></td></tr>
+                <tr><td>76</td><td>nfServicos/inforFiscal/codObsLanctoFiscal</td><td></td><td></td><td></td></tr>
+                <tr><td>77</td><td>nfServicos/inforFiscal/txtCompl</td><td></td><td></td><td></td></tr>
+                <tr><td>78</td><td>nfServicos/inforFiscal/infProvDoctoFiscal</td><td></td><td></td><td></td></tr>
+                <tr><td>79</td><td>nfServicos/inforFiscal/infProvDoctoFiscal/codOcorAjIcms</td><td></td><td></td><td></td></tr>
+                <tr><td>80</td><td>nfServicos/inforFiscal/infProvDoctoFiscal/nroItem</td><td></td><td></td><td></td></tr>
+                <tr><td>81</td><td>nfServicos/inforFiscal/infProvDoctoFiscal/descrComplAj</td><td></td><td></td><td></td></tr>
+                <tr><td>82</td><td>nfServicos/inforFiscal/infProvDoctoFiscal/vlBaseCalcIcms</td><td></td><td></td><td></td></tr>
+                <tr><td>83</td><td>nfServicos/inforFiscal/infProvDoctoFiscal/aliqIcms</td><td></td><td></td><td></td></tr>
+                <tr><td>84</td><td>nfServicos/inforFiscal/infProvDoctoFiscal/vlIcms</td><td></td><td></td><td></td></tr>
+                <tr><td>85</td><td>nfServicos/inforFiscal/infProvDoctoFiscal/vlOutros</td><td></td><td></td><td></td></tr>
+                <tr><td>86</td><td>nfServicos/regImpostoCofins</td><td>notafiscalcontinuo_regimpostocofins.</td><td></td><td></td></tr>
+                <tr><td>87</td><td>nfServicos/regImpostoCofins/codStCofins</td><td>notafiscalcontinuo_regimpostocofins.codstcofins</td><td>results/items/taxDetail/cst</td><td>Somar por CST quando name like COFINS</td></tr>
+                <tr><td>88</td><td>nfServicos/regImpostoCofins/vlItem</td><td>notafiscalcontinuo_regimpostocofins.vlitem</td><td>results/items/itemamount</td><td>Somar por CST quando name like COFINS</td></tr>
+                <tr><td>89</td><td>nfServicos/regImpostoCofins/codBaseCalcCredPc</td><td>notafiscalcontinuo_regimpostocofins.codbasecalccredpc</td><td></td><td></td></tr>
+                <tr><td>90</td><td>nfServicos/regImpostoCofins/vlBcCofins</td><td>notafiscalcontinuo_regimpostocofins.vlbccofins</td><td>results/items/taxDetail/taxbasis</td><td>Somar por CST quando name like COFINS</td></tr>
+                <tr><td>91</td><td>nfServicos/regImpostoCofins/aliquotaCofins</td><td>notafiscalcontinuo_regimpostocofins.aliquotacofins</td><td>results/items/taxDetail/taxrate * 100</td><td>Somar por CST quando name like COFINS</td></tr>
+                <tr><td>92</td><td>nfServicos/regImpostoCofins/vlCofins</td><td>notafiscalcontinuo_regimpostocofins.vlcofins</td><td>results/item/taxDetail/taxamount</td><td>Somar por CST quando name like COFINS</td></tr>
+                <tr><td>93</td><td>nfServicos/regImpostoCofins/codCta</td><td>notafiscalcontinuo_regimpostocofins.codcta</td><td>results/acctnumber</td><td>Somar por CST quando name like COFINS</td></tr>
+                <tr><td>94</td><td>nfServicos/regImpostoCofins/naturezaReceitaCofins</td><td>notafiscalcontinuo_regimpostocofins.naturezareceitacofins</td><td></td><td></td></tr>
+                <tr><td>95</td><td>nfServicos/procRef</td><td></td><td></td><td></td></tr>
+                <tr><td>96</td><td>nfServicos/procRef/numProc</td><td></td><td></td><td></td></tr>
+                <tr><td>97</td><td>nfServicos/procRef/origemProcesso</td><td></td><td></td><td></td></tr>
+                <tr><td>98</td><td>nfServicos/docfiscalRef</td><td></td><td></td><td></td></tr>
+                <tr><td>99</td><td>nfServicos/docfiscalRef/dmIndEmitRef</td><td></td><td></td><td></td></tr>
+                <tr><td>100</td><td>nfServicos/docfiscalRef/ddmIndOperRef</td><td></td><td></td><td></td></tr>
+                <tr><td>101</td><td>nfServicos/docfiscalRef/codPartRef</td><td></td><td></td><td></td></tr>
+                <tr><td>102</td><td>nfServicos/docfiscalRef/codigoModeloFiscalRef</td><td></td><td></td><td></td></tr>
+                <tr><td>103</td><td>nfServicos/docfiscalRef/serieRef</td><td></td><td></td><td></td></tr>
+                <tr><td>104</td><td>nfServicos/docfiscalRef/nroNfRef</td><td></td><td></td><td></td></tr>
+                <tr><td>105</td><td>nfServicos/docfiscalRef/dtEmissRef</td><td></td><td></td><td></td></tr>
+                <tr><td>106</td><td>nfServicos/docfiscalRef/cnpjEmitRef</td><td></td><td></td><td></td></tr>
+                <tr><td>107</td><td>nfServicos/docfiscalRef/nroChaveNfContRef</td><td></td><td></td><td></td></tr>
+                <tr><td>108</td><td>nfServicos/docfiscalRef/hashNfref</td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            &copy; 2026 Compliance Soluções. Todos os direitos reservados.
+            <p style="margin: 8px 0 0; font-size: 0.85rem;">Desenvolvido por Inovare para documentação de integração.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFS-e Terceiro</title>
+    <link rel="icon" href="../../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            flex: 1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 22px;
+            margin: -20px -20px 24px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.9em;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.05em;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px 10px;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e8effb;
+            color: #1f2937;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f9fc;
+        }
+
+        .condicao {
+            color: #4b5563;
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding: 18px 16px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            color: #6b7280;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            table {
+                font-size: 0.82em;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NFS-e Terceiro</h1>
+        </div>
+
+        <div class="section-header">Mapeamento de campos - NFS-e Terceiro</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>WS Compliance</th>
+                    <th>Conector</th>
+                    <th>API Netsuite</th>
+                    <th>Condição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>notasServico/cpfCnpj/Cpf</td>
+                    <td>nota_fiscal_servico.cpf</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/cpfCnpj/Cnpj</td>
+                    <td>nota_fiscal_servico.cnpj</td>
+                    <td>results/custbody_brl_tran_t_subsd_fed_tx_reg</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dmIndEmit</td>
+                    <td>nota_fiscal_servico.dmindemit</td>
+                    <td>results/dmindemit</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dmIndOper</td>
+                    <td>nota_fiscal_servico.dmindoper</td>
+                    <td>results/dmindoper</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/codPart</td>
+                    <td>nota_fiscal_servico.codpart</td>
+                    <td>results/custbody_brl_tran_t_vendor_fed_tx_reg</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/CodigoModeloFiscal</td>
+                    <td>nota_fiscal_servico.codigomodelofiscal</td>
+                    <td>results/custbody_brl_tran_t_edoc_model</td>
+                    <td class="condicao">Se custpage_brl_tran_t_rps_num ou custpage_brl_tran_t_edoc_model tiver preenchido, então enviar fixo 99, senão ND</td>
+                </tr>
+                <tr>
+                    <td>notasServico/serie</td>
+                    <td>nota_fiscal_servico.serie</td>
+                    <td>results/custbody_brl_tran_t_edoc_series ou results/custbody_brl_tran_t_rps_series</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/nroNf</td>
+                    <td>nota_fiscal_servico.nronf</td>
+                    <td>results/custbody_brl_tran_t_edoc_number ou custbody_brl_tran_t_rps_num ou tranid</td>
+                    <td class="condicao">Tentar no primeiro campo; se vazio ir para o seguinte, sendo tranid o default</td>
+                </tr>
+                <tr>
+                    <td>notasServico/subSerie</td>
+                    <td>nota_fiscal_servico.subserie</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dtEmiss</td>
+                    <td>nota_fiscal_servico.dtemiss</td>
+                    <td>results/custbody_brl_tran_dt_rps_date ou results/trandate</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dtExeServ</td>
+                    <td>nota_fiscal_servico.dtexeserv</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dtSaiEnt</td>
+                    <td>nota_fiscal_servico.dtsaient</td>
+                    <td>results/trandate</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/sitDocto</td>
+                    <td>nota_fiscal_servico.sitdocto</td>
+                    <td>results/sitdocto</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/chaveNfse</td>
+                    <td>nota_fiscal_servico.chavenfse</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dmIndPag</td>
+                    <td>nota_fiscal_servico.dmindpag</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dmNatOper</td>
+                    <td>nota_fiscal_servico.dmnatoper</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dmTipoRps</td>
+                    <td>nota_fiscal_servico.dmtiporps</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dmStatusRps</td>
+                    <td>nota_fiscal_servico.dmstatusrps</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/nroRpsSubst</td>
+                    <td>nota_fiscal_servico.nrorpssubst</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/serieRpsSubst</td>
+                    <td>nota_fiscal_servico.serierpssubst</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dmStProc</td>
+                    <td>nota_fiscal_servico.dmstproc</td>
+                    <td>results/dmstproc</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/sistOrig</td>
+                    <td>nota_fiscal_servico.sistorig</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/unidOrg</td>
+                    <td>nota_fiscal_servico.unidorg</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dmLegado</td>
+                    <td>nota_fiscal_servico.dmlegado</td>
+                    <td>&nbsp;</td>
+                    <td class="condicao">Fixo 0</td>
+                </tr>
+                <tr>
+                    <td>notasServico/cdCidadeModFiscal</td>
+                    <td>nota_fiscal_servico.cdcidademodfiscal</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/idNfErp</td>
+                    <td>nota_fiscal_servico.idnferp</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/IdEstrangeiro</td>
+                    <td>nota_fiscal_servico.terceiro_idestrangeiro</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/nroAutNfs</td>
+                    <td>nota_fiscal_servico.nroautnfs</td>
+                    <td>results/custbody_brl_tran_t_edoc_number</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dtAutNfs</td>
+                    <td>nota_fiscal_servico.dtautnfs</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/codNatOper</td>
+                    <td>nota_fiscal_servico.codnatoper</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/codVerifNfs</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/dtQuitacao</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/vlTotReceb</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>nota_fiscal_servico.numero_da_linha</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>nota_fiscal_servico.chave_logica</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/cpfCnpj_scp/Cpf</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/cpfCnpj_scp/Cnpj</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="condicao">Controlado no insert</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/nroItem</td>
+                    <td>&nbsp;</td>
+                    <td>results/taxDetail/rownumber</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/codItemServ</td>
+                    <td>&nbsp;</td>
+                    <td>results/items/iteminternalid</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/descricao</td>
+                    <td>&nbsp;</td>
+                    <td>results/items/itemdescription ou results/memo</td>
+                    <td class="condicao">Se itemdescription vazio, usar memo da capa</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/cfop</td>
+                    <td>&nbsp;</td>
+                    <td>results/items/cfop</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/cnae</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/cdListaServ</td>
+                    <td>&nbsp;</td>
+                    <td>results/items/itemcode</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/codTribMunicipio</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/codBaseCalcCredPc</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/dmIndOrigCred</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/dtPgtoPis</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/dtPgtoCofins</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/dmLocalExecServ</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/dmTribMunPrest</td>
+                    <td>&nbsp;</td>
+                    <td>results/items/dmtribmunprest</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/cidadeIbge</td>
+                    <td>&nbsp;</td>
+                    <td>results/custrecord_ftebr_city_i_ibge_code</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/codCta</td>
+                    <td>&nbsp;</td>
+                    <td>results/items/acctnumber ou results/acctnumber</td>
+                    <td class="condicao">Se o primeiro for nulo, usar o segundo</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/codCentroCusto</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/cdCidadeBeneficFiscal</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/cdTpServReinf</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="condicao">Falta mapear na API</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/dmIndCprb</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/vlDesc</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/Valores/vlServico</td>
+                    <td>&nbsp;</td>
+                    <td>results/items/itemamount</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/Valores/vlDescIncondicionado</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/Valores/vlDescCondicionado</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/Valores/vlDeducao</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/Valores/vlOutraRetencao</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/codImposto</td>
+                    <td>&nbsp;</td>
+                    <td>results/taxDetail/name</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/tipo</td>
+                    <td>&nbsp;</td>
+                    <td>regra conforme nome</td>
+                    <td class="condicao">Se tiver RET, RETIDO ou RF no nome → 1, senão 0</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/codSt</td>
+                    <td>&nbsp;</td>
+                    <td>results/taxDetail/cst</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/vlBaseCalc</td>
+                    <td>&nbsp;</td>
+                    <td>results/taxDetail/taxbasis</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/aliquota</td>
+                    <td>&nbsp;</td>
+                    <td>results/taxDetail/taxrate * 100</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/vlImpTrib</td>
+                    <td>&nbsp;</td>
+                    <td>results/taxDetail/taxamount</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/vlDeducao</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/naturezaReceitaPisCofins</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/tipoRetencaoImposto</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/codReceita</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/aposentEspecial/percentual</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/itens/impostos/aposentEspecial/vlAdicional</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/inforAdic/tipo</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="condicao">Fixo 0</td>
+                </tr>
+                <tr>
+                    <td>notasServico/inforAdic/campo</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/inforAdic/conteudo</td>
+                    <td>&nbsp;</td>
+                    <td>results/custbody_brl_tran_lt_additional_info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/inforAdic/origemProcesso</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/nome</td>
+                    <td>&nbsp;</td>
+                    <td>results/addressee</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/utilEndEmit</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/logradouro</td>
+                    <td>&nbsp;</td>
+                    <td>results/addr1</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/numero</td>
+                    <td>&nbsp;</td>
+                    <td>results/addr3</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/complemento</td>
+                    <td>&nbsp;</td>
+                    <td>results/custrecord_brl_addrform_t_complement</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/bairro</td>
+                    <td>&nbsp;</td>
+                    <td>results/addr2</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/cidade</td>
+                    <td>&nbsp;</td>
+                    <td>results/city</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/uf</td>
+                    <td>&nbsp;</td>
+                    <td>results/state</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/ibgeCidade</td>
+                    <td>&nbsp;</td>
+                    <td>results/custrecord_ftebr_city_i_ibge_code</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/cep</td>
+                    <td>&nbsp;</td>
+                    <td>results/zip</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/codSiscomexPais</td>
+                    <td>&nbsp;</td>
+                    <td>results/country</td>
+                    <td class="condicao">Buscar na tabela país e usar campo SPED</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/endereco/pais</td>
+                    <td>&nbsp;</td>
+                    <td>results/country</td>
+                    <td class="condicao">Buscar na tabela país e usar campo nome</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/contato/telefone</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/contato/email</td>
+                    <td>&nbsp;</td>
+                    <td>results/email</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/documentos/cpfCnpj/Cpf</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/documentos/cpfCnpj/Cnpj</td>
+                    <td>&nbsp;</td>
+                    <td>results/custbody_brl_tran_t_vendor_fed_tx_reg</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/documentos/ie</td>
+                    <td>&nbsp;</td>
+                    <td>results/custbody_brl_tran_t_cust_fed_tx_reg</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/documentos/inscricaoMunicipal</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/participante/documentos/suframa</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/detConstrCivil/codObra</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/detConstrCivil/nroArt</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/detConstrCivil/nroCno</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/detConstrCivil/dmIndObra</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/fatura/fatura/nroFatura</td>
+                    <td>notafiscalservico_fatura.nrofatura</td>
+                    <td>results/fatura_numero ou results/tranid</td>
+                    <td class="condicao">Se o primeiro for nulo, usar o segundo</td>
+                </tr>
+                <tr>
+                    <td>notasServico/fatura/duplicatas/nroParcela</td>
+                    <td>notafiscalservicofatura_duplicata.nroparcela</td>
+                    <td>results/fatura_numero ou results/tranid</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/fatura/duplicatas/dtVencto</td>
+                    <td>notafiscalservicofatura_duplicata.dtvencto</td>
+                    <td>results/duedate</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/fatura/duplicatas/vlDuplicata</td>
+                    <td>notafiscalservicofatura_duplicata.vlduplicata</td>
+                    <td>results/estgrossprofit</td>
+                    <td class="condicao">Usar valor absoluto</td>
+                </tr>
+                <tr>
+                    <td>notasServico/nfProcReinf/dmTpProc</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/nfProcReinf/nroProc</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/nfProcReinf/codSusp</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/nfProcReinf/dmIndProcRetAdic</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>notasServico/nfProcReinf/valor</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+            <p style="font-size: 0.8em;">Integração desenvolvida e mantida por <a href="https://inovarebr.com/"><img src="../../favicon_1.png" alt="Inovare" title="Inovare Soluções e Sistemas"></a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFE Legado</title>
+    <link rel="icon" href="../../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            flex: 1;
+        }
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: #ffffff;
+            padding: 26px 24px;
+            margin: -24px -24px 28px -24px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #dbe9fb, #aec4f5);
+            color: #16307f;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #e9effe;
+            color: #1f2937;
+            font-weight: 700;
+        }
+        tr:nth-child(even) {
+            background-color: #f5f7fb;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 18px 16px;
+            background-color: #f4f6fb;
+            border-radius: 10px;
+            color: #525f7f;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 900px) {
+            body { padding: 14px; }
+            .container { padding: 18px; }
+            table { font-size: 0.84rem; }
+            th, td { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NFE Legado</h1>
+        </div>
+        <div class="section-header">Mapeamento de campos - NFE Legado</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ord</th>
+                    <th>WS Compliance</th>
+                    <th>Conector</th>
+                    <th>API Netsuite</th>
+                    <th>Condição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>3</td><td>nfMercantis/cpfCnpj/Cpf</td><td>NOTA_FISCAL.CPF</td><td></td><td></td></tr>
+                <tr><td>4</td><td>nfMercantis/cpfCnpj/Cnpj</td><td>NOTA_FISCAL.CNPJ</td><td>results/custbody_brl_tran_t_subsd_fed_tx_reg</td><td>Remover . / -</td></tr>
+                <tr><td>5</td><td>nfMercantis/dmIndEmit</td><td>NOTA_FISCAL.DMINDEMIT</td><td></td><td>Fixo 0</td></tr>
+                <tr><td>6</td><td>nfMercantis/dmIndOper</td><td>NOTA_FISCAL.DMINDOPER</td><td>results/dmindoper</td><td></td></tr>
+                <tr><td>7</td><td>nfMercantis/codPart</td><td>NOTA_FISCAL.CODPART</td><td>results/custbody_brl_tran_t_cust_fed_tx_reg</td><td>Remover . / -</td></tr>
+                <tr><td>8</td><td>nfMercantis/CodigoModeloFiscal</td><td>NOTA_FISCAL.CODIGOMODELOFISCAL</td><td>results/custbody_brl_tran_t_edoc_model ou results/custbody_brl_tran_t_access_key</td><td>Na access_key, pegar 2 caracteres a partir da posição 21</td></tr>
+                <tr><td>9</td><td>nfMercantis/serie</td><td>NOTA_FISCAL.SERIE</td><td>results/custbody_brl_tran_t_edoc_series</td><td></td></tr>
+                <tr><td>10</td><td>nfMercantis/nroNf</td><td>NOTA_FISCAL.NRONF</td><td>results/custbody_brl_tran_t_edoc_number</td><td></td></tr>
+                <tr><td>11</td><td>nfMercantis/sitDocto</td><td>NOTA_FISCAL.SITDOCTO</td><td>results/custbody_brl_tran_l_edoc_status</td><td></td></tr>
+                <tr><td>12</td><td>nfMercantis/codNatOper</td><td>NOTA_FISCAL.CODNATOPER</td><td>results/custbody_brl_tran_l_transaction_nature</td><td></td></tr>
+                <tr><td>13</td><td>nfMercantis/descrNatOper</td><td>NOTA_FISCAL.DESCRNATOPER</td><td>results/custbody_brl_tran_l_transaction_nature</td><td></td></tr>
+                <tr><td>14</td><td>nfMercantis/dmIndPag</td><td>NOTA_FISCAL.DMINDPAG</td><td></td><td></td></tr>
+                <tr><td>15</td><td>nfMercantis/dtSaiEnt</td><td>NOTA_FISCAL.DTSAIENT</td><td></td><td></td></tr>
+                <tr><td>16</td><td>nfMercantis/horaSaiEnt</td><td>NOTA_FISCAL.HORASAIENT</td><td></td><td></td></tr>
+                <tr><td>17</td><td>nfMercantis/dtEmiss</td><td>NOTA_FISCAL.DTEMISS</td><td>results/trandate</td><td></td></tr>
+                <tr><td>18</td><td>nfMercantis/ufEmbarq</td><td>NOTA_FISCAL.UFEMBARQUE</td><td></td><td></td></tr>
+                <tr><td>19</td><td>nfMercantis/localEmbarq</td><td>NOTA_FISCAL.LOCALEMBARQ</td><td></td><td></td></tr>
+                <tr><td>20</td><td>nfMercantis/localDespacho</td><td>NOTA_FISCAL.LOCALDESPACHO</td><td></td><td></td></tr>
+                <tr><td>21</td><td>nfMercantis/nfEmpenho</td><td>NOTA_FISCAL.NFEMPENHO</td><td></td><td></td></tr>
+                <tr><td>22</td><td>nfMercantis/pedidoCompra</td><td>NOTA_FISCAL.PEDIDOCOMPRA</td><td></td><td></td></tr>
+                <tr><td>23</td><td>nfMercantis/contratoCompra</td><td>NOTA_FISCAL.CONTRATOCOMPRA</td><td></td><td></td></tr>
+                <tr><td>24</td><td>nfMercantis/dmStProc</td><td>NOTA_FISCAL.DMSTPROC</td><td>results/custbody_brl_tran_l_edoc_status</td><td>Regra conforme status (Aprovada=4/1, Denegada=6/2, Cancelada=7/3, Inutilizada=8/4)</td></tr>
+                <tr><td>25</td><td>nfMercantis/dmFinNFe</td><td>NOTA_FISCAL.DMFINNFE</td><td></td><td>Fixo 1</td></tr>
+                <tr><td>26</td><td>nfMercantis/cidadeIbgeEmit</td><td>NOTA_FISCAL.CIDADEIBGEEMIT</td><td>Mysql: empresa.cidadeibge</td><td></td></tr>
+                <tr><td>27</td><td>nfMercantis/ufIbgeEmit</td><td>NOTA_FISCAL.UFIBGEEMIT</td><td>Mysql: empresa.cidadeibge</td><td>2 primeiras posições</td></tr>
+                <tr><td>28</td><td>nfMercantis/nroChaveCteRef</td><td>NOTA_FISCAL.NROCHAVECTEREF</td><td></td><td></td></tr>
+                <tr><td>29</td><td>nfMercantis/nroChaveNfe</td><td>NOTA_FISCAL.NROCHAVENFE</td><td>results/custbody_brl_tran_t_access_key</td><td></td></tr>
+                <tr><td>30</td><td>nfMercantis/dmIdDest</td><td>NOTA_FISCAL.DMIDDEST</td><td></td><td>Se UF ≠ empresa.uf → 2, senão 1</td></tr>
+                <tr><td>31</td><td>nfMercantis/dmIndFinal</td><td>NOTA_FISCAL.DMINDFINAL</td><td></td><td></td></tr>
+                <tr><td>32</td><td>nfMercantis/dmIndPres</td><td>NOTA_FISCAL.DMINDPRES</td><td></td><td></td></tr>
+                <tr><td>33</td><td>nfMercantis/dmLegado</td><td>NOTA_FISCAL.DMLEGADO</td><td>results/custbody_brl_tran_l_edoc_status</td><td>Conforme regra do dmStProc</td></tr>
+                <tr><td>34</td><td>nfMercantis/dmIndAtivPart</td><td>NOTA_FISCAL.DMINDATIVPART</td><td></td><td></td></tr>
+                <tr><td>36</td><td>nfMercantis/dmCalcIcmsStPart</td><td>NOTA_FISCAL.DMCALCICMSSTPART</td><td></td><td></td></tr>
+                <tr><td>37</td><td>nfMercantis/urlChave</td><td>NOTA_FISCAL.URLCHAVE</td><td></td><td></td></tr>
+                <tr><td>65</td><td>nfMercantis/complNf/usuario</td><td>NOTA_FISCAL.COMPLNF_USUARIO</td><td></td><td></td></tr>
+                <tr><td>66</td><td>nfMercantis/complNf/viasDanfeCustom</td><td>NOTA_FISCAL.COMPLNF_VIASDANFECUSTOM</td><td></td><td></td></tr>
+                <tr><td>67</td><td>nfMercantis/complNf/subSerie</td><td>NOTA_FISCAL.COMPLNF_SUBSERIE</td><td></td><td></td></tr>
+                <tr><td>68</td><td>nfMercantis/complNf/sistOrig</td><td>NOTA_FISCAL.COMPLNF_SISTORIG</td><td></td><td></td></tr>
+                <tr><td>69</td><td>nfMercantis/complNf/unidOrg</td><td>NOTA_FISCAL.COMPLNF_UNIDORG</td><td></td><td></td></tr>
+                <tr><td>70</td><td>nfMercantis/complNf/idNfErp</td><td>NOTA_FISCAL.COMPLNF_IDNFERP</td><td>results/internalid</td><td></td></tr>
+                <tr><td>85</td><td>nfMercantis/emitente/cpfCnpj/cnpj</td><td>NOTA_FISCAL.TERCEIRO_CNPJ</td><td>empresa.cnpj</td><td>Dados do emitente via MySQL</td></tr>
+                <tr><td>87</td><td>nfMercantis/emitente/nome</td><td>NOTA_FISCAL.TERCEIRO_NOME</td><td>empresa.nome</td><td></td></tr>
+                <tr><td>94</td><td>nfMercantis/emitente/cidadeIbge</td><td>NOTA_FISCAL.TERCEIRO_CIDADEIBGE</td><td>empresa.cidadeibge</td><td></td></tr>
+                <tr><td>97</td><td>nfMercantis/emitente/codSiscomexPais</td><td>NOTA_FISCAL.TERCEIRO_CODSISCOMEXPAIS</td><td></td><td>Fixo 1058</td></tr>
+                <tr><td>98</td><td>nfMercantis/emitente/Pais</td><td>NOTA_FISCAL.TERCEIRO_PAIS</td><td></td><td>Fixo Brasil</td></tr>
+                <tr><td>109</td><td>nfMercantis/destinatario/cpfCnpj/cpf</td><td>NOTA_FISCAL.TERCEIRO_CPF</td><td>results/custbody_brl_tran_t_cust_fed_tx_reg</td><td></td></tr>
+                <tr><td>110</td><td>nfMercantis/destinatario/cpfCnpj/cnpj</td><td>NOTA_FISCAL.TERCEIRO_CNPJ</td><td>results/custbody_brl_tran_t_cust_fed_tx_reg</td><td>Remover . - /</td></tr>
+                <tr><td>300</td><td>nfMercantis/itens/nroItem</td><td>NOTAFISCAL_ITEM.NROITEM</td><td>results/items/linesequencenumber</td><td></td></tr>
+                <tr><td>301</td><td>nfMercantis/itens/codItem</td><td>NOTAFISCAL_ITEM.CODITEM</td><td>results/items/itemid</td><td></td></tr>
+                <tr><td>302</td><td>nfMercantis/itens/descrItem</td><td>NOTAFISCAL_ITEM.DESCRITEM</td><td>results/items/itemdescription</td><td></td></tr>
+                <tr><td>303</td><td>nfMercantis/itens/dmIndMov</td><td>NOTAFISCAL_ITEM.DMINDMOV</td><td></td><td>Fixo 1</td></tr>
+                <tr><td>305</td><td>nfMercantis/itens/codNcm</td><td>NOTAFISCAL_ITEM.CODNCM</td><td>results/items/itemcode</td><td>Remover .</td></tr>
+                <tr><td>308</td><td>nfMercantis/itens/Cfop</td><td>NOTAFISCAL_ITEM.CFOP</td><td>results/items/cfop</td><td>Apenas números</td></tr>
+                <tr><td>312</td><td>nfMercantis/itens/vlItemBruto</td><td>NOTAFISCAL_ITEM.VLITEMBRUTO</td><td>itemquantity * itemamount</td><td>Multiplicar</td></tr>
+                <tr><td>372</td><td>nfMercantis/itens/impostos/codImposto</td><td>NOTAFISCALITEM_IMPOSTO.CODIMPOSTO</td><td>results/taxDetail/name</td><td></td></tr>
+                <tr><td>374</td><td>nfMercantis/itens/impostos/codSt</td><td>NOTAFISCALITEM_IMPOSTO.CODST</td><td>results/taxDetail/cst</td><td>Remover prefixo CST_</td></tr>
+                <tr><td>378</td><td>nfMercantis/itens/impostos/alíquota</td><td>NOTAFISCALITEM_IMPOSTO.ALIQUOTA</td><td>results/taxDetail/taxrate * 100</td><td></td></tr>
+                <tr><td>379</td><td>nfMercantis/itens/impostos/vlImpTrib</td><td>NOTAFISCALITEM_IMPOSTO.VLIMPTRIB</td><td>results/taxDetail/taxamount</td><td></td></tr>
+                <tr><td>415</td><td>nfMercantis/itens/impostos/impItemIcmsDest/vlBcUfDest</td><td>notafiscalitem_imposto.VLBASECALC</td><td></td><td>Ver condição do grupo</td></tr>
+                <tr><td>416</td><td>nfMercantis/itens/impostos/impItemIcmsDest/percIcmsUfDest</td><td>notafiscalitem_imposto.ALIQUOTA</td><td></td><td>Soma ALIQUOTA dos impostos 1 e 104</td></tr>
+                <tr><td>417</td><td>nfMercantis/itens/impostos/impItemIcmsDest/percIcmsInter</td><td>notafiscalitem_imposto.ALIQUOTA</td><td></td><td>CodImposto = 1</td></tr>
+                <tr><td>418</td><td>nfMercantis/itens/impostos/impItemIcmsDest/percIcmsInterPart</td><td></td><td></td><td>Fixo 100</td></tr>
+                <tr><td>419</td><td>nfMercantis/itens/impostos/impItemIcmsDest/vlIcmsUfDest</td><td>notafiscalitem_imposto.VLIMPTRIB</td><td></td><td>CodImposto = 104</td></tr>
+                <tr><td>420</td><td>nfMercantis/itens/impostos/impItemIcmsDest/vlIcmsUfRemet</td><td></td><td></td><td>Fixo 0</td></tr>
+            </tbody>
+        </table>
+        <div class="footer">
+            &copy; 2026 Compliance Soluções. Todos os direitos reservados.
+            <p style="margin: 8px 0 0; font-size: 0.85rem;">Desenvolvido por Inovare para documentação de integração.</p>
+        </div>
+    </div>
+</body>
+</html>

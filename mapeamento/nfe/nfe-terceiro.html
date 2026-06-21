@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFE Terceiro</title>
+    <link rel="icon" href="../../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            flex: 1;
+        }
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: #ffffff;
+            padding: 26px 24px;
+            margin: -24px -24px 28px -24px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.02em;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #dbe9fb, #aec4f5);
+            color: #16307f;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #e9effe;
+            color: #1f2937;
+            font-weight: 700;
+        }
+        tr:nth-child(even) {
+            background-color: #f5f7fb;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 18px 16px;
+            background-color: #f4f6fb;
+            border-radius: 10px;
+            color: #525f7f;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 900px) {
+            body { padding: 14px; }
+            .container { padding: 18px; }
+            table { font-size: 0.84rem; }
+            th, td { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NFE Terceiro</h1>
+        </div>
+        <div class="section-header">Mapeamento de campos - NFE Terceiro</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ord</th>
+                    <th>WS Compliance</th>
+                    <th>Conector</th>
+                    <th>API Netsuite</th>
+                    <th>Condição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>3</td><td>nfMercantis/cpfCnpj/Cpf</td><td>NOTA_FISCAL.CPF</td><td></td><td></td></tr>
+                <tr><td>4</td><td>nfMercantis/cpfCnpj/Cnpj</td><td>NOTA_FISCAL.CNPJ</td><td>results/custbody_brl_tran_t_subsd_fed_tx_reg</td><td>Remover . / -</td></tr>
+                <tr><td>5</td><td>nfMercantis/dmIndEmit</td><td>NOTA_FISCAL.DMINDEMIT</td><td>nota_fiscal_continuo.dmindemit</td><td></td></tr>
+                <tr><td>6</td><td>nfMercantis/dmIndOper</td><td>NOTA_FISCAL.DMINDOPER</td><td>nota_fiscal_continuo.dmindoper</td><td></td></tr>
+                <tr><td>7</td><td>nfMercantis/codPart</td><td>NOTA_FISCAL.CODPART</td><td>results/custbody_brl_tran_t_vendor_fed_tx_reg</td><td>Remover . / -</td></tr>
+                <tr><td>8</td><td>nfMercantis/CodigoModeloFiscal</td><td>NOTA_FISCAL.CODIGOMODELOFISCAL</td><td>results/custbody_brl_tran_t_edoc_model</td><td></td></tr>
+                <tr><td>9</td><td>nfMercantis/serie</td><td>NOTA_FISCAL.SERIE</td><td>results/custbody_brl_tran_t_edoc_series ou results/custbody_brl_tran_t_rps_series</td><td></td></tr>
+                <tr><td>10</td><td>nfMercantis/nroNf</td><td>NOTA_FISCAL.NRONF</td><td>results/tranid</td><td></td></tr>
+                <tr><td>11</td><td>nfMercantis/sitDocto</td><td>NOTA_FISCAL.SITDOCTO</td><td>results/sitdocto</td><td></td></tr>
+                <tr><td>12</td><td>nfMercantis/codNatOper</td><td>NOTA_FISCAL.CODNATOPER</td><td>custbody_brl_tran_l_transaction_nature</td><td></td></tr>
+                <tr><td>13</td><td>nfMercantis/descrNatOper</td><td>NOTA_FISCAL.DESCRNATOPER</td><td>results/natureoperationdocument</td><td></td></tr>
+                <tr><td>14</td><td>nfMercantis/dmIndPag</td><td>NOTA_FISCAL.DMINDPAG</td><td></td><td></td></tr>
+                <tr><td>15</td><td>nfMercantis/dtSaiEnt</td><td>NOTA_FISCAL.DTSAIENT</td><td>results/createddate</td><td></td></tr>
+                <tr><td>16</td><td>nfMercantis/horaSaiEnt</td><td>NOTA_FISCAL.HORASAIENT</td><td></td><td></td></tr>
+                <tr><td>17</td><td>nfMercantis/dtEmiss</td><td>NOTA_FISCAL.DTEMISS</td><td>results/custbody_brl_tran_dt_cert_date ou results/trandate</td><td>Tentar no primeiro; se vazio usar o segundo</td></tr>
+                <tr><td>18</td><td>nfMercantis/ufEmbarq</td><td>NOTA_FISCAL.UFEMBARQUE</td><td></td><td></td></tr>
+                <tr><td>19</td><td>nfMercantis/localEmbarq</td><td>NOTA_FISCAL.LOCALEMBARQ</td><td></td><td></td></tr>
+                <tr><td>20</td><td>nfMercantis/localDespacho</td><td>NOTA_FISCAL.LOCALDESPACHO</td><td></td><td></td></tr>
+                <tr><td>21</td><td>nfMercantis/nfEmpenho</td><td>NOTA_FISCAL.NFEMPENHO</td><td></td><td></td></tr>
+                <tr><td>22</td><td>nfMercantis/pedidoCompra</td><td>NOTA_FISCAL.PEDIDOCOMPRA</td><td></td><td></td></tr>
+                <tr><td>23</td><td>nfMercantis/contratoCompra</td><td>NOTA_FISCAL.CONTRATOCOMPRA</td><td></td><td></td></tr>
+                <tr><td>24</td><td>nfMercantis/dmStProc</td><td>NOTA_FISCAL.DMSTPROC</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>25</td><td>nfMercantis/dmFinNFe</td><td>NOTA_FISCAL.DMFINNFE</td><td></td><td>Fixo: 1</td></tr>
+                <tr><td>26</td><td>nfMercantis/cidadeIbgeEmit</td><td>NOTA_FISCAL.CIDADEIBGEEMIT</td><td>results/custrecord_ftebr_city_i_ibge_code</td><td></td></tr>
+                <tr><td>27</td><td>nfMercantis/ufIbgeEmit</td><td>NOTA_FISCAL.UFIBGEEMIT</td><td>results/state</td><td></td></tr>
+                <tr><td>28</td><td>nfMercantis/nroChaveCteRef</td><td>NOTA_FISCAL.NROCHAVECTEREF</td><td></td><td></td></tr>
+                <tr><td>29</td><td>nfMercantis/nroChaveNfe</td><td>NOTA_FISCAL.NROCHAVENFE</td><td>results/custbody_brl_tran_t_access_key</td><td></td></tr>
+                <tr><td>30</td><td>nfMercantis/dmIdDest</td><td>NOTA_FISCAL.DMIDDEST</td><td></td><td></td></tr>
+                <tr><td>31</td><td>nfMercantis/dmIndFinal</td><td>NOTA_FISCAL.DMINDFINAL</td><td></td><td></td></tr>
+                <tr><td>32</td><td>nfMercantis/dmIndPres</td><td>NOTA_FISCAL.DMINDPRES</td><td></td><td></td></tr>
+                <tr><td>33</td><td>nfMercantis/dmLegado</td><td>NOTA_FISCAL.DMLEGADO</td><td>results/custbody_brl_tran_l_edoc_status</td><td>Fixo: 0</td></tr>
+                <tr><td>34</td><td>nfMercantis/dmIndAtivPart</td><td>NOTA_FISCAL.DMINDATIVPART</td><td></td><td></td></tr>
+                <tr><td>36</td><td>nfMercantis/dmCalcIcmsStPart</td><td>NOTA_FISCAL.DMCALCICMSSTPART</td><td></td><td></td></tr>
+                <tr><td>37</td><td>nfMercantis/urlChave</td><td>NOTA_FISCAL.URLCHAVE</td><td></td><td></td></tr>
+                <tr><td>65</td><td>nfMercantis/complNf/usuario</td><td>NOTA_FISCAL.COMPLNF_USUARIO</td><td></td><td></td></tr>
+                <tr><td>66</td><td>nfMercantis/complNf/viasDanfeCustom</td><td>NOTA_FISCAL.COMPLNF_VIASDANFECUSTOM</td><td></td><td></td></tr>
+                <tr><td>67</td><td>nfMercantis/complNf/subSerie</td><td>NOTA_FISCAL.COMPLNF_SUBSERIE</td><td></td><td></td></tr>
+                <tr><td>68</td><td>nfMercantis/complNf/sistOrig</td><td>NOTA_FISCAL.COMPLNF_SISTORIG</td><td></td><td></td></tr>
+                <tr><td>69</td><td>nfMercantis/complNf/unidOrg</td><td>NOTA_FISCAL.COMPLNF_UNIDORG</td><td></td><td></td></tr>
+                <tr><td>70</td><td>nfMercantis/complNf/idNfErp</td><td>NOTA_FISCAL.COMPLNF_IDNFERP</td><td>results/internalid</td><td></td></tr>
+                <tr><td>71</td><td>nfMercantis/complNf/codInforCompl</td><td>NOTA_FISCAL.COMPLNF_CODINFORCOMPL</td><td></td><td></td></tr>
+                <tr><td>72</td><td>nfMercantis/complNf/codigoPlanoConta</td><td>NOTA_FISCAL.COMPLNF_CODIGOPLANOCONTA</td><td></td><td></td></tr>
+                <tr><td>73</td><td>nfMercantis/complNf/codConsumoEnergiaEletr</td><td>NOTA_FISCAL.COMPLNF_CODCONSUMOENERGIAELETR</td><td></td><td></td></tr>
+                <tr><td>74</td><td>nfMercantis/complNf/dmTpLigacao</td><td>NOTA_FISCAL.COMPLNF_DMTPLIGACAO</td><td></td><td></td></tr>
+                <tr><td>75</td><td>nfMercantis/complNf/dmCodGrupoTensao</td><td>NOTA_FISCAL.COMPLNF_DMCODGRUPOTENSAO</td><td></td><td></td></tr>
+                <tr><td>76</td><td>nfMercantis/complNf/dmTpAssinante</td><td>NOTA_FISCAL.COMPLNF_DMTPASSINANTE</td><td></td><td></td></tr>
+                <tr><td>77</td><td>nfMercantis/complNf/nroOrdEmb</td><td>NOTA_FISCAL.COMPLNF_NROORDEMB</td><td></td><td></td></tr>
+                <tr><td>78</td><td>nfMercantis/complNf/seqNroOrdEmb</td><td>NOTA_FISCAL.COMPLNF_SEQNROORDEMB</td><td></td><td></td></tr>
+                <tr><td>80</td><td>nfMercantis/servicosNf/dmNatOper</td><td>NOTA_FISCAL.SERVICOSNF_DMNATOPER</td><td></td><td></td></tr>
+                <tr><td>81</td><td>nfMercantis/servicosNf/dmRegTribServ</td><td>NOTA_FISCAL.SERVICOSNF_DMREGTRIBSERV</td><td></td><td></td></tr>
+                <tr><td>82</td><td>nfMercantis/servicosNf/dtExeServ</td><td>NOTA_FISCAL.SERVICOSNF_DTEXESERV</td><td></td><td></td></tr>
+                <tr><td>85</td><td>nfMercantis/emitente/cpfCnpj/cpf</td><td>NOTA_FISCAL.TERCEIRO_CPF</td><td></td><td></td></tr>
+                <tr><td>86</td><td>nfMercantis/emitente/cpfCnpj/cnpj</td><td>NOTA_FISCAL.TERCEIRO_CNPJ</td><td>results/custbody_brl_tran_t_vendor_fed_tx_reg</td><td></td></tr>
+                <tr><td>87</td><td>nfMercantis/emitente/nome</td><td>NOTA_FISCAL.TERCEIRO_NOME</td><td>results/vendorname</td><td></td></tr>
+                <tr><td>88</td><td>nfMercantis/emitente/Fantasia</td><td>NOTA_FISCAL.TERCEIRO_FANTASIA</td><td></td><td></td></tr>
+                <tr><td>89</td><td>nfMercantis/emitente/lograd</td><td>NOTA_FISCAL.TERCEIRO_LOGRAD</td><td>results/addr1</td><td></td></tr>
+                <tr><td>90</td><td>nfMercantis/emitente/Nro</td><td>NOTA_FISCAL.TERCEIRO_NRO</td><td>results/addr3</td><td></td></tr>
+                <tr><td>91</td><td>nfMercantis/emitente/Compl</td><td>NOTA_FISCAL.TERCEIRO_COMPL</td><td>results/custrecord_brl_addrform_t_complement</td><td></td></tr>
+                <tr><td>92</td><td>nfMercantis/emitente/Bairro</td><td>NOTA_FISCAL.TERCEIRO_BAIRRO</td><td>results/addr2</td><td></td></tr>
+                <tr><td>93</td><td>nfMercantis/emitente/Cidade</td><td>NOTA_FISCAL.TERCEIRO_CIDADE</td><td>results/city</td><td></td></tr>
+                <tr><td>94</td><td>nfMercantis/emitente/cidadeIbge</td><td>NOTA_FISCAL.TERCEIRO_CIDADEIBGE</td><td>results/custrecord_ftebr_city_i_ibge_code</td><td></td></tr>
+                <tr><td>95</td><td>nfMercantis/emitente/Uf</td><td>NOTA_FISCAL.TERCEIRO_UF</td><td>results/state</td><td></td></tr>
+                <tr><td>96</td><td>nfMercantis/emitente/Cep</td><td>NOTA_FISCAL.TERCEIRO_CEP</td><td>results/zip</td><td></td></tr>
+                <tr><td>97</td><td>nfMercantis/emitente/codSiscomexPais</td><td>NOTA_FISCAL.TERCEIRO_CODSISCOMEXPAIS</td><td></td><td>Fixo: 1058</td></tr>
+                <tr><td>98</td><td>nfMercantis/emitente/Pais</td><td>NOTA_FISCAL.TERCEIRO_PAIS</td><td>results/country</td><td></td></tr>
+                <tr><td>99</td><td>nfMercantis/emitente/Fone</td><td>NOTA_FISCAL.TERCEIRO_FONE</td><td></td><td></td></tr>
+                <tr><td>100</td><td>nfMercantis/emitente/Ie</td><td>NOTA_FISCAL.TERCEIRO_IE</td><td></td><td></td></tr>
+                <tr><td>101</td><td>nfMercantis/emitente/ieSt</td><td>NOTA_FISCAL.TERCEIRO_IEST</td><td></td><td></td></tr>
+                <tr><td>102</td><td>nfMercantis/emitente/Im</td><td>NOTA_FISCAL.TERCEIRO_IM</td><td></td><td></td></tr>
+                <tr><td>103</td><td>nfMercantis/emitente/Cnae</td><td>NOTA_FISCAL.TERCEIRO_CNAE</td><td></td><td></td></tr>
+                <tr><td>104</td><td>nfMercantis/emitente/dmRegTribNf</td><td>NOTA_FISCAL.TERCEIRO_DMREGTRIBNF</td><td></td><td>Fixo: 3</td></tr>
+                <tr><td>105</td><td>nfMercantis/emitente/suframa</td><td>NOTA_FISCAL.TERCEIRO_SUFRAMA</td><td></td><td></td></tr>
+                <tr><td>106</td><td>nfMercantis/emitente/dmIndIePart</td><td>NOTA_FISCAL.TERCEIRO_DMINDIEPART</td><td></td><td></td></tr>
+                <tr><td>134</td><td>nfMercantis/totaisNf/vlBaseCalcIcms</td><td>NOTA_FISCAL.TOTAISNF_VLBASECALCICMS</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>135</td><td>nfMercantis/totaisNf/vlImpTribIcms</td><td>NOTA_FISCAL.TOTAISNF_VLIMPTRIBICMS</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>136</td><td>nfMercantis/totaisNf/vlBaseCalcIcmsSt</td><td>NOTA_FISCAL.TOTAISNF_VLBASECALCICMSST</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>137</td><td>nfMercantis/totaisNf/vlImpTribIcmsSt</td><td>NOTA_FISCAL.TOTAISNF_VLIMPTRIBICMSST</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>138</td><td>nfMercantis/totaisNf/vlTotalItem</td><td>NOTA_FISCAL.TOTAISNF_VLTOTALITEM</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>139</td><td>nfMercantis/totaisNf/vlFrete</td><td>NOTA_FISCAL.TOTAISNF_VLFRETE</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>140</td><td>nfMercantis/totaisNf/vlSeguro</td><td>NOTA_FISCAL.TOTAISNF_VLSEGURO</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>141</td><td>nfMercantis/totaisNf/vlDesconto</td><td>NOTA_FISCAL.TOTAISNF_VLDESCONTO</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>142</td><td>nfMercantis/totaisNf/vlImpTribII</td><td>NOTA_FISCAL.TOTAISNF_VLIMPTRIBII</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>143</td><td>nfMercantis/totaisNf/vlImpTribIpi</td><td>NOTA_FISCAL.TOTAISNF_VLIMPTRIBIPI</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>144</td><td>nfMercantis/totaisNf/vlImpTribPis</td><td>NOTA_FISCAL.TOTAISNF_VLIMPTRIBPIS</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>145</td><td>nfMercantis/totaisNf/vlImpTribCofins</td><td>NOTA_FISCAL.TOTAISNF_VLIMPTRIBCOFINS</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>146</td><td>nfMercantis/totaisNf/vlOutrasDespesas</td><td>NOTA_FISCAL.TOTAISNF_VLOUTRASDESPESAS</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>147</td><td>nfMercantis/totaisNf/vlTotalNf</td><td>NOTA_FISCAL.TOTAISNF_VLTOTALNF</td><td></td><td></td></tr>
+                <tr><td>148</td><td>nfMercantis/totaisNf/vlServNaoTrib</td><td>NOTA_FISCAL.TOTAISNF_VLSERVNAOTRIB</td><td></td><td></td></tr>
+                <tr><td>149</td><td>nfMercantis/totaisNf/vlBaseCalcIss</td><td>NOTA_FISCAL.TOTAISNF_VLBASECALCISS</td><td></td><td></td></tr>
+                <tr><td>150</td><td>nfMercantis/totaisNf/vlImpTribIss</td><td>NOTA_FISCAL.TOTAISNF_VLIMPTRIBISS</td><td></td><td></td></tr>
+                <tr><td>151</td><td>nfMercantis/totaisNf/vlPisIss</td><td>NOTA_FISCAL.TOTAISNF_VLPISISS</td><td></td><td></td></tr>
+                <tr><td>152</td><td>nfMercantis/totaisNf/vlCofinsIss</td><td>NOTA_FISCAL.TOTAISNF_VLCOFINSISS</td><td></td><td></td></tr>
+                <tr><td>153</td><td>nfMercantis/totaisNf/vlRetPis</td><td>NOTA_FISCAL.TOTAISNF_VLRETPIS</td><td></td><td></td></tr>
+                <tr><td>154</td><td>nfMercantis/totaisNf/vlRetCofins</td><td>NOTA_FISCAL.TOTAISNF_VLRETCOFINS</td><td></td><td></td></tr>
+                <tr><td>155</td><td>nfMercantis/totaisNf/vRetCsll</td><td>NOTA_FISCAL.TOTAISNF_VRETCSLL</td><td></td><td></td></tr>
+                <tr><td>156</td><td>nfMercantis/totaisNf/vlBaseCalcIrrf</td><td>NOTA_FISCAL.TOTAISNF_VLBASECALCIRRF</td><td></td><td></td></tr>
+                <tr><td>157</td><td>nfMercantis/totaisNf/vlRetIrrf</td><td>NOTA_FISCAL.TOTAISNF_VLRETIRRF</td><td></td><td></td></tr>
+                <tr><td>158</td><td>nfMercantis/totaisNf/vlBaseCalcPrev</td><td>NOTA_FISCAL.TOTAISNF_VLBASECALCPREV</td><td></td><td></td></tr>
+                <tr><td>159</td><td>nfMercantis/totaisNf/vlRetPrev</td><td>NOTA_FISCAL.TOTAISNF_VLRETPREV</td><td></td><td></td></tr>
+                <tr><td>160</td><td>nfMercantis/totaisNf/vlTotalServ</td><td>NOTA_FISCAL.TOTAISNF_VLTOTALSERV</td><td></td><td></td></tr>
+                <tr><td>161</td><td>nfMercantis/totaisNf/vlAbatNt</td><td>NOTA_FISCAL.TOTAISNF_VLABATNT</td><td></td><td></td></tr>
+                <tr><td>162</td><td>nfMercantis/totaisNf/vlForn</td><td>NOTA_FISCAL.TOTAISNF_VLFORN</td><td></td><td></td></tr>
+                <tr><td>163</td><td>nfMercantis/totaisNf/vlTerc</td><td>NOTA_FISCAL.TOTAISNF_VLTERC</td><td></td><td></td></tr>
+                <tr><td>164</td><td>nfMercantis/totaisNf/vlServico</td><td>NOTA_FISCAL.TOTAISNF_VLSERVICO</td><td></td><td></td></tr>
+                <tr><td>165</td><td>nfMercantis/totaisNf/vlRetIss</td><td>NOTA_FISCAL.TOTAISNF_VLRETISS</td><td></td><td></td></tr>
+                <tr><td>166</td><td>nfMercantis/totaisNf/vlTotTrib</td><td>NOTA_FISCAL.TOTAISNF_VLTOTTRIB</td><td></td><td></td></tr>
+                <tr><td>167</td><td>nfMercantis/totaisNf/vlIcmsDeson</td><td>NOTA_FISCAL.TOTAISNF_VLICMSDESON</td><td></td><td></td></tr>
+                <tr><td>168</td><td>nfMercantis/totaisNf/vlDeducao</td><td>NOTA_FISCAL.TOTAISNF_VLDEDUCAO</td><td></td><td></td></tr>
+                <tr><td>169</td><td>nfMercantis/totaisNf/vlOutraRet</td><td>NOTA_FISCAL.TOTAISNF_VLOUTRARET</td><td></td><td></td></tr>
+                <tr><td>170</td><td>nfMercantis/totaisNf/vlDescIncond</td><td>NOTA_FISCAL.TOTAISNF_VLDESCINCOND</td><td></td><td></td></tr>
+                <tr><td>171</td><td>nfMercantis/totaisNf/vlDescCond</td><td>NOTA_FISCAL.TOTAISNF_VLDESCCOND</td><td></td><td></td></tr>
+                <tr><td>172</td><td>nfMercantis/totaisNf/vlIcmsUFDest</td><td>NOTA_FISCAL.TOTAISNF_VLICMSUFDEST</td><td></td><td></td></tr>
+                <tr><td>173</td><td>nfMercantis/totaisNf/vlIcmsUFRemet</td><td>NOTA_FISCAL.TOTAISNF_VLICMSUFREMET</td><td></td><td></td></tr>
+                <tr><td>174</td><td>nfMercantis/totaisNf/vlCombPobrUFDest</td><td>NOTA_FISCAL.TOTAISNF_VLCOMBPOBRUFDEST</td><td></td><td></td></tr>
+                <tr><td>175</td><td>nfMercantis/totaisNf/vlFCP</td><td>NOTA_FISCAL.TOTAISNF_VLFCP</td><td></td><td></td></tr>
+                <tr><td>176</td><td>nfMercantis/totaisNf/vlFCPST</td><td>NOTA_FISCAL.TOTAISNF_VLFCPST</td><td></td><td></td></tr>
+                <tr><td>177</td><td>nfMercantis/totaisNf/vlFCPSTRet</td><td>NOTA_FISCAL.TOTAISNF_VLFCPSTRET</td><td></td><td></td></tr>
+                <tr><td>178</td><td>nfMercantis/totaisNf/vlIPIDevol</td><td>NOTA_FISCAL.TOTAISNF_VLIPIDEVOL</td><td></td><td></td></tr>
+                <tr><td>179</td><td>nfMercantis/totaisNf/vlPisSt</td><td>NOTA_FISCAL.TOTAISNF_VLPISST</td><td></td><td></td></tr>
+                <tr><td>180</td><td>nfMercantis/totaisNf/vlCofinsSt</td><td>NOTA_FISCAL.TOTAISNF_VLCOFINSST</td><td></td><td></td></tr>
+                <tr><td>188</td><td>nfMercantis/nfRef/nroChaveNfe</td><td>NOTAFISCAL_REFERENCIADA.NFREF_NROCHAVENFE</td><td></td><td></td></tr>
+                <tr><td>189</td><td>nfMercantis/nfRef/ibgeEstadoEmit</td><td>NOTAFISCAL_REFERENCIADA.NFREF_IBGEESTADOEMIT</td><td></td><td></td></tr>
+                <tr><td>191</td><td>nfMercantis/nfRef/cpfCnpj/cpf</td><td>NOTAFISCAL_REFERENCIADA.NFREF_CPF</td><td></td><td></td></tr>
+                <tr><td>192</td><td>nfMercantis/nfRef/cpfCnpj/cnpj</td><td>NOTAFISCAL_REFERENCIADA.NFREF_CNPJ</td><td></td><td></td></tr>
+                <tr><td>193</td><td>nfMercantis/nfRef/dtEmiss</td><td>NOTAFISCAL_REFERENCIADA.NFREF_DTEMISS</td><td></td><td></td></tr>
+                <tr><td>194</td><td>nfMercantis/nfRef/codMod</td><td>NOTAFISCAL_REFERENCIADA.NFREF_CODMOD</td><td></td><td></td></tr>
+                <tr><td>195</td><td>nfMercantis/nfRef/nroNf</td><td>NOTAFISCAL_REFERENCIADA.NFREF_NRONF</td><td></td><td></td></tr>
+                <tr><td>196</td><td>nfMercantis/nfRef/serie</td><td>NOTAFISCAL_REFERENCIADA.NFREF_SERIE</td><td></td><td></td></tr>
+                <tr><td>197</td><td>nfMercantis/nfRef/subSerie</td><td>NOTAFISCAL_REFERENCIADA.NFREF_SUBSERIE</td><td></td><td></td></tr>
+                <tr><td>198</td><td>nfMercantis/nfRef/codPart</td><td>NOTAFISCAL_REFERENCIADA.NFREF_CODPART</td><td></td><td></td></tr>
+                <tr><td>199</td><td>nfMercantis/nfRef/dmIndEmit</td><td>NOTAFISCAL_REFERENCIADA.NFREF_DMINDEMIT</td><td></td><td></td></tr>
+                <tr><td>200</td><td>nfMercantis/nfRef/dmIndOper</td><td>NOTAFISCAL_REFERENCIADA.NFREF_DMINDOPER</td><td></td><td></td></tr>
+                <tr><td>201</td><td>nfMercantis/nfRef/ie</td><td>NOTAFISCAL_REFERENCIADA.NFREF_IE</td><td></td><td></td></tr>
+                <tr><td>216</td><td>nfMercantis/inforAdic/tipo</td><td>notafiscalservico_inform_adic.inforadic_tipo</td><td></td><td>Fixo 0</td></tr>
+                <tr><td>217</td><td>nfMercantis/inforAdic/campo</td><td>notafiscalservico_inform_adic.inforadic_campo</td><td></td><td>Fixo nulo</td></tr>
+                <tr><td>218</td><td>nfMercantis/inforAdic/conteudo</td><td>notafiscalservico_inform_adic.inforadic_conteudo</td><td>results/custbody_brl_tran_lt_additional_info</td><td></td></tr>
+                <tr><td>219</td><td>nfMercantis/inforAdic/origProc</td><td>notafiscalservico_inform_adic.inforadic_origproc</td><td></td><td></td></tr>
+                <tr><td>300</td><td>nfMercantis/itens/nroItem</td><td>NOTAFISCAL_ITEM.NROITEM</td><td>results/items/linesequencenumber</td><td></td></tr>
+                <tr><td>301</td><td>nfMercantis/itens/codItem</td><td>NOTAFISCAL_ITEM.CODITEM</td><td>results/items/itemid</td><td></td></tr>
+                <tr><td>302</td><td>nfMercantis/itens/descrItem</td><td>NOTAFISCAL_ITEM.DESCRITEM</td><td>results/items/itemdescription</td><td></td></tr>
+                <tr><td>303</td><td>nfMercantis/itens/dmIndMov</td><td>NOTAFISCAL_ITEM.DMINDMOV</td><td></td><td>Fixo: 1</td></tr>
+                <tr><td>304</td><td>nfMercantis/itens/cEan</td><td>NOTAFISCAL_ITEM.CEAN</td><td></td><td></td></tr>
+                <tr><td>305</td><td>nfMercantis/itens/codNcm</td><td>NOTAFISCAL_ITEM.CODNCM</td><td>results/items/itemcode</td><td>Remover .</td></tr>
+                <tr><td>306</td><td>nfMercantis/itens/generoNcm</td><td>NOTAFISCAL_ITEM.GENERONCM</td><td>results/items/itemcode</td><td>Usar 2 primeiras posições (direita → esquerda)</td></tr>
+                <tr><td>307</td><td>nfMercantis/itens/codExTipi</td><td>NOTAFISCAL_ITEM.CODEXTIPI</td><td></td><td></td></tr>
+                <tr><td>308</td><td>nfMercantis/itens/Cfop</td><td>NOTAFISCAL_ITEM.CFOP</td><td>results/items/cfop</td><td></td></tr>
+                <tr><td>309</td><td>nfMercantis/itens/unidCom</td><td>NOTAFISCAL_ITEM.UNIDCOM</td><td></td><td>Não existe na API</td></tr>
+                <tr><td>310</td><td>nfMercantis/itens/qtdeComerc</td><td>NOTAFISCAL_ITEM.QTDECOMERC</td><td>results/items/itemquantity</td><td></td></tr>
+                <tr><td>311</td><td>nfMercantis/itens/vlUnitComerc</td><td>NOTAFISCAL_ITEM.VLUNITCOMERC</td><td>results/items/itemamount</td><td></td></tr>
+                <tr><td>312</td><td>nfMercantis/itens/vlItemBruto</td><td>NOTAFISCAL_ITEM.VLITEMBRUTO</td><td>results/items/itemquantity * itemamount</td><td>Multiplicar</td></tr>
+                <tr><td>313</td><td>nfMercantis/itens/cEanTrib</td><td>NOTAFISCAL_ITEM.CEANTRIB</td><td></td><td></td></tr>
+                <tr><td>314</td><td>nfMercantis/itens/unidTrib</td><td>NOTAFISCAL_ITEM.UNIDTRIB</td><td></td><td>Não existe na API</td></tr>
+                <tr><td>315</td><td>nfMercantis/itens/qtdeTribs</td><td>NOTAFISCAL_ITEM.QTDETRIBS</td><td>results/items/itemquantity</td><td></td></tr>
+                <tr><td>316</td><td>nfMercantis/itens/vlUnitTrib</td><td>NOTAFISCAL_ITEM.VLUNITTRIB</td><td>results/items/itemamount</td><td></td></tr>
+                <tr><td>317</td><td>nfMercantis/itens/vlFrete</td><td>NOTAFISCAL_ITEM.VLFRETE</td><td>results/custbody_pd_valor_do_frete</td><td>Rateio conforme planilha</td></tr>
+                <tr><td>318</td><td>nfMercantis/itens/vlSeguro</td><td>NOTAFISCAL_ITEM.VLSEGURO</td><td></td><td></td></tr>
+                <tr><td>319</td><td>nfMercantis/itens/vlOutro</td><td>NOTAFISCAL_ITEM.VLOUTRO</td><td></td><td></td></tr>
+                <tr><td>320</td><td>nfMercantis/itens/vlDesc</td><td>NOTAFISCAL_ITEM.VLDESC</td><td></td><td></td></tr>
+                <tr><td>321</td><td>nfMercantis/itens/infAdProd</td><td>NOTAFISCAL_ITEM.INFADPROD</td><td></td><td></td></tr>
+                <tr><td>322</td><td>nfMercantis/itens/dmOrigProd</td><td>NOTAFISCAL_ITEM.DMORIGPROD</td><td></td><td></td></tr>
+                <tr><td>323</td><td>nfMercantis/itens/dmModBaseCalcIcms</td><td>NOTAFISCAL_ITEM.DMMODBASECALCICMS</td><td></td><td></td></tr>
+                <tr><td>324</td><td>nfMercantis/itens/dmModBaseCalcIcmsSt</td><td>NOTAFISCAL_ITEM.DMMODBASECALCICMSST</td><td></td><td></td></tr>
+                <tr><td>325</td><td>nfMercantis/itens/dmIndTot</td><td>NOTAFISCAL_ITEM.DMINDTOT</td><td></td><td>Fixo: 1</td></tr>
+                <tr><td>326</td><td>nfMercantis/itens/dmMotDesIcms</td><td>NOTAFISCAL_ITEM.DMMOTDESICMS</td><td></td><td></td></tr>
+                <tr><td>327</td><td>nfMercantis/itens/dmCodTribIssqn</td><td>NOTAFISCAL_ITEM.DMCODTRIBISSQN</td><td></td><td></td></tr>
+                <tr><td>328</td><td>nfMercantis/itens/vlTotTribItem</td><td>NOTAFISCAL_ITEM.VLTOTTRIBITEM</td><td></td><td></td></tr>
+                <tr><td>329</td><td>nfMercantis/itens/cnpjProdutor</td><td>NOTAFISCAL_ITEM.CNPJPRODUTOR</td><td></td><td></td></tr>
+                <tr><td>330</td><td>nfMercantis/itens/qtdeSeloIpi</td><td>NOTAFISCAL_ITEM.QTDESELOIPI</td><td></td><td></td></tr>
+                <tr><td>331</td><td>nfMercantis/itens/percentDevolMerc</td><td>NOTAFISCAL_ITEM.PERCENTDEVOLMERC</td><td></td><td></td></tr>
+                <tr><td>332</td><td>nfMercantis/itens/vlIpiDevol</td><td>NOTAFISCAL_ITEM.VLIPIDEVOL</td><td></td><td></td></tr>
+                <tr><td>333</td><td>nfMercantis/itens/vlDespAdu</td><td>NOTAFISCAL_ITEM.VLDESPADU</td><td></td><td></td></tr>
+                <tr><td>334</td><td>nfMercantis/itens/vlIof</td><td>NOTAFISCAL_ITEM.VLIOF</td><td></td><td></td></tr>
+                <tr><td>335</td><td>nfMercantis/itens/clEnqIpi</td><td>NOTAFISCAL_ITEM.CLENQIPI</td><td></td><td></td></tr>
+                <tr><td>336</td><td>nfMercantis/itens/codSeloIpi</td><td>NOTAFISCAL_ITEM.CODSELOIPI</td><td></td><td></td></tr>
+                <tr><td>337</td><td>nfMercantis/itens/codEnqIpi</td><td>NOTAFISCAL_ITEM.CODENQIPI</td><td></td><td></td></tr>
+                <tr><td>338</td><td>nfMercantis/itens/cidadeIbge</td><td>NOTAFISCAL_ITEM.CIDADEIBGE</td><td></td><td></td></tr>
+                <tr><td>339</td><td>nfMercantis/itens/cdListaServ</td><td>NOTAFISCAL_ITEM.CDLISTASERV</td><td></td><td></td></tr>
+                <tr><td>340</td><td>nfMercantis/itens/dmIndApurIpi</td><td>NOTAFISCAL_ITEM.DMINDAPURIPI</td><td></td><td></td></tr>
+                <tr><td>341</td><td>nfMercantis/itens/codCta</td><td>NOTAFISCAL_ITEM.CODCTA</td><td></td><td></td></tr>
+                <tr><td>342</td><td>nfMercantis/itens/classConsItemCont</td><td>NOTAFISCAL_ITEM.CLASSCONSITEMCONT</td><td></td><td></td></tr>
+                <tr><td>343</td><td>nfMercantis/itens/dmIndReceita</td><td>NOTAFISCAL_ITEM.DMINDRECEITA</td><td></td><td></td></tr>
+                <tr><td>344</td><td>nfMercantis/itens/codPart</td><td>NOTAFISCAL_ITEM.CODPART</td><td></td><td></td></tr>
+                <tr><td>345</td><td>nfMercantis/itens/dmIndRecComEnergiaEletr</td><td>NOTAFISCAL_ITEM.DMINDRECCOMENERGIAELETRICA</td><td></td><td></td></tr>
+                <tr><td>346</td><td>nfMercantis/itens/codigoNaturezaOperacao</td><td>NOTAFISCAL_ITEM.CODIGONATUREZAOPERACAO</td><td></td><td></td></tr>
+                <tr><td>347</td><td>nfMercantis/itens/pedidoCompra</td><td>NOTAFISCAL_ITEM.PEDIDOCOMPRA</td><td></td><td></td></tr>
+                <tr><td>348</td><td>nfMercantis/itens/itemPedidoCompra</td><td>NOTAFISCAL_ITEM.ITEMPEDIDOCOMPRA</td><td></td><td></td></tr>
+                <tr><td>349</td><td>nfMercantis/itens/nroFci</td><td>NOTAFISCAL_ITEM.NROFCI</td><td></td><td></td></tr>
+                <tr><td>350</td><td>nfMercantis/itens/nroRecopi</td><td>NOTAFISCAL_ITEM.NRORECOPI</td><td></td><td></td></tr>
+                <tr><td>351</td><td>nfMercantis/itens/cest</td><td>NOTAFISCAL_ITEM.CEST</td><td></td><td></td></tr>
+                <tr><td>352</td><td>nfMercantis/itens/dmIndEscRel</td><td>NOTAFISCAL_ITEM.DMINDESCREL</td><td></td><td></td></tr>
+                <tr><td>353</td><td>nfMercantis/itens/cnpjFabMerc</td><td>NOTAFISCAL_ITEM.CNPJFABMERC</td><td></td><td></td></tr>
+                <tr><td>354</td><td>nfMercantis/itens/codOcorAjIcms</td><td>NOTAFISCAL_ITEM.CODOCORAJICMS</td><td></td><td></td></tr>
+                <tr><td>355</td><td>nfMercantis/itens/cdTpServReinf</td><td>NOTAFISCAL_ITEM.CDTPSERVREINF</td><td></td><td></td></tr>
+                <tr><td>356</td><td>nfMercantis/itens/dmIndCprb</td><td>NOTAFISCAL_ITEM.DMINDCPRB</td><td></td><td></td></tr>
+                <tr><td>357</td><td>nfMercantis/itens/vlAbatNt</td><td>NOTAFISCAL_ITEM.VLABATNT</td><td></td><td></td></tr>
+                <tr><td>358</td><td>nfMercantis/itens/codInfAdicVlrDecl</td><td>NOTAFISCAL_ITEM.DIFALIQICMS_ALIQORIGEM</td><td></td><td></td></tr>
+                <tr><td>359</td><td>nfMercantis/itens/codBarra</td><td>NOTAFISCAL_ITEM.DIFALIQICMS_VLBASEICMS</td><td></td><td></td></tr>
+                <tr><td>360</td><td>nfMercantis/itens/codBarraTrib</td><td>NOTAFISCAL_ITEM.DIFALIQICMS_VLBASEICMS</td><td></td><td></td></tr>
+                <tr><td>361</td><td>nfMercantis/itens/dmMotDesIcmsSt</td><td>NOTAFISCAL_ITEM.DIFALIQICMS_VLDIFALIQ</td><td></td><td></td></tr>
+                <tr><td>372</td><td>nfMercantis/itens/impostos/codImposto</td><td>NOTAFISCALITEM_IMPOSTO.CODIMPOSTO</td><td>results/taxDetail/name</td><td></td></tr>
+                <tr><td>373</td><td>nfMercantis/itens/impostos/tipo</td><td>NOTAFISCALITEM_IMPOSTO.TIPO</td><td></td><td>Fixo: 0</td></tr>
+                <tr><td>374</td><td>nfMercantis/itens/impostos/codSt</td><td>NOTAFISCALITEM_IMPOSTO.CODST</td><td>results/taxDetail/cst</td><td></td></tr>
+                <tr><td>375</td><td>nfMercantis/itens/impostos/tipoRetencaoImposto</td><td>NOTAFISCALITEM_IMPOSTO.TIPORETENCAOIMPOSTO</td><td></td><td></td></tr>
+                <tr><td>376</td><td>nfMercantis/itens/impostos/naturezaReceitaPisCofins</td><td>NOTAFISCALITEM_IMPOSTO.NATUREZARECEITAPISCOFINS</td><td></td><td></td></tr>
+                <tr><td>377</td><td>nfMercantis/itens/impostos/vlBaseCalc</td><td>NOTAFISCALITEM_IMPOSTO.VLBASECALC</td><td>results/taxDetail/taxbasis</td><td></td></tr>
+                <tr><td>378</td><td>nfMercantis/itens/impostos/alíquota</td><td>NOTAFISCALITEM_IMPOSTO.ALIQUOTA</td><td>results/taxDetail/taxrate * 100</td><td></td></tr>
+                <tr><td>379</td><td>nfMercantis/itens/impostos/vlImpTrib</td><td>NOTAFISCALITEM_IMPOSTO.VLIMPTRIB</td><td>results/taxDetail/taxamount</td><td></td></tr>
+                <tr><td>380</td><td>nfMercantis/itens/impostos/percReduc</td><td>NOTAFISCALITEM_IMPOSTO.PERCREDUC</td><td></td><td></td></tr>
+                <tr><td>381</td><td>nfMercantis/itens/impostos/percAdic</td><td>NOTAFISCALITEM_IMPOSTO.PERCADIC</td><td></td><td></td></tr>
+                <tr><td>382</td><td>nfMercantis/itens/impostos/qtdeBaseCalcProd</td><td>NOTAFISCALITEM_IMPOSTO.QTDEBASECALCPROD</td><td></td><td></td></tr>
+                <tr><td>383</td><td>nfMercantis/itens/impostos/vlAliqProd</td><td>NOTAFISCALITEM_IMPOSTO.VLALIQPROD</td><td></td><td></td></tr>
+                <tr><td>384</td><td>nfMercantis/itens/impostos/percBaseCalcOperProd</td><td>NOTAFISCALITEM_IMPOSTO.PERCBASECALCOPERPROD</td><td></td><td></td></tr>
+                <tr><td>385</td><td>nfMercantis/itens/impostos/vlImpNaoDest</td><td>NOTAFISCALITEM_IMPOSTO.VLIMPNAODEST</td><td></td><td></td></tr>
+                <tr><td>386</td><td>nfMercantis/itens/impostos/codReceita</td><td>NOTAFISCALITEM_IMPOSTO.CODRECEITA</td><td></td><td></td></tr>
+                <tr><td>387</td><td>nfMercantis/itens/impostos/vlBcFCP</td><td>NOTAFISCALITEM_IMPOSTO.VLBCFCP</td><td></td><td></td></tr>
+                <tr><td>388</td><td>nfMercantis/itens/impostos/aliqFCP</td><td>NOTAFISCALITEM_IMPOSTO.ALIQFCP</td><td></td><td></td></tr>
+                <tr><td>389</td><td>nfMercantis/itens/impostos/vlFCP</td><td>NOTAFISCALITEM_IMPOSTO.VLFCP</td><td></td><td></td></tr>
+                <tr><td>390</td><td>nfMercantis/itens/impostos/vlDeducao</td><td>NOTAFISCALITEM_IMPOSTO.VLDEDUCAO</td><td></td><td></td></tr>
+                <tr><td>391</td><td>nfMercantis/itens/impostos/percRedBcIcmsEfet</td><td>NOTAFISCALITEM_IMPOSTO.PERCREDBCICMSEFET</td><td></td><td></td></tr>
+                <tr><td>392</td><td>nfMercantis/itens/impostos/bcIcmsEfet</td><td>NOTAFISCALITEM_IMPOSTO.BCICMSEFET</td><td></td><td></td></tr>
+                <tr><td>393</td><td>nfMercantis/itens/impostos/aliqIcmsEfet</td><td>NOTAFISCALITEM_IMPOSTO.ALIQICMSEFET</td><td></td><td></td></tr>
+                <tr><td>394</td><td>nfMercantis/itens/impostos/vlIcmsEfet</td><td>NOTAFISCALITEM_IMPOSTO.VLICMSEFET</td><td></td><td></td></tr>
+            </tbody>
+        </table>
+        <div class="footer">
+            &copy; 2026 Compliance Soluções. Todos os direitos reservados.
+            <p style="margin: 8px 0 0; font-size: 0.85rem;">Desenvolvido por Inovare para documentação de integração.</p>
+        </div>
+    </div>
+</body>
+</html>
